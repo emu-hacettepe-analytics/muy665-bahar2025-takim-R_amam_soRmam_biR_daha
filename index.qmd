@@ -1,37 +1,36 @@
 ---
-title: "Takım: XXX"
+title: "TakD1m:R_amam_SoRmam_BiR_Daha"
 sidebar: false 
 ---
 
-MUY660-İş Analitiği dersi takım sayfamıza hoş geldiniz.
+MUY660-???? Analiti??i dersi tak??m sayfam??za ho?? geldiniz.
 
-Bu analitik çalışmalarımızı paylaşıyoruz.
+Bu analitik ??al????malar??m??z?? payla????yoruz.
 
-Lütfen faaliyetlerimizi görmek için için bizi takipte kalın.
-
-
-
-## Takım Üyeleri
-
-1.  [Edin_Džeko](/takim/edindzeko.qmd)
-
-2.  [Dušan Tadić](/takim/dusantadic.qmd)
-
-3.  [Frederico Rodrigues de Paula Santos](/takim/fred.qmd)
-
-4.  [Sebastian Szymański](/takim/szymanski.qmd)
+L??tfen faaliyetlerimizi g??rmek i??in i??in bizi takipte kal??n.
 
 
-## Proje Adı
-MUY660-İş Analitiği iyileştirme çalışmaları (örnek)
+
+## Tak??m ??yeleri
+
+1.  [Yasmin Ya??mur Karsli](/takim/edindzeko.qmd)
+
+2.  [Erdi Ya??ar](/takim/dusantadic.qmd)
+
+3.  [Buse Nur Ya??ar](/takim/fred.qmd)
+
+4.  [Zahide Cans??z](/takim/szymanski.qmd)
+
+
+## Proje Ad??
+MUY660-???? Analiti??i iyile??tirme ??al????malar?? (??rnek)
 
 ## Proje Konusu
-Örnek:
-Bu projede MUY660-İş Analitiği ders içeriğinin analitik yaklaşımlarla iyileştirilmesini hedefledik. Bu doğrultuda tüm üniversitelerdeki benzer derslerin verisini toplayarak bir veri seti oluşturduk Analiz için ........ yöntemleri kullanarak, ....... çalışmaları yaptık Sonuç olarak, MUY660-İş Analitiği dersinin dünyadaki tüm derslerden daha iyi olduğunu ve bu dersi aldığımız için çok mutlu olduğumuzu tespit ettik.
+??rnek: Bu projede MUY660-???? Analiti??i ders i??eri??inin analitik yakla????mlarla iyile??tirilmesini hedefledik. Bu do??rultuda t??m ??niversitelerdeki benzer derslerin verisini toplayarak bir veri seti olu??turduk Analiz i??in ??????.. y??ntemleri kullanarak, ??????. ??al????malar?? yapt??k Sonu?? olarak, MUY660-???? Analiti??i dersinin d??nyadaki t??m derslerden daha iyi oldu??unu ve bu dersi ald??????m??z i??in ??ok mutlu oldu??umuzu tespit ettik.
 
 
-## Veri Seti Hakkında Özet Bilgi
+## Veri Seti Hakk??nda ??zet Bilgi
 
 
-## Sonuçlar
-Burada key takeways verilmelidir. En az 3 en fazla 5 madde ile çarpıcı sonuçlar sunulmalıdır.
+## Sonu??lar
+Burada key takeways verilmelidir. En az 3 en fazla 5 madde ile ??arp??c?? sonu??lar sunulmal??d??r.
