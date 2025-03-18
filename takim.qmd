@@ -1,19 +1,19 @@
 ---
-title: "TakD1m Cyeleri"
+title: "Takım Üyeleri"
 ---
 
-TakD1m Cyelerimizin detaylD1 C6zgemiElerinin yer aldD1DD1 kiEisel sayfalarD1na gitmek iC'in sol menC<yC< veya aEaDD1daki linkleri kullanabilirsiniz.
+TakD1m Cyelerimizin detaylD1 C6zgemiElerinin yer aldD1DD1 kiEisel sayfalarD1na gitmek iC'in sol menC\<yC\< veya aEaDD1daki linkleri kullanabilirsiniz.
 
-# TakD1m Cyeleri
+# Takım Üyeleri
 
-1.  [Yasmin Ya??mur KARSLI](/takim/yasmin.qmd)
+1.  [Yasmin Yağmur KARSLI](/takim/yasmin.qmd)
 
-2.  [Erdi YA??AR](/takim/erdi.qmd)
+2.  [Erdi YAŞAR](/takim/erdi.qmd)
 
-3.  [Fikret Emin SEVG??L??](/takim/fikret.qmd)
+3.  [Fikret Emin SEVGİLİ](/takim/fikret.qmd)
 
 4.  [Zahide CANSIZ FIRAT](/takim/zahide.qmd)
 
-5.  [Buse Nur YA??AR](/takim/buse.qmd)
+5.  [Buse Nur YAŞAR](/takim/buse.qmd)
 
-6.  [Alperen SE??K??NO??ULLARI](/takim/alperen.qmd)
+6.  [Alperen SEÇKİNOĞULLARI](/takim/alperen.qmd)
