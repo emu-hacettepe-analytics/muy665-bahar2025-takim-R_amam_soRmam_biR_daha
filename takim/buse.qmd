@@ -5,15 +5,15 @@ title: "Buse Nur YAŞAR"
 
 ![](/assets/images/vesikalik.jpeg){fig-align="center"}
 
-# EDitim
+# Eğitim
 
--   Lisans, K??r??kkale ??niversitesi Elektrik Elektronik M??hendisli??i
+-   Lisans, 
 Cniversitesi, TC<rkiye, 20xx - 20xx.
 -   YC<ksek Lisans, EndC<stri MC<hendisliDi, Hacettepe Cniversitesi, TC<rkiye, 20xx - devam ediyor.
 
-# D0E Deneyimi
+# İş Deneyimi
 
-## D0Eler
+## Deneyim
 
 1.  Firma xxx, pozisyon xx, yD1l xxx
 
@@ -29,6 +29,6 @@ Cniversitesi, TC<rkiye, 20xx - 20xx.
 
 1.  TCBD0TAK 1001..........................
 
-# YayD1nlar
+# Yayınlar
 
 1.  Dasdemir, E., Batta, R., Koksalan, M., Tezcaner CztC<rk, D. (2022) b

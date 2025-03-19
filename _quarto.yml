@@ -40,8 +40,8 @@ website:
         - takim/erdi.qmd
         - takim/fikret.qmd  
         - takim/zahide.qmd 
-        - takim/buse.qmd  
-        - takim/alperen.qmd 
+        - takim/buse.qmd 
+        - takim/alperen.qmd
         
         
   page-navigation: true

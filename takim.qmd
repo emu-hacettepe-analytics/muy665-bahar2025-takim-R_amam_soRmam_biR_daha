@@ -16,4 +16,4 @@ Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfaları
 
 5.  [Buse Nur YAŞAR](/takim/buse.qmd)
 
-6.  [Alperen SEÇKİNOĞULLARI](/takim/alperen.qmd)
+6.  [ALPEREN SEÇKİNOĞULLARI](/takim/alperen.qmd)

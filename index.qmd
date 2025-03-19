@@ -18,14 +18,14 @@ Lütfen faaliyetlerimizi görmek için bizi takipte kalın.
 
 ## Proje Adı
 
-MUY660-???? Analiti??i iyile??tirme ??al????malar?? (??rnek)
+MUY660-İş Analitiği Örnek Proje
 
 ## Proje Konusu
 
-??rnek: Bu projede MUY660-???? Analiti??i ders i??eri??inin analitik yakla????mlarla iyile??tirilmesini hedefledik. Bu do??rultuda t??m ??niversitelerdeki benzer derslerin verisini toplayarak bir veri seti olu??turduk Analiz i??in ??????.. y??ntemleri kullanarak, ??????. ??al????malar?? yapt??k Sonu?? olarak, MUY660-???? Analiti??i dersinin d??nyadaki t??m derslerden daha iyi oldu??unu ve bu dersi ald??????m??z i??in ??ok mutlu oldu??umuzu tespit ettik.
+Bu projede MUY660-Analitiği ders içeriğinin analitik yaklaşımlarla iyileştirilmesini hedefledik. Bu doğrultuda tüm üniversitelerdeki benzer derslerin verisini toplayarak bir veri seti oluşturduk. Analiz için çeşitli yöntemleri kullanarak, çeşitli çalışmalar yaptık. Sonuç olarak, MUY660-Analitiği dersinin dünyadaki tüm derslerden daha iyi olduğunu ve bu dersi aldığımıza çok mutlu olduğumuzu tespit ettik.
 
 ## Veri Seti Hakkında Özet Bilgi
 
 ## Sonuçlar
 
-Burada key takeways verilmelidir. En az 3 en fazla 5 madde ile ??arp??c?? sonu??lar sunulmal??d??r.
+Burada key takeways verilmelidir. En az 3 en fazla 5 madde ile çarpıcı sonuçlar sunulmalıdır.

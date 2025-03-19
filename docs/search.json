@@ -194,14 +194,14 @@
     "href": "index.html#proje-adı",
     "title": "Takım: R_amam_soRmam_biR_daha",
     "section": "Proje Adı",
-    "text": "Proje Adı\nMUY660-???? Analiti??i iyile??tirme ??al????malar?? (??rnek)"
+    "text": "Proje Adı\nMUY660-İş Analitiği Örnek Proje"
   },
   {
     "objectID": "index.html#proje-konusu",
     "href": "index.html#proje-konusu",
     "title": "Takım: R_amam_soRmam_biR_daha",
     "section": "Proje Konusu",
-    "text": "Proje Konusu\n??rnek: Bu projede MUY660-???? Analiti??i ders i??eri??inin analitik yakla????mlarla iyile??tirilmesini hedefledik. Bu do??rultuda t??m ??niversitelerdeki benzer derslerin verisini toplayarak bir veri seti olu??turduk Analiz i??in ??????.. y??ntemleri kullanarak, ??????. ??al????malar?? yapt??k Sonu?? olarak, MUY660-???? Analiti??i dersinin d??nyadaki t??m derslerden daha iyi oldu??unu ve bu dersi ald??????m??z i??in ??ok mutlu oldu??umuzu tespit ettik."
+    "text": "Proje Konusu\nBu projede MUY660-Analitiği ders içeriğinin analitik yaklaşımlarla iyileştirilmesini hedefledik. Bu doğrultuda tüm üniversitelerdeki benzer derslerin verisini toplayarak bir veri seti oluşturduk. Analiz için çeşitli yöntemleri kullanarak, çeşitli çalışmalar yaptık. Sonuç olarak, MUY660-Analitiği dersinin dünyadaki tüm derslerden daha iyi olduğunu ve bu dersi aldığımıza çok mutlu olduğumuzu tespit ettik."
   },
   {
     "objectID": "index.html#veri-seti-hakkında-özet-bilgi",
@@ -215,7 +215,7 @@
     "href": "index.html#sonuçlar",
     "title": "Takım: R_amam_soRmam_biR_daha",
     "section": "Sonuçlar",
-    "text": "Sonuçlar\nBurada key takeways verilmelidir. En az 3 en fazla 5 madde ile ??arp??c?? sonu??lar sunulmal??d??r."
+    "text": "Sonuçlar\nBurada key takeways verilmelidir. En az 3 en fazla 5 madde ile çarpıcı sonuçlar sunulmalıdır."
   },
   {
     "objectID": "index.html#takım-üyeleri",
@@ -240,7 +240,7 @@
     "href": "takim.html",
     "title": "Takim Üyeleri",
     "section": "",
-    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nYasmin Yağmur KARSLI\nErdi YAŞAR\nFikret Emin SEVGİLİ\nZahide CANSIZ FIRAT\nBuse Nur YAŞAR\nAlperen SEÇKİNOĞULLARI\n\n\n\n\n\n Back to top",
+    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nYasmin Yağmur KARSLI\nErdi YAŞAR\nFikret Emin SEVGİLİ\nZahide CANSIZ FIRAT\nBuse Nur YAŞAR\nALPEREN SEÇKİNOĞULLARI\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Takım Üyeleri",
       "Takim Üyeleri"
@@ -598,12 +598,12 @@
   {
     "objectID": "takim/zahide.html#stajlar",
     "href": "takim/zahide.html#stajlar",
-    "title": "Zahide Cans??z F??rat",
+    "title": "Zahide CANSIZ FIRAT",
     "section": "Stajlar",
     "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
     "crumbs": [
       "Takım Üyeleri",
-      "Zahide Cans??z F??rat"
+      "Zahide CANSIZ FIRAT"
     ]
   },
   {
@@ -622,7 +622,7 @@
     "href": "takim/fikret.html#stajlar",
     "title": "Fikret Emin SEVGİLİ",
     "section": "Stajlar",
-    "text": "Stajlar\n\nAbdülkadir Özcan AŞ., Mühendis, 2016\nTÜBİTAK, Mühendis, 2018",
+    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
     "crumbs": [
       "Takım Üyeleri",
       "Fikret Emin SEVGİLİ"
@@ -705,12 +705,111 @@
   {
     "objectID": "takim/erdi.html#stajlar",
     "href": "takim/erdi.html#stajlar",
-    "title": "Erdi Ya??ar",
+    "title": "Erdi YAŞAR",
     "section": "Stajlar",
     "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
     "crumbs": [
       "Takım Üyeleri",
-      "Erdi Ya??ar"
+      "Erdi YAŞAR"
+    ]
+  },
+  {
+    "objectID": "takim/buse.html#deneyim",
+    "href": "takim/buse.html#deneyim",
+    "title": "Buse Nur YAŞAR",
+    "section": "Deneyim",
+    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Buse Nur YAŞAR"
+    ]
+  },
+  {
+    "objectID": "takim/buse.html#stajlar",
+    "href": "takim/buse.html#stajlar",
+    "title": "Buse Nur YAŞAR",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Buse Nur YAŞAR"
+    ]
+  },
+  {
+    "objectID": "takim/yasmin.html#deneyim",
+    "href": "takim/yasmin.html#deneyim",
+    "title": "Yasmin Yağmur KARSLI",
+    "section": "Deneyim",
+    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Yasmin Yağmur KARSLI"
+    ]
+  },
+  {
+    "objectID": "takim/yasmin.html#stajlar",
+    "href": "takim/yasmin.html#stajlar",
+    "title": "Yasmin Yağmur KARSLI",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Yasmin Yağmur KARSLI"
+    ]
+  },
+  {
+    "objectID": "takim/erdi.html#deneyim",
+    "href": "takim/erdi.html#deneyim",
+    "title": "Erdi YAŞAR",
+    "section": "Deneyim",
+    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Erdi YAŞAR"
+    ]
+  },
+  {
+    "objectID": "takim/fikret.html#deneyim",
+    "href": "takim/fikret.html#deneyim",
+    "title": "Fikret Emin SEVGİLİ",
+    "section": "Deneyim",
+    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Fikret Emin SEVGİLİ"
+    ]
+  },
+  {
+    "objectID": "takim/zahide.html#deneyim",
+    "href": "takim/zahide.html#deneyim",
+    "title": "Zahide CANSIZ FIRAT",
+    "section": "Deneyim",
+    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Zahide CANSIZ FIRAT"
+    ]
+  },
+  {
+    "objectID": "takim/alperen.html#deneyim",
+    "href": "takim/alperen.html#deneyim",
+    "title": "Alperen SEÇKİNOĞULLARI",
+    "section": "Deneyim",
+    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Alperen SEÇKİNOĞULLARI"
+    ]
+  },
+  {
+    "objectID": "takim/alperen.html#stajlar",
+    "href": "takim/alperen.html#stajlar",
+    "title": "Alperen SEÇKİNOĞULLARI",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Alperen SEÇKİNOĞULLARI"
     ]
   }
 ]
