@@ -36,10 +36,12 @@ website:
       search: true
       contents:
         - takim.qmd
-        - takim/yasmin.qmd
-        - takim/erdi.qmd
-        - takim/zahide.qmd 
+        - takim/alperen.qmd
         - takim/buse.qmd
+        - takim/erdi.qmd
+        - takim/fikret.qmd
+        - takim/yasmin.qmd
+        - takim/zahide.qmd 
      
         
         

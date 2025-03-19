@@ -6,11 +6,14 @@ Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfaları
 
 # Takım Üyeleri
 
-1.  [Yasmin Yağmur KARSLI](/takim/yasmin.qmd)
+1.  [Alperen SEÇKİNOĞULLARI](/takim/alperen.qmd)
 
-2.  [Erdi YAŞAR](/takim/erdi.qmd)
+2.  [Buse Nur YAŞAR](/takim/buse.qmd)
 
-4.  [Zahide CANSIZ FIRAT](/takim/zahide.qmd)
+3.  [Erdi YAŞAR](/takim/erdi.qmd)
 
-5.  [Buse Nur YAŞAR](/takim/buse.qmd)
+4.  [Fikret Emin SEVGİLİ](/takim/fikret.qmd)
 
+5.  [Yasmin Yağmur KARSLI](/takim/yasmin.qmd)
+
+6.  [Zahide CANSIZ FIRAT](/takim/zahide.qmd)

@@ -9,10 +9,12 @@ Lütfen faaliyetlerimizi görmek için bizi takipte kalın.
 
 ## Takım Üyeleri
 
-1.  [Yasmin Yağmur KARSLI](/takim/yasmin.qmd)
-2.  [Erdi YAŞAR](/takim/erdi.qmd)
-4.  [Zahide CANSIZ FIRAT](/takim/zahide.qmd)
-5.  [Buse Nur YAŞAR](/takim/buse.qmd)
+1.  [Alperen SEÇKİNOĞULLARI](/takim/alperen.qmd)
+2.  [Buse Nur YAŞAR](/takim/buse.qmd)
+3.  [Erdi YAŞAR](/takim/erdi.qmd)
+4.  [Fikret Emin SEVGİLİ](/takim/fikret.qmd)
+5.  [Yasmin Yağmur KARSLI](/takim/yasmin.qmd)
+6.  [Zahide CANSIZ FIRAT](/takim/zahide.qmd)
 
 ## Proje Adı
 

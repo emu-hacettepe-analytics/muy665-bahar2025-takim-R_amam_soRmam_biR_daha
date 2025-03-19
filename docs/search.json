@@ -222,7 +222,7 @@
     "href": "index.html#takım-üyeleri",
     "title": "Takım: R_amam_soRmam_biR_daha",
     "section": "Takım Üyeleri",
-    "text": "Takım Üyeleri\n\nYasmin Yağmur KARSLI\nErdi YAŞAR\nZahide CANSIZ FIRAT\nBuse Nur YAŞAR"
+    "text": "Takım Üyeleri\n\nAlperen SEÇKİNOĞULLARI\nBuse Nur YAŞAR\nErdi YAŞAR\nFikret Emin SEVGİLİ\nYasmin Yağmur KARSLI\nZahide CANSIZ FIRAT"
   },
   {
     "objectID": "portfolyo.html",
@@ -240,7 +240,7 @@
     "href": "takim.html",
     "title": "Takım Üyeleri",
     "section": "",
-    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nYasmin Yağmur KARSLI\nErdi YAŞAR\nZahide CANSIZ FIRAT\nBuse Nur YAŞAR\n\n\n\n\n\n Back to top",
+    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nAlperen SEÇKİNOĞULLARI\nBuse Nur YAŞAR\nErdi YAŞAR\nFikret Emin SEVGİLİ\nYasmin Yağmur KARSLI\nZahide CANSIZ FIRAT\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Takım Üyeleri"
     ]
@@ -621,7 +621,7 @@
     "href": "takim/fikret.html#stajlar",
     "title": "Fikret Emin SEVGİLİ",
     "section": "Stajlar",
-    "text": "Stajlar\n\nAbdülkadir Özcan AŞ, Mühendis, 2016\nTÜBİTAK, Mühendis, 2018",
+    "text": "Stajlar\n\nAbdülkadir Özcan AŞ., Stajyer Mühendis, 2016\nTÜBİTAK, Stajyer Mühendis, 2018",
     "crumbs": [
       "Takım Üyeleri",
       "Fikret Emin SEVGİLİ"
@@ -706,7 +706,7 @@
     "href": "takim/erdi.html#stajlar",
     "title": "Erdi YAŞAR",
     "section": "Stajlar",
-    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
+    "text": "Stajlar",
     "crumbs": [
       "Takım Üyeleri",
       "Erdi YAŞAR"
@@ -717,7 +717,7 @@
     "href": "takim/buse.html#deneyim",
     "title": "Buse Nur YAŞAR",
     "section": "Deneyim",
-    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "text": "Deneyim",
     "crumbs": [
       "Takım Üyeleri",
       "Buse Nur YAŞAR"
@@ -728,7 +728,7 @@
     "href": "takim/buse.html#stajlar",
     "title": "Buse Nur YAŞAR",
     "section": "Stajlar",
-    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
+    "text": "Stajlar",
     "crumbs": [
       "Takım Üyeleri",
       "Buse Nur YAŞAR"
@@ -739,7 +739,7 @@
     "href": "takim/yasmin.html#deneyim",
     "title": "Yasmin Yağmur KARSLI",
     "section": "Deneyim",
-    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "text": "Deneyim",
     "crumbs": [
       "Takım Üyeleri",
       "Yasmin Yağmur KARSLI"
@@ -750,7 +750,7 @@
     "href": "takim/yasmin.html#stajlar",
     "title": "Yasmin Yağmur KARSLI",
     "section": "Stajlar",
-    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
+    "text": "Stajlar",
     "crumbs": [
       "Takım Üyeleri",
       "Yasmin Yağmur KARSLI"
@@ -761,7 +761,7 @@
     "href": "takim/erdi.html#deneyim",
     "title": "Erdi YAŞAR",
     "section": "Deneyim",
-    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "text": "Deneyim",
     "crumbs": [
       "Takım Üyeleri",
       "Erdi YAŞAR"
@@ -772,7 +772,7 @@
     "href": "takim/fikret.html#deneyim",
     "title": "Fikret Emin SEVGİLİ",
     "section": "Deneyim",
-    "text": "Deneyim\n\nTürkiye Radyo Televizyon Kurumu, Mühendis, 2021 - Devam ediyor",
+    "text": "Deneyim\n\nTürkiye Radyo Televizyon Kurumu, Mühendis, 2021-Halen",
     "crumbs": [
       "Takım Üyeleri",
       "Fikret Emin SEVGİLİ"
@@ -794,7 +794,7 @@
     "href": "takim/alperen.html#deneyim",
     "title": "Alperen SEÇKİNOĞULLARI",
     "section": "Deneyim",
-    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy",
+    "text": "Deneyim",
     "crumbs": [
       "Takım Üyeleri",
       "Alperen SEÇKİNOĞULLARI"
@@ -805,7 +805,7 @@
     "href": "takim/alperen.html#stajlar",
     "title": "Alperen SEÇKİNOĞULLARI",
     "section": "Stajlar",
-    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy",
+    "text": "Stajlar",
     "crumbs": [
       "Takım Üyeleri",
       "Alperen SEÇKİNOĞULLARI"
