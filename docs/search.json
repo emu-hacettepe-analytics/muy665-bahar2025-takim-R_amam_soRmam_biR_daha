@@ -222,7 +222,7 @@
     "href": "index.html#takım-üyeleri",
     "title": "Takım: R_amam_soRmam_biR_daha",
     "section": "Takım Üyeleri",
-    "text": "Takım Üyeleri\n\nYasmin Yağmur KARSLI\nErdi YAŞAR\nFikret Emin SEVGİLİ\nZahide CANSIZ FIRAT\nBuse Nur YAŞAR"
+    "text": "Takım Üyeleri\n\nYasmin Yağmur KARSLI\nErdi YAŞAR\nZahide CANSIZ FIRAT\nBuse Nur YAŞAR"
   },
   {
     "objectID": "portfolyo.html",
@@ -821,5 +821,19 @@
       "Takım Üyeleri",
       "Fikret Emin SEVGİLİ"
     ]
+  },
+  {
+    "objectID": "docs/takim/alperen.html#deneyim",
+    "href": "docs/takim/alperen.html#deneyim",
+    "title": "Alperen SEÇKİNOĞULLARI",
+    "section": "Deneyim",
+    "text": "Deneyim\n\nFirma xxx, pozisyon xx, yD1l xxx\nFirma yyy, pozisyon yyy, yD1l yyy"
+  },
+  {
+    "objectID": "docs/takim/alperen.html#stajlar",
+    "href": "docs/takim/alperen.html#stajlar",
+    "title": "Alperen SEÇKİNOĞULLARI",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy"
   }
 ]
