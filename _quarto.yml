@@ -38,10 +38,9 @@ website:
         - takim.qmd
         - takim/yasmin.qmd
         - takim/erdi.qmd
-        - takim/fikret.qmd  
         - takim/zahide.qmd 
-        - takim/buse.qmd 
-        - takim/alperen.qmd
+        - takim/buse.qmd
+     
         
         
   page-navigation: true

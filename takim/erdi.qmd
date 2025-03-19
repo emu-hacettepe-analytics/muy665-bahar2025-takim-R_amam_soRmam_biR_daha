@@ -2,6 +2,7 @@
 title: "Erdi YAŞAR"
 ---
 
+
 ![](/assets/images/vesikalik.jpeg){fig-align="center"}
 
 # Eğitim
