@@ -1,16 +1,31 @@
 ---
 title: "Çalışma 1"
 ---
+install.packages("dslabs")
+library(dslabs)
+data(mtcars)
+class(mtcars)
 
-\
-(Aşağıdakiler örnek olarak verilmiştir.)
+#Veri seti inceleme
 
-Bu çalışmada 3 görevimiz var. Bu görevler..... Bunlara sırayla aşağıda cevap arıyoruz.
+head(mtcars)
 
-## (a)
+str(mtcars)
 
-```{r}
-1 + 1
-```
+print(mtcars)
 
-## (b)
+#fonksiyon oluşturma
+
+my_summary_stats <- function(vec)
+{total_list <- list(
+ortalama = mean(vec),
+medyan = median(vec),
+ss = sd(vec),
+minimum = min(vec),
+maksimum = max(vec)
+)}
+#değerleri yazdırma
+
+sonuc <- my_summary_stats(mtcars$mpg)
+print(sonuc)
+
