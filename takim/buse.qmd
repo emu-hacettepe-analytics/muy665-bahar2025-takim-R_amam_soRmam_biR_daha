@@ -6,10 +6,10 @@ title: "Buse Nur YAŞAR"
 
 # Eğitim
 
--   Lisans,
--   Yüksek Lisans, Hcettepe Üniversitesi, Mühendislik Yönetimi, 2025 - Halen
+-   Lisans, İzmir Yüksek Teknoloji Enstitüsü, Kimya Mühendisliği, 2016 - 2022
+-   Yüksek Lisans, Hacettepe Üniversitesi, Mühendislik Yönetimi, 2025 - Halen
 
-# İş Deneyimi
+## İş Deneyimi
 
 ## Deneyim
 
