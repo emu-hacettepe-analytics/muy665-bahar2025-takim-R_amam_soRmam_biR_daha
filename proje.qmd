@@ -1,5 +1,6 @@
 ---
-title: "Proje X (proje adını yazınız)"
+title: "Proje Adı"
+format: html
 number-sections: true
 ---
 

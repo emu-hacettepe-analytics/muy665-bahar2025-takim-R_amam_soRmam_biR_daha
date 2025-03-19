@@ -1,8 +1,8 @@
 ---
-title: "Takım Üyeleri"
+title: "Takim Üyeleri"
 ---
 
-TakD1m Cyelerimizin detaylD1 C6zgemiElerinin yer aldD1DD1 kiEisel sayfalarD1na gitmek iC'in sol menC\<yC\< veya aEaDD1daki linkleri kullanabilirsiniz.
+Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.
 
 # Takım Üyeleri
 
@@ -17,3 +17,4 @@ TakD1m Cyelerimizin detaylD1 C6zgemiElerinin yer aldD1DD1 kiEisel sayfalarD1
 5.  [Buse Nur YAŞAR](/takim/buse.qmd)
 
 6.  [Alperen SEÇKİNOĞULLARI](/takim/alperen.qmd)
+

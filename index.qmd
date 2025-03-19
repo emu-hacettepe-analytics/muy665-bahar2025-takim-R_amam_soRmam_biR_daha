@@ -1,36 +1,31 @@
 ---
-title: "TakD1m:R_amam_SoRmam_BiR_Daha"
+title: "Takım: R_amam_SoRmam_BiR_Daha"
 sidebar: false 
 ---
 
-MUY660-???? Analiti??i dersi tak??m sayfam??za ho?? geldiniz.
+Bu sayfa ile İş Analitiği çalışmalarımızı paylaşıyoruz. Takım Üyelerimize ve proje özetimize aşağıdan erişebilir, çalışmalarımızı daha detaylı incelemek için sayfanın tepesinde bulunan araç çubuğundan faydalanabilirsiniz.
 
-Bu analitik ??al????malar??m??z?? payla????yoruz.
+Lütfen faaliyetlerimizi görmek için bizi takipte kalın.
 
-L??tfen faaliyetlerimizi g??rmek i??in i??in bizi takipte kal??n.
+## Takım Üyeleri
 
+1.  [Yasmin Yağmur KARSLI](/takim/yasmin.qmd)
+2.  [Erdi YAŞAR](/takim/erdi.qmd)
+3.  [Fikret Emin SEVGİLİ](/takim/fikret.qmd)
+4.  [Zahide CANSIZ FIRAT](/takim/zahide.qmd)
+5.  [Buse Nur YAŞAR](/takim/buse.qmd)
+6.  [Alperen SEÇKİNOĞULLARI](/takim/alperen.qmd)
 
+## Proje Adı
 
-## Tak??m ??yeleri
-
-1.  [Yasmin Ya??mur Karsli](/takim/edindzeko.qmd)
-
-2.  [Erdi Ya??ar](/takim/dusantadic.qmd)
-
-3.  [Buse Nur Ya??ar](/takim/fred.qmd)
-
-4.  [Zahide Cansiz FIRAT](/takim/zahide.qmd)
-
-
-## Proje Ad??
 MUY660-???? Analiti??i iyile??tirme ??al????malar?? (??rnek)
 
 ## Proje Konusu
+
 ??rnek: Bu projede MUY660-???? Analiti??i ders i??eri??inin analitik yakla????mlarla iyile??tirilmesini hedefledik. Bu do??rultuda t??m ??niversitelerdeki benzer derslerin verisini toplayarak bir veri seti olu??turduk Analiz i??in ??????.. y??ntemleri kullanarak, ??????. ??al????malar?? yapt??k Sonu?? olarak, MUY660-???? Analiti??i dersinin d??nyadaki t??m derslerden daha iyi oldu??unu ve bu dersi ald??????m??z i??in ??ok mutlu oldu??umuzu tespit ettik.
 
+## Veri Seti Hakkında Özet Bilgi
 
-## Veri Seti Hakk??nda ??zet Bilgi
+## Sonuçlar
 
-
-## Sonu??lar
 Burada key takeways verilmelidir. En az 3 en fazla 5 madde ile ??arp??c?? sonu??lar sunulmal??d??r.
