@@ -1,0 +1,32 @@
+---
+title: "Erdi Ya??ar"
+---
+
+![](/assets/images/vesikalik.jpeg){fig-align="center"}
+
+# EDitim
+
+-   Lisans, ................................., .................................... Cniversitesi, TC<rkiye, 20xx - 20xx.
+-   YC<ksek Lisans, EndC<stri MC<hendisliDi, Hacettepe Cniversitesi, TC<rkiye, 20xx - devam ediyor.
+
+# D0E Deneyimi
+
+## D0Eler
+
+1.  Firma xxx, pozisyon xx, yD1l xxx
+
+2.  Firma yyy, pozisyon yyy, yD1l yyy
+
+## Stajlar
+
+1.  Firma aaa, pozisyon xx, yD1l xxx
+
+2.  Firma bbb, pozisyon yyy, yD1l yyy
+
+# Projeler
+
+1.  TCBD0TAK 1001..........................
+
+# YayD1nlar
+
+1.  Dasdemir, E., Batta, R., Koksalan, M., Tezcaner CztC<rk, D. (2022) b
