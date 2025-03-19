@@ -1,5 +1,5 @@
 ---
-title: "Takım: R_amam_SoRmam_BiR_Daha"
+title: "Takım: R_amam_soRmam_biR_daha"
 sidebar: false 
 ---
 
