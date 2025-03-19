@@ -313,7 +313,7 @@
     "href": "portfolyo/calisma2.html",
     "title": "Çalışma 2",
     "section": "",
-    "text": "(Aşağıdakiler örnek olarak verilmiştir.)\nBu çalışmada 3 görevimiz var. Bu görevler….. Bunlara sırayla aşağıda cevap arıyoruz.",
+    "text": "install.packages(“dslabs”) library(dslabs) data(mtcars) class(mtcars)\n#Veri seti inceleme\nhead(mtcars)\nstr(mtcars)\nprint(mtcars)\n#fonksiyon oluşturma\nmy_summary_stats &lt;- function(vec) {total_list &lt;- list( ortalama = mean(vec), medyan = median(vec), ss = sd(vec), minimum = min(vec), maksimum = max(vec) )} #değerleri yazdırma\nsonuc &lt;- my_summary_stats(mtcars$mpg) print(sonuc)\n\n\n\n Back to top",
     "crumbs": [
       "Porfolyo",
       "Çalışma 2"
@@ -324,7 +324,7 @@
     "href": "portfolyo/calisma1.html",
     "title": "Çalışma 1",
     "section": "",
-    "text": "(Aşağıdakiler örnek olarak verilmiştir.)\nBu çalışmada 3 görevimiz var. Bu görevler….. Bunlara sırayla aşağıda cevap arıyoruz.",
+    "text": "install.packages(“dslabs”) library(dslabs) data(mtcars) class(mtcars)\n#Veri seti inceleme\nhead(mtcars)\nstr(mtcars)\nprint(mtcars)\n#fonksiyon oluşturma\nmy_summary_stats &lt;- function(vec) {total_list &lt;- list( ortalama = mean(vec), medyan = median(vec), ss = sd(vec), minimum = min(vec), maksimum = max(vec) )} #değerleri yazdırma\nsonuc &lt;- my_summary_stats(mtcars$mpg) print(sonuc)\n\n\n\n Back to top",
     "crumbs": [
       "Porfolyo",
       "Çalışma 1"

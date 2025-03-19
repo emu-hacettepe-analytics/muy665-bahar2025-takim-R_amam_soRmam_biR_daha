@@ -2,11 +2,11 @@
 title: "Buse Nur YAŞAR"
 ---
 
-![](/assets/images/vesikalik.jpeg){fig-align="center"}
+![](/assets/images/buse.jpeg){fig-align="center"}
 
 # Eğitim
 
--   Lisans, 
+-   Lisans,
 -   Yüksek Lisans, Hcettepe Üniversitesi, Mühendislik Yönetimi, 2025 - Halen
 
 # İş Deneyimi
@@ -17,7 +17,7 @@ title: "Buse Nur YAŞAR"
 
 ## Stajlar
 
-1. 
+1.  
 
 2.  
 
