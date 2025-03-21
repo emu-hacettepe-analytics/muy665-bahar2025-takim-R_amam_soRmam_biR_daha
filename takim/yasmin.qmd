@@ -15,29 +15,32 @@ title: "Yasmin Yağmur KARSLI"
 
 -   Tulpar Medikal Solutions , Dış Ticaret Uzmanı -2023 Eylül -2024 Mart
 -   Okuman Medikal Sistemler ,Dış Ticaret Uzmanı -2024 Mart- Halen
+
 [Özgeçmiş için detaylı bilgi](/assets/images/YasminYagmurKarslı_CV.pdf)
 
 ## Stajlar
 
 -   Başkent Üniversitesi Hastanesi - 2022 Ocak -Şubat
 
--Ilab Teknoloji Araştırma Geliştirme -2022 Haziran -Ağustos
+-   Ilab Teknoloji Araştırma Geliştirme -2022 Haziran -Ağustos
 
 # Projeler
 
 -   Tubitak 2209-B Empedans Tabanlı Taşınabilir Viskozite Sensörü
 -   BIOCHI , Pediatri hastalarını ve doktorlarının uzaktan haberleşebilmesini sağlayan , bebeğin takibinin uzaktan yapılabilmesini sağlayan mobil uygulama 3 EarlySignal ,Epilepsi hastaları atakların önceden tespitini sağlayan giyilebilir teknoloji tasarımı
 
-#Sertifikalar
+# Sertifikalar
 
 -   Proje Yönetimi Uzmanlığı Sertifika Programı - *Mindset Institute - Ekim 2024*
 
-Yeterlilik Kimliği : M045 0018 0066 1024
+*Yeterlilik Kimliği : M045 0018 0066 1024*
 
 -   Python ile Data Analizi - Data Mastery Academy - Ekim 2022
 
-#Yetkinlikler 
-Python , Matlab , C, Eagle , Multisim ,
+# Yetkinlikler
 
-#Hobiler
-Voleybol oynamak, bilgisayar oynamak , gezmek doğayı keşfetmek
+-   Python , Matlab , C, Eagle , Multisim
+
+# Hobiler
+
+-   Voleybol oynamak, bilgisayar oynamak , gezmek doğayı keşfetmek
