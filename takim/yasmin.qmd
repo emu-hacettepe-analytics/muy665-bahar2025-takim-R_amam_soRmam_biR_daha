@@ -13,7 +13,9 @@ title: "Yasmin Yağmur KARSLI"
 
 ## İş Deneyimi
 
--   Tulpar Medikal Solutions , Dış Ticaret Uzmanı -2023 Eylül -2024 Mart -Okuman Medikal Sistemler ,Dış Ticaret Uzmanı -2024 Mart- Halen
+-   Tulpar Medikal Solutions , Dış Ticaret Uzmanı -2023 Eylül -2024 Mart
+-   Okuman Medikal Sistemler ,Dış Ticaret Uzmanı -2024 Mart- Halen
+[Özgeçmiş için detaylı bilgi](/assets/images/YasminYagmurKarslı_CV.pdf)
 
 ## Stajlar
 
@@ -33,3 +35,7 @@ title: "Yasmin Yağmur KARSLI"
 Yeterlilik Kimliği : M045 0018 0066 1024
 
 -   Python ile Data Analizi - Data Mastery Academy - Ekim 2022
+
+#Yetkinlikler Python , Matlab , C, Eagle , Multisim ,
+
+#Hobiler Voleybol oynamaka, bilgisayar oynamak , gezmek doğayı keşfetmek
