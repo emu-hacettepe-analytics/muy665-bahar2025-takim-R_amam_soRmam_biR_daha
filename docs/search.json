@@ -313,7 +313,11 @@
     "href": "portfolyo/calisma2.html",
     "title": "Çalışma 2",
     "section": "",
+<<<<<<< HEAD
     "text": "Back to top",
+=======
+    "text": "install.packages(“dslabs”) library(dslabs) data(mtcars) class(mtcars)\n#Veri seti inceleme\nhead(mtcars)\nstr(mtcars)\nprint(mtcars)\n#fonksiyon oluşturma\nmy_summary_stats &lt;- function(vec) {total_list &lt;- list( ortalama = mean(vec), medyan = median(vec), ss = sd(vec), minimum = min(vec), maksimum = max(vec) )} #değerleri yazdırma\nsonuc &lt;- my_summary_stats(mtcars$mpg) print(sonuc)\n\n\n\n Back to top",
+>>>>>>> 775cfb8a8ddf8f4422a01f6ab38c5d57197577cf
     "crumbs": [
       "Porfolyo",
       "Çalışma 2"
@@ -706,7 +710,7 @@
     "href": "takim/erdi.html#stajlar",
     "title": "Erdi YAŞAR",
     "section": "Stajlar",
-    "text": "Stajlar",
+    "text": "Stajlar\n\nYiğit Akü A.Ş.,Stajyer Mühendis, 2018",
     "crumbs": [
       "Takım Üyeleri",
       "Erdi YAŞAR"
@@ -739,7 +743,7 @@
     "href": "takim/yasmin.html#deneyim",
     "title": "Yasmin Yağmur KARSLI",
     "section": "Deneyim",
-    "text": "Deneyim",
+    "text": "Deneyim\n\nTulpar Medikal Solutions , Dış Ticaret Uzmanı -2023 Eylül -2024 Mart\nOkuman Medikal Sistemler ,Duş Ticaret Uzmanı -2024 Mart- Halen",
     "crumbs": [
       "Takım Üyeleri",
       "Yasmin Yağmur KARSLI"
@@ -750,7 +754,7 @@
     "href": "takim/yasmin.html#stajlar",
     "title": "Yasmin Yağmur KARSLI",
     "section": "Stajlar",
-    "text": "Stajlar",
+    "text": "Stajlar\n\nBaşkent Üniversitesi Hastanesi - 2022 Ocak -Şubat\nIlab Teknoloji Araştırma Geliştirme -2022 Haziran -Ağustos",
     "crumbs": [
       "Takım Üyeleri",
       "Yasmin Yağmur KARSLI"
@@ -761,7 +765,7 @@
     "href": "takim/erdi.html#deneyim",
     "title": "Erdi YAŞAR",
     "section": "Deneyim",
-    "text": "Deneyim",
+    "text": "Deneyim\n\nYiğit Akü A.Ş., Mühendis, 2021-Halen",
     "crumbs": [
       "Takım Üyeleri",
       "Erdi YAŞAR"
@@ -835,5 +839,27 @@
     "title": "Alperen SEÇKİNOĞULLARI",
     "section": "Stajlar",
     "text": "Stajlar\n\nFirma aaa, pozisyon xx, yD1l xxx\nFirma bbb, pozisyon yyy, yD1l yyy"
+  },
+  {
+    "objectID": "takim/buse.html#iş-deneyimi",
+    "href": "takim/buse.html#iş-deneyimi",
+    "title": "Buse Nur YAŞAR",
+    "section": "İş Deneyimi",
+    "text": "İş Deneyimi",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Buse Nur YAŞAR"
+    ]
+  },
+  {
+    "objectID": "takim/yasmin.html#iş-deneyimi",
+    "href": "takim/yasmin.html#iş-deneyimi",
+    "title": "Yasmin Yağmur KARSLI",
+    "section": "İş Deneyimi",
+    "text": "İş Deneyimi\n\nTulpar Medikal Solutions , Dış Ticaret Uzmanı -2023 Eylül -2024 Mart\nOkuman Medikal Sistemler ,Dış Ticaret Uzmanı -2024 Mart- Halen\n\nÖzgeçmiş için detaylı bilgi",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Yasmin Yağmur KARSLI"
+    ]
   }
 ]
