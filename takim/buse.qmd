@@ -11,13 +11,13 @@ title: "Buse Nur YAŞAR"
 
 ## İş Deneyimi
 
-## Deneyim
+# Deneyim
 
-1.  Yılmaz Proses Teknolojileri Dış Ticaret A.Ş., Teklif Hazırlama ve Proje Mühendisi, 2023 - Halen
+-  Yılmaz Proses Teknolojileri Dış Ticaret A.Ş., Teklif Hazırlama ve Proje Mühendisi, 2023 - Halen
 
-[Özgeçmiş için detaylı bilgi](/assets/images/BuseNurYaşar_CV)
+[Özgeçmiş için detaylı bilgi](/assets/images/BuseNurYasar_CV.pdf)
 
-## Stajlar
+# Stajlar
 
 1.  ASPİLSAN, Stajyer Mühendis, 2022
 
@@ -29,7 +29,7 @@ title: "Buse Nur YAŞAR"
 
 1.  Mühendislik Ekonomisi ve Tasarım Dönem Projesi “Fındık Kabuğundan Etilen Glikol Üretimi İçin Tesis Tasarımı (2021-2022)”
 
-2.  Mezuniyet Tezi Projesi “Sorbitolden izosorbid dehidratasyonu için heterojen katalizör sentezi(2022)” 
+2.  Mezuniyet Tezi Projesi “Sorbitolden izosorbid dehidratasyonu için heterojen katalizör sentezi(2022)”
 
 3.  Kimya Mühendisliğine Giriş Ders Projesi “Katalizör Sentezini Destekleme (2017)”
 

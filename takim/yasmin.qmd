@@ -6,13 +6,8 @@ title: "Yasmin Yağmur KARSLI"
 
 # Eğitim
 
-<<<<<<< HEAD
--   Lisans,
--   Yüksek Lisans, Hcettepe Üniversitesi, Mühendislik Yönetimi, 2025 - Halen
-=======
 -   Lisans, Başkent Üniversitesi Biyomedikal Mühendisliği 2019-2023- *Bölüm birinciliği*
 -   Yüksek Lisans, Hacettepe Üniversitesi, Mühendislik Yönetimi, 2025 - Halen
->>>>>>> 775cfb8a8ddf8f4422a01f6ab38c5d57197577cf
 
 # Deneyimler
 
@@ -25,11 +20,7 @@ title: "Yasmin Yağmur KARSLI"
 
 ## Stajlar
 
-<<<<<<< HEAD
-1.  
-=======
 -   Başkent Üniversitesi Hastanesi - 2022 Ocak -Şubat
->>>>>>> 775cfb8a8ddf8f4422a01f6ab38c5d57197577cf
 
 -   Ilab Teknoloji Araştırma Geliştirme -2022 Haziran -Ağustos
 
