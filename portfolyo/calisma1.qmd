@@ -77,6 +77,10 @@ cat(paste(names(dongu[[x]]),dongu[[x]],sep =":" , collapse = " | "),"\n")# Özet
 
 cat("\n=== Ortalama ===\n",paste(colnames(mtcars), apply(mtcars, 2, mean), sep = ": ", collapse = " | "), "\n")
 
+<<<<<<< HEAD
+
+
+=======
 cat("\n=== Standart Sapma ===\n",paste(colnames(mtcars), apply(mtcars, 2, sd), sep = ": ", collapse = " | "), "\n")
 
 cat("\n=== Medyan ===\n",paste(colnames(mtcars), apply(mtcars, 2, median), sep = ": ", collapse = " | "), "\n")
@@ -84,6 +88,7 @@ cat("\n=== Medyan ===\n",paste(colnames(mtcars), apply(mtcars, 2, median), sep =
 cat("\n=== Minimum  ===\n",paste(colnames(mtcars), apply(mtcars, 2, min), sep = ": ", collapse = " | "), "\n")
 
 cat("\n=== Maksimum ===\n",paste(colnames(mtcars), apply(mtcars, 2, max), sep = ": ", collapse = " | "), "\n")
+>>>>>>> 7975a6c54c0ffe32d37a9a09f7909898b00e2564
 ```
 C. SORUSUNUN CEVABI
 
