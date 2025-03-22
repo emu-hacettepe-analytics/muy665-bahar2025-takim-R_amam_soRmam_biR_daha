@@ -35,16 +35,27 @@ ss = sd(vec),
 
 minimum = min(vec),
 
-maksimum = max(vec) )} #değerleri yazdırma
+maksimum = max(vec) )
+} #değerleri yazdırma
 
 sonuc <- my_summary_stats(mtcars$mpg) 
 print(sonuc)
 
-#print(colnames(mtcars)[1])
-#for(col_name in colnames(mtcars)) {
- # sutun <- mtcars[5]
-  #print(sutun)
-  #dongu <- my_summary_stats(colnames(mtcars)[])
-#print(dongu)}#
+
+
+
+dongu <- list()  # dongu'yu boş bir liste olarak başlatıyoruz
+
+for(x in 1:11) {
+  # x'inci sütunun değerlerini yazdırıyoruz
+  print(colnames(mtcars)[x])  # Tüm satırları ve x'inci sütunu gösteriyoruz
+  
+  # x'inci sütunun özet istatistiklerini hesaplıyoruz
+  dongu[[x]] <- my_summary_stats(mtcars[[x]])  # Özet istatistikleri listeye ekliyoruz
+  
+  # Özet istatistiklerini yazdırıyoruz
+  print(dongu[[x]])
+}
+
 
 ```
