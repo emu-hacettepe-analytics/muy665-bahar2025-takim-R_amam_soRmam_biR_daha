@@ -57,5 +57,10 @@ for(x in 1:11) {
   print(dongu[[x]])
 }
 
+apply(mtcars,2,FUN=mean)
+apply(mtcars,2,FUN=sd)
+apply(mtcars,2,FUN=median)
+apply(mtcars,2,FUN=min)
+apply(mtcars,2,FUN=max)
 
 ```

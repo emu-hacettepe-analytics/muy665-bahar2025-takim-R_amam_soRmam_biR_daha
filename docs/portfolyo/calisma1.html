@@ -515,6 +515,39 @@ $minimum
 $maksimum
 [1] 8</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       mpg        cyl       disp         hp       drat         wt       qsec 
+ 20.090625   6.187500 230.721875 146.687500   3.596563   3.217250  17.848750 
+        vs         am       gear       carb 
+  0.437500   0.406250   3.687500   2.812500 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        mpg         cyl        disp          hp        drat          wt 
+  6.0269481   1.7859216 123.9386938  68.5628685   0.5346787   0.9784574 
+       qsec          vs          am        gear        carb 
+  1.7869432   0.5040161   0.4989909   0.7378041   1.6152000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    mpg     cyl    disp      hp    drat      wt    qsec      vs      am    gear 
+ 19.200   6.000 196.300 123.000   3.695   3.325  17.710   0.000   0.000   4.000 
+   carb 
+  2.000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>min)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   mpg    cyl   disp     hp   drat     wt   qsec     vs     am   gear   carb 
+10.400  4.000 71.100 52.000  2.760  1.513 14.500  0.000  0.000  3.000  1.000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    mpg     cyl    disp      hp    drat      wt    qsec      vs      am    gear 
+ 33.900   8.000 472.000 335.000   4.930   5.424  22.900   1.000   1.000   5.000 
+   carb 
+  8.000 </code></pre>
+</div>
 </div>
 
 
