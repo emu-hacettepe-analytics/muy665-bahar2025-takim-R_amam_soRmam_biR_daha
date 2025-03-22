@@ -1,10 +1,11 @@
 ---
 title: "Çalışma 1"
+editor: 
+  markdown: 
+    wrap: 72
 ---
-install.packages("dslabs")
-library(dslabs)
-data(mtcars)
-class(mtcars)
+
+install.packages("dslabs") library(dslabs) data(mtcars) class(mtcars)
 
 #Veri seti inceleme
 
@@ -16,16 +17,8 @@ print(mtcars)
 
 #fonksiyon oluşturma
 
-my_summary_stats <- function(vec)
-{total_list <- list(
-ortalama = mean(vec),
-medyan = median(vec),
-ss = sd(vec),
-minimum = min(vec),
-maksimum = max(vec)
-)}
-#değerleri yazdırma
+my_summary_stats \<- function(vec) {total_list \<- list( ortalama =
+mean(vec), medyan = median(vec), ss = sd(vec), minimum = min(vec),
+maksimum = max(vec) )} #değerleri yazdırma
 
-sonuc <- my_summary_stats(mtcars$mpg)
-print(sonuc)
-
+sonuc \<- my_summary_stats(mtcars\$mpg) print(sonuc)
