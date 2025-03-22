@@ -2,7 +2,7 @@
 title: "Buse Nur YAŞAR"
 ---
 
-![](/assets/images/buse.jpeg){fig-align="center"}
+![](/assets/images/buse.jpg){fig-align="center"}
 
 # Eğitim
 
