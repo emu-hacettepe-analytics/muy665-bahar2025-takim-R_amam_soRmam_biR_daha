@@ -31,7 +31,7 @@ total_list <- list( ortalama = mean(vec),
 
 medyan = median(vec),
 
-ss = sd(vec),
+standart_sapma = sd(vec),
 
 minimum = min(vec),
 
@@ -47,22 +47,28 @@ print(sonuc)
 dongu <- list()  # dongu'yu boş bir liste olarak başlatıyoruz
 
 for(x in 1:11) {
-  # x'inci sütunun değerlerini yazdırıyoruz
-  print(colnames(mtcars)[x])  # Tüm satırları ve x'inci sütunu gösteriyoruz
+ 
+  dongu[[x]] <- my_summary_stats(mtcars[[x]])  # Özet istatistikleri hesaplayıp listeye ekliyoruz
   
-  # x'inci sütunun özet istatistiklerini hesaplıyoruz
-  dongu[[x]] <- my_summary_stats(mtcars[[x]])  # Özet istatistikleri listeye ekliyoruz
-  
-  # Özet istatistiklerini yazdırıyoruz
-  print(dongu[[x]])
+cat("\n=====", colnames(mtcars)[x], "====\n")
+
+cat(paste(names(dongu[[x]]),dongu[[x]],sep =":" , collapse = " | "),"\n")# Özet istatistiklerini , istatistiklerin ismi ile birlikte yazdırıyoruz
+
 }
 
-apply(mtcars,2,FUN=mean)
-apply(mtcars,2,FUN=sd)
-apply(mtcars,2,FUN=median)
-apply(mtcars,2,FUN=min)
-apply(mtcars,2,FUN=max)
+cat("\n=== Ortalama ===\n",paste(colnames(mtcars), apply(mtcars, 2, mean), sep = ": ", collapse = " | "), "\n")
+
+<<<<<<< HEAD
 
 
+=======
+cat("\n=== Standart Sapma ===\n",paste(colnames(mtcars), apply(mtcars, 2, sd), sep = ": ", collapse = " | "), "\n")
 
+cat("\n=== Medyan ===\n",paste(colnames(mtcars), apply(mtcars, 2, median), sep = ": ", collapse = " | "), "\n")
+
+cat("\n=== Minimum  ===\n",paste(colnames(mtcars), apply(mtcars, 2, min), sep = ": ", collapse = " | "), "\n")
+
+cat("\n=== Maksimum ===\n",paste(colnames(mtcars), apply(mtcars, 2, max), sep = ": ", collapse = " | "), "\n")
+>>>>>>> 7975a6c54c0ffe32d37a9a09f7909898b00e2564
 ```
+

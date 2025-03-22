@@ -301,7 +301,7 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">medyan =</span> <span class="fu">median</span>(vec),</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">ss =</span> <span class="fu">sd</span>(vec),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">standart_sapma =</span> <span class="fu">sd</span>(vec),</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="at">minimum =</span> <span class="fu">min</span>(vec),</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -317,7 +317,7 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 $medyan
 [1] 19.2
 
-$ss
+$standart_sapma
 [1] 6.026948
 
 $minimum
@@ -329,224 +329,78 @@ $maksimum
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dongu <span class="ot">&lt;-</span> <span class="fu">list</span>()  <span class="co"># dongu'yu boş bir liste olarak başlatıyoruz</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>) {</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># x'inci sütunun değerlerini yazdırıyoruz</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">colnames</span>(mtcars)[x])  <span class="co"># Tüm satırları ve x'inci sütunu gösteriyoruz</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  dongu[[x]] <span class="ot">&lt;-</span> <span class="fu">my_summary_stats</span>(mtcars[[x]])  <span class="co"># Özet istatistikleri hesaplayıp listeye ekliyoruz</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># x'inci sütunun özet istatistiklerini hesaplıyoruz</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  dongu[[x]] <span class="ot">&lt;-</span> <span class="fu">my_summary_stats</span>(mtcars[[x]])  <span class="co"># Özet istatistikleri listeye ekliyoruz</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Özet istatistiklerini yazdırıyoruz</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(dongu[[x]])</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">====="</span>, <span class="fu">colnames</span>(mtcars)[x], <span class="st">"====</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="fu">names</span>(dongu[[x]]),dongu[[x]],<span class="at">sep =</span><span class="st">":"</span> , <span class="at">collapse =</span> <span class="st">" | "</span>),<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)<span class="co"># Özet istatistiklerini , istatistiklerin ismi ile birlikte yazdırıyoruz</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "mpg"
-$ortalama
-[1] 20.09062
+<pre><code>
+===== mpg ====
+ortalama:20.090625 | medyan:19.2 | standart_sapma:6.0269480520891 | minimum:10.4 | maksimum:33.9 
 
-$medyan
-[1] 19.2
+===== cyl ====
+ortalama:6.1875 | medyan:6 | standart_sapma:1.78592164694654 | minimum:4 | maksimum:8 
 
-$ss
-[1] 6.026948
+===== disp ====
+ortalama:230.721875 | medyan:196.3 | standart_sapma:123.938693831382 | minimum:71.1 | maksimum:472 
 
-$minimum
-[1] 10.4
+===== hp ====
+ortalama:146.6875 | medyan:123 | standart_sapma:68.5628684893206 | minimum:52 | maksimum:335 
 
-$maksimum
-[1] 33.9
+===== drat ====
+ortalama:3.5965625 | medyan:3.695 | standart_sapma:0.534678736070971 | minimum:2.76 | maksimum:4.93 
 
-[1] "cyl"
-$ortalama
-[1] 6.1875
+===== wt ====
+ortalama:3.21725 | medyan:3.325 | standart_sapma:0.978457442989697 | minimum:1.513 | maksimum:5.424 
 
-$medyan
-[1] 6
+===== qsec ====
+ortalama:17.84875 | medyan:17.71 | standart_sapma:1.78694323609684 | minimum:14.5 | maksimum:22.9 
 
-$ss
-[1] 1.785922
+===== vs ====
+ortalama:0.4375 | medyan:0 | standart_sapma:0.504016128774185 | minimum:0 | maksimum:1 
 
-$minimum
-[1] 4
+===== am ====
+ortalama:0.40625 | medyan:0 | standart_sapma:0.498990917235846 | minimum:0 | maksimum:1 
 
-$maksimum
-[1] 8
+===== gear ====
+ortalama:3.6875 | medyan:4 | standart_sapma:0.737804065256947 | minimum:3 | maksimum:5 
 
-[1] "disp"
-$ortalama
-[1] 230.7219
-
-$medyan
-[1] 196.3
-
-$ss
-[1] 123.9387
-
-$minimum
-[1] 71.1
-
-$maksimum
-[1] 472
-
-[1] "hp"
-$ortalama
-[1] 146.6875
-
-$medyan
-[1] 123
-
-$ss
-[1] 68.56287
-
-$minimum
-[1] 52
-
-$maksimum
-[1] 335
-
-[1] "drat"
-$ortalama
-[1] 3.596563
-
-$medyan
-[1] 3.695
-
-$ss
-[1] 0.5346787
-
-$minimum
-[1] 2.76
-
-$maksimum
-[1] 4.93
-
-[1] "wt"
-$ortalama
-[1] 3.21725
-
-$medyan
-[1] 3.325
-
-$ss
-[1] 0.9784574
-
-$minimum
-[1] 1.513
-
-$maksimum
-[1] 5.424
-
-[1] "qsec"
-$ortalama
-[1] 17.84875
-
-$medyan
-[1] 17.71
-
-$ss
-[1] 1.786943
-
-$minimum
-[1] 14.5
-
-$maksimum
-[1] 22.9
-
-[1] "vs"
-$ortalama
-[1] 0.4375
-
-$medyan
-[1] 0
-
-$ss
-[1] 0.5040161
-
-$minimum
-[1] 0
-
-$maksimum
-[1] 1
-
-[1] "am"
-$ortalama
-[1] 0.40625
-
-$medyan
-[1] 0
-
-$ss
-[1] 0.4989909
-
-$minimum
-[1] 0
-
-$maksimum
-[1] 1
-
-[1] "gear"
-$ortalama
-[1] 3.6875
-
-$medyan
-[1] 4
-
-$ss
-[1] 0.7378041
-
-$minimum
-[1] 3
-
-$maksimum
-[1] 5
-
-[1] "carb"
-$ortalama
-[1] 2.8125
-
-$medyan
-[1] 2
-
-$ss
-[1] 1.6152
-
-$minimum
-[1] 1
-
-$maksimum
-[1] 8</code></pre>
+===== carb ====
+ortalama:2.8125 | medyan:2 | standart_sapma:1.61519997763185 | minimum:1 | maksimum:8 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== Ortalama ===</span><span class="sc">\n</span><span class="st">"</span>,<span class="fu">paste</span>(<span class="fu">colnames</span>(mtcars), <span class="fu">apply</span>(mtcars, <span class="dv">2</span>, mean), <span class="at">sep =</span> <span class="st">": "</span>, <span class="at">collapse =</span> <span class="st">" | "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       mpg        cyl       disp         hp       drat         wt       qsec 
- 20.090625   6.187500 230.721875 146.687500   3.596563   3.217250  17.848750 
-        vs         am       gear       carb 
-  0.437500   0.406250   3.687500   2.812500 </code></pre>
+<pre><code>
+=== Ortalama ===
+ mpg: 20.090625 | cyl: 6.1875 | disp: 230.721875 | hp: 146.6875 | drat: 3.5965625 | wt: 3.21725 | qsec: 17.84875 | vs: 0.4375 | am: 0.40625 | gear: 3.6875 | carb: 2.8125 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== Standart Sapma ===</span><span class="sc">\n</span><span class="st">"</span>,<span class="fu">paste</span>(<span class="fu">colnames</span>(mtcars), <span class="fu">apply</span>(mtcars, <span class="dv">2</span>, sd), <span class="at">sep =</span> <span class="st">": "</span>, <span class="at">collapse =</span> <span class="st">" | "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>        mpg         cyl        disp          hp        drat          wt 
-  6.0269481   1.7859216 123.9386938  68.5628685   0.5346787   0.9784574 
-       qsec          vs          am        gear        carb 
-  1.7869432   0.5040161   0.4989909   0.7378041   1.6152000 </code></pre>
+<pre><code>
+=== Standart Sapma ===
+ mpg: 6.0269480520891 | cyl: 1.78592164694654 | disp: 123.938693831382 | hp: 68.5628684893206 | drat: 0.534678736070971 | wt: 0.978457442989697 | qsec: 1.78694323609684 | vs: 0.504016128774185 | am: 0.498990917235846 | gear: 0.737804065256947 | carb: 1.61519997763185 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>median)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== Medyan ===</span><span class="sc">\n</span><span class="st">"</span>,<span class="fu">paste</span>(<span class="fu">colnames</span>(mtcars), <span class="fu">apply</span>(mtcars, <span class="dv">2</span>, median), <span class="at">sep =</span> <span class="st">": "</span>, <span class="at">collapse =</span> <span class="st">" | "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    mpg     cyl    disp      hp    drat      wt    qsec      vs      am    gear 
- 19.200   6.000 196.300 123.000   3.695   3.325  17.710   0.000   0.000   4.000 
-   carb 
-  2.000 </code></pre>
+<pre><code>
+=== Medyan ===
+ mpg: 19.2 | cyl: 6 | disp: 196.3 | hp: 123 | drat: 3.695 | wt: 3.325 | qsec: 17.71 | vs: 0 | am: 0 | gear: 4 | carb: 2 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>min)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== Minimum  ===</span><span class="sc">\n</span><span class="st">"</span>,<span class="fu">paste</span>(<span class="fu">colnames</span>(mtcars), <span class="fu">apply</span>(mtcars, <span class="dv">2</span>, min), <span class="at">sep =</span> <span class="st">": "</span>, <span class="at">collapse =</span> <span class="st">" | "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   mpg    cyl   disp     hp   drat     wt   qsec     vs     am   gear   carb 
-10.400  4.000 71.100 52.000  2.760  1.513 14.500  0.000  0.000  3.000  1.000 </code></pre>
+<pre><code>
+=== Minimum  ===
+ mpg: 10.4 | cyl: 4 | disp: 71.1 | hp: 52 | drat: 2.76 | wt: 1.513 | qsec: 14.5 | vs: 0 | am: 0 | gear: 3 | carb: 1 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(mtcars,<span class="dv">2</span>,<span class="at">FUN=</span>max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">=== Maksimum ===</span><span class="sc">\n</span><span class="st">"</span>,<span class="fu">paste</span>(<span class="fu">colnames</span>(mtcars), <span class="fu">apply</span>(mtcars, <span class="dv">2</span>, max), <span class="at">sep =</span> <span class="st">": "</span>, <span class="at">collapse =</span> <span class="st">" | "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    mpg     cyl    disp      hp    drat      wt    qsec      vs      am    gear 
- 33.900   8.000 472.000 335.000   4.930   5.424  22.900   1.000   1.000   5.000 
-   carb 
-  8.000 </code></pre>
+<pre><code>
+=== Maksimum ===
+ mpg: 33.9 | cyl: 8 | disp: 472 | hp: 335 | drat: 4.93 | wt: 5.424 | qsec: 22.9 | vs: 1 | am: 1 | gear: 5 | carb: 8 </code></pre>
 </div>
 </div>
 
