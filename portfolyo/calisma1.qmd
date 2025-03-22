@@ -9,6 +9,21 @@ install.packages("dslabs")
 
 library(dslabs)
 
+A. VİDEO ÖZETİ
+
+
+
+
+
+
+
+
+
+
+
+B. FONKSİYONLAR VE DÖNGÜLER İLE VERİLERİ ÖZETLEME
+
+- Özel Özet Fonksiyonu Yazın:
 ```{r}
 
 
@@ -40,9 +55,10 @@ maksimum = max(vec) )
 
 sonuc <- my_summary_stats(mtcars$mpg) 
 print(sonuc)
+```
 
-
-
+- Fonksiyonu Döngü Kullanarak Uygulama:
+```{r}
 
 dongu <- list()  # dongu'yu boş bir liste olarak başlatıyoruz
 
@@ -55,6 +71,9 @@ cat("\n=====", colnames(mtcars)[x], "====\n")
 cat(paste(names(dongu[[x]]),dongu[[x]],sep =":" , collapse = " | "),"\n")# Özet istatistiklerini , istatistiklerin ismi ile birlikte yazdırıyoruz
 
 }
+```
+- Apply ile Alternatif Bir Yaklaşım:
+```{r}
 
 cat("\n=== Ortalama ===\n",paste(colnames(mtcars), apply(mtcars, 2, mean), sep = ": ", collapse = " | "), "\n")
 
@@ -66,4 +85,5 @@ cat("\n=== Minimum  ===\n",paste(colnames(mtcars), apply(mtcars, 2, min), sep = 
 
 cat("\n=== Maksimum ===\n",paste(colnames(mtcars), apply(mtcars, 2, max), sep = ": ", collapse = " | "), "\n")
 ```
+C. SORUSUNUN CEVABI
 
