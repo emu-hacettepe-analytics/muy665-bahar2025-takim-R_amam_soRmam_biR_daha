@@ -6,21 +6,37 @@ title: "Buse Nur YAŞAR"
 
 # Eğitim
 
--   Lisans, İzmir Yüksek Teknoloji Enstitüsü, Kimya Mühendisliği, 2016 - 2022
 -   Yüksek Lisans, Hacettepe Üniversitesi, Mühendislik Yönetimi, 2025 - Halen
+-   Lisans, İzmir Yüksek Teknoloji Enstitüsü, Kimya Mühendisliği, 2016 - 2022
 
 ## İş Deneyimi
 
 ## Deneyim
 
-1.  
+1.  Yılmaz Proses Teknolojileri Dış Ticaret A.Ş., Teklif Hazırlama ve Proje Mühendisi, 2023 - Halen
+
+[Özgeçmiş için detaylı bilgi](/assets/images/BuseNurYaşar_CV)
 
 ## Stajlar
 
-1.  
+1.  ASPİLSAN, Stajyer Mühendis, 2022
 
-2.  
+2.  Viking Kağıt ve Selülöz A.Ş., Proje Stajyer Mühendisi, 2021
+
+3.  Marmara Cam A.Ş., Stajyer Mühendis, 2019
 
 # Projeler
 
-1.  0
+1.  Mühendislik Ekonomisi ve Tasarım Dönem Projesi “Fındık Kabuğundan Etilen Glikol Üretimi İçin Tesis Tasarımı (2021-2022)”
+
+2.  Mezuniyet Tezi Projesi “Sorbitolden izosorbid dehidratasyonu için heterojen katalizör sentezi(2022)” 
+
+3.  Kimya Mühendisliğine Giriş Ders Projesi “Katalizör Sentezini Destekleme (2017)”
+
+# Yetkinlikler
+
+-   MS Office , MS Project, Matlab , R , LOGO , AUTOCAD , SAP
+
+# Hobiler
+
+-   Yürüyüş yapmak, Playstation oynamak , Yeni yerler keşfetmek

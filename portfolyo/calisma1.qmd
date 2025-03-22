@@ -63,4 +63,6 @@ apply(mtcars,2,FUN=median)
 apply(mtcars,2,FUN=min)
 apply(mtcars,2,FUN=max)
 
+
+
 ```
