@@ -86,5 +86,23 @@ cat("\n=== Minimum  ===\n",paste(colnames(mtcars), apply(mtcars, 2, min), sep = 
 cat("\n=== Maksimum ===\n",paste(colnames(mtcars), apply(mtcars, 2, max), sep = ": ", collapse = " | "), "\n")
 
 ```
+
 C. SORUSUNUN CEVABI
 
+```{r}
+data("na_example")
+na_sayisi <- sum(is.na(na_example))
+cat("Veri setinde", na_sayisi, "adet eksik (NA) değer bulunmaktadır.\n")
+
+
+
+
+
+
+
+
+
+
+
+
+```
