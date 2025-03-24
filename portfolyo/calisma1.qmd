@@ -11,19 +11,10 @@ library(dslabs)
 
 A. VİDEO ÖZETİ
 
-
-
-
-
-
-
-
-
-
-
 B. FONKSİYONLAR VE DÖNGÜLER İLE VERİLERİ ÖZETLEME
 
-- Özel Özet Fonksiyonu Yazın:
+-   Özel Özet Fonksiyonu Yazın:
+
 ```{r}
 
 
@@ -57,7 +48,8 @@ sonuc <- my_summary_stats(mtcars$mpg)
 print(sonuc)
 ```
 
-- Fonksiyonu Döngü Kullanarak Uygulama:
+-   Fonksiyonu Döngü Kullanarak Uygulama:
+
 ```{r}
 
 dongu <- list()  # dongu'yu boş bir liste olarak başlatıyoruz
@@ -72,7 +64,9 @@ cat(paste(names(dongu[[x]]),dongu[[x]],sep =":" , collapse = " | "),"\n")# Özet
 
 }
 ```
-- Apply ile Alternatif Bir Yaklaşım:
+
+-   Apply ile Alternatif Bir Yaklaşım:
+
 ```{r}
 
 cat("\n=== Ortalama ===\n",paste(colnames(mtcars), apply(mtcars, 2, mean), sep = ": ", collapse = " | "), "\n")
@@ -89,6 +83,7 @@ cat("\n=== Maksimum ===\n",paste(colnames(mtcars), apply(mtcars, 2, max), sep = 
 
 C. SORUSUNUN CEVABI
 
+<<<<<<< HEAD
 ```{r}
 data("na_example")
 na_sayisi <- sum(is.na(na_example))
@@ -106,3 +101,20 @@ cat("Veri setinde", na_sayisi, "adet eksik (NA) değer bulunmaktadır.\n")
 
 
 ```
+=======
+install.packages("dslabs")
+
+library(dslabs)
+
+data(na_example)
+```{r}
+
+
+sum(is.na(na_example))
+
+change_na <- ifelse(is.na(na_example),2025,na_example)
+
+print(change_na)
+
+```
+>>>>>>> 8f1af22b4106534afbc679db49f0166d37e0381d
