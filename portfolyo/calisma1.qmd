@@ -5,9 +5,7 @@ editor:
     wrap: 72
 ---
 
-install.packages("dslabs")
 
-library(dslabs)
 
 A. VİDEO ÖZETİ
 
@@ -18,6 +16,7 @@ B. FONKSİYONLAR VE DÖNGÜLER İLE VERİLERİ ÖZETLEME
 ```{r}
 
 
+library(dslabs)
 
 data(mtcars)
 
@@ -83,38 +82,21 @@ cat("\n=== Maksimum ===\n",paste(colnames(mtcars), apply(mtcars, 2, max), sep = 
 
 C. SORUSUNUN CEVABI
 
-<<<<<<< HEAD
 ```{r}
-data("na_example")
-na_sayisi <- sum(is.na(na_example))
-cat("Veri setinde", na_sayisi, "adet eksik (NA) değer bulunmaktadır.\n")
-
-
-
-
-
-
-
-
-
-
-
-
-```
-=======
-install.packages("dslabs")
-
 library(dslabs)
+data("na_example")  #na_example veri setini çağırıyoruz
 
-data(na_example)
+```
+
 ```{r}
 
 
-sum(is.na(na_example))
+sum(is.na(na_example))  #Veri setinde kaç adet na olduğunu tespit ettik.
 
-change_na <- ifelse(is.na(na_example),2025,na_example)
+cleaned_data <- ifelse(is.na(na_example),2025,na_example) #na değerlerini 2025 ile değiştirdik.
 
-print(change_na)
+print(cleaned_data)
+
+sum(cleaned_data==2025)
 
 ```
->>>>>>> 8f1af22b4106534afbc679db49f0166d37e0381d
