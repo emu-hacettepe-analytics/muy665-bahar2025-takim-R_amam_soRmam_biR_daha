@@ -2,7 +2,7 @@
 title: "Alperen SEÇKİNOĞULLARI"
 ---
 
-![](/assets/images/alperen.jpeg){fig-align="center"}
+![](/assets/images/alperen.png){fig-align="center"}
 
 # Eğitim
 
