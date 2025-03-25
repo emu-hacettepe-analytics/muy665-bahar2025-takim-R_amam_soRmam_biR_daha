@@ -151,7 +151,7 @@ cat(paste(names(dongu[[x]]),dongu[[x]],sep =":" , collapse = " | "),"\n")# Özet
 
 ```{r}
 
-cat("\n=== Ortalama ===\n",paste(colnames(mtcars), apply(mtcars, 2, mean), sep = ": ", collapse = " | "), "\n")
+cat("\n=== Ortalama ===\n",paste(colnames(mtcars), apply(mtcars, 2, mean), sep = ": ", collapse = " | "), "\n")#cat fonskiyonu ile değişkenleri ve yazıları yanyana yazdırabiliyoruz .#paste fonksiyonuda fonksiyonumuzdan gelen verileri tek bir satırda ve her döngü bir daha döndüğünde bir alt satıra geçerek yazmayı sağlıyor 
 
 cat("\n=== Standart Sapma ===\n",paste(colnames(mtcars), apply(mtcars, 2, sd), sep = ": ", collapse = " | "), "\n")
 

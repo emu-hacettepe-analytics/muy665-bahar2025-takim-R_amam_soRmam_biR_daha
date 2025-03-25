@@ -2,7 +2,7 @@
 title: "Alperen SEÇKİNOĞULLARI"
 ---
 
-![](/assets/images/alperen.png){fig-align="center"}
+![](/assets/images/alperen.jpg){fig-align="center"}
 
 # Eğitim
 
@@ -13,14 +13,14 @@ title: "Alperen SEÇKİNOĞULLARI"
 
 ## Deneyim
 
--  Çepaş Gonvarri Industries, Satış ve Proje Mühendisi, 08.2023 - Halen 
--  Nazımoğlu İnşaat A.Ş, Saha ve Teknik Ofis Mühendisi, 06.2022 - 09.2022 
--  Vemak İnşaat A.Ş, Saha ve Teknik Ofis Mühendisi, 11-2021 - 06-2022 
+-   Çepaş Gonvarri Industries, Satış ve Proje Mühendisi, 08.2023 - Halen
+-   Nazımoğlu İnşaat A.Ş, Saha ve Teknik Ofis Mühendisi, 06.2022 - 09.2022
+-   Vemak İnşaat A.Ş, Saha ve Teknik Ofis Mühendisi, 11-2021 - 06-2022
 
 ## Stajlar
 
-1. TEMELSU Mühendislik A.Ş, Tasarım Mühendisi (Ortak Eğitim) 08.2020-01.2021    
-2. Kolin İnşaat A.Ş Stajyer Mühendis 06.2019-07.2019     
+1.  TEMELSU Mühendislik A.Ş, Tasarım Mühendisi (Ortak Eğitim) 08.2020-01.2021\
+2.  Kolin İnşaat A.Ş Stajyer Mühendis 06.2019-07.2019     
 
 # Projeler
 
