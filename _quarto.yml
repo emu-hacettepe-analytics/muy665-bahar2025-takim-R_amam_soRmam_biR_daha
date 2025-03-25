@@ -55,8 +55,8 @@ format:
     toc: true
     toc-location: left
     theme: 
-      light: lumen 
-      dark: cyborg
+      light: lumen
+      dark: vapor
     css: styles.css
 
 
