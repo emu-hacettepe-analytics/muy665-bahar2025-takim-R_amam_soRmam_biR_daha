@@ -42,7 +42,9 @@ araştırmasında ise kereste eğriliğine sebep olan noktalar tespit edilmiş
 ve fotoğraflardan elde edilen sayısal veriler anlamlı hale
 getirilmiştir. Bu analiz sonucu elde edilen verilerle sürecin
 iyileştirilerek kereste eğriliğinden kaynaklı zararın minimimize
-edilmesi amaçlanmıştır. Makine öğrenmesi ve veri analitiği teknikleri
+edilmesi amaçlanmıştır.
+
+**Makine öğrenmesi ve veri analitiği teknikleri**
 
 • Geleneksel öğrenme ile derin öğrenme arasındaki farklar anlatılmakta
 ve her iki kavram için de farklı uygulama alanları üzerinden örnekler
@@ -68,7 +70,9 @@ incelenmektedir.
 
 • Online satışlarda sıralama algoritmaları ve dijital ayak izi verileri
 kullanılarak kullanıcı bazlı önerilerin sunulması konusu
-geliştirilmektedir. Veri biliminde uzmanlaşmak ve kariyer tavsiyeleri
+geliştirilmektedir.
+
+**Veri biliminde uzmanlaşmak ve kariyer tavsiyeleri**
 
 • Veri bilimi alanında başarılı olmak için pratikte usta çırak ilişkisi
 ile konuda uzman birisinin yanında pratik deneyimin önemi
