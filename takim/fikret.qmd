@@ -2,7 +2,7 @@
 title: "Fikret Emin SEVGİLİ"
 ---
 
-![](/assets/images/fikret.jpg){fig-align="center"}
+![](/assets/images/fikrete.jpg){fig-align="center"}
 
 # Eğitim
 
