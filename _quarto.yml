@@ -55,7 +55,7 @@ format:
     toc: true
     toc-location: left
     theme: 
-      light: simplex 
+      light: lumen 
       dark: cyborg
     css: styles.css
 
