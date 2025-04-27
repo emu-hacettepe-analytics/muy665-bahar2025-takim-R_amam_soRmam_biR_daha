@@ -31,8 +31,28 @@ xxxxxx
 xxxxxx
 
 ## Ön İşleme
+install.packages("dslabs")
+install.packages("readxl")
+install.packages("tidyverse")
+install.packages("plotly")
+install.packages("ggrepel")
+install.packages("ggthemes")
+install.packages("kableExtra")
 
-xxxxxx
+
+library(readxl)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(scales)
+library(plotly)
+library(ggrepel)
+library(ggthemes)
+library(kableExtra)
+library(tidyverse)
+library(dslabs)
+
 
 # Analiz
 
