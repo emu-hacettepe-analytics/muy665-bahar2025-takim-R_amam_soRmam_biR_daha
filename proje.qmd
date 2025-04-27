@@ -53,9 +53,8 @@ library(ggthemes)
 library(kableExtra)
 
 # Analiz
-evlenme_bosanma_turkiye_geneli<-read_excel("/Users/Excalibur/OneDrive/Belgeler/GitHub/muy665-bahar2025-takim-R_amam_soRmam_biR_daha/veri/turkiye_geneli.xlsx")
-
-head(evlenme_bosanma_turkiye_geneli)
+turkiye_geneli <- read_excel("veri/turkiye_geneli.xlsx")
+head(turkiye_geneli)
 
 ## Keşifsel Veri Analizi
 
