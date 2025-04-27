@@ -60,8 +60,7 @@ Kadin_Erkek_Yas_Dagilimlari <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari.xlsx
 head(Kadin_Erkek_Yas_Dagilimlari)
 Evlilik_suresi_Turkiye_geneli <- read_excel("veri/Evlilik_suresi_Turkiye_geneli.xlsx")
 head(Evlilik_suresi_Turkiye_geneli)
-<<<<<<< Updated upstream
-=======
+
 # erdi yasmin
 #ortalama_evlilik_suresi_bazli<-apply(evlilik_suresi,2,mean)
 yildan_az_1<-sum(evlilik_suresi[2])
@@ -83,7 +82,7 @@ Yas_Farki_Turkiye_geneli <- read_excel("veri/Yas_Farki_Turkiye_geneli.xlsx")
 head(Yas_Farki_Turkiye_geneli)
 
 
->>>>>>> Stashed changes
+
 ## Keşifsel Veri Analizi
 
 
@@ -102,21 +101,6 @@ grafik <- turkiye_geneli |> ggplot() +
   theme( axis.text.x = element_text(angle = 90, hjust = 1))
 
 grafik
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
