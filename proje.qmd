@@ -32,7 +32,25 @@ xxxxxx
 
 ## Ön İşleme
 
-xxxxxx
+install.packages("readxl")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("tidyr")
+install.packages("kableExtra")
+install.packages(c("stringr", "scales", "plotly", "ggrepel", "ggthemes"))
+
+
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(stringr)
+library(scales)
+library(plotly)
+library(ggrepel)
+library(ggthemes)
+library(kableExtra)
+
 
 # Analiz
 
