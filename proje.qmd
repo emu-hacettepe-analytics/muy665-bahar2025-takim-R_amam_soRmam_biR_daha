@@ -33,7 +33,7 @@ xxxxxx
 ## Ön İşleme
 
 install.packages("readxl") 
-install.packages("dplyr")
+install.packages("dplyr") 
 install.packages("ggplot2")
 install.packages("tidyr") 
 install.packages("kableExtra") 
@@ -42,35 +42,51 @@ install.packages(c("stringr", "scales", "plotly", "ggrepel", "ggthemes"))
 
 library(readxl) 
 library(openxlsx) 
-library(dplyr)
+library(dplyr) 
 library(ggplot2) 
 library(tidyr) 
 library(stringr) 
 library(scales) 
-library(plotly)
+library(plotly) 
 library(ggrepel) 
 library(ggthemes)
 library(kableExtra)
 
+
 # Analiz
+
 turkiye_geneli <- read_excel("veri/turkiye_geneli.xlsx")
 head(turkiye_geneli)
+
 Kadin_Erkek_Yas_Dagilimlari <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari.xlsx")
 head(Kadin_Erkek_Yas_Dagilimlari)
-Evlilik_suresi_Turkiye_geneli <- read_excel("veri/Evlilik_suresi_Turkiye_geneli.xlsx")
+
+evlilik_suresi<- read_excel("veri/Evlilik_suresi_Turkiye_geneli.xlsx")
 head(Evlilik_suresi_Turkiye_geneli)
-....
+# erdi yasmin
+ortalama_evlilik_suresi_bazli<-apply(evlilik_suresi,2,mean)
+yildan_az_1<-sum(evlilik_suresi[2])
+yil_1_5<-sum(evlilik_suresi[3:7])
+yil_6_10<-sum(evlilik_suresi[8:12])
+yil_11_15<-sum(evlilik_suresi[13:17])
+yil_16_20<-sum(evlilik_suresi[18:22])
+bosanma_sayisi <- data.frame(
+  Evlilik_Suresi = c("0-1 yıldan az", "1-5 yıl", "6-10 yıl", "11-15 yıl", "16-20+ yıl"),
+  total_bosanma_sayisi<-c(yildan_az_1,yil_1_5,yil_6_10,yil_11_15,yil_16_20)
+)
+print(bosanma_sayisi)
+bosanma_sayisi|> ggplot(aes(x=Evlilik_Suresi, y=total_bosanma_sayisi)) + geom_bar(stat = "identity", fill = "steelblue")
+#erdi yasmin 
+
+
+
+Yas_Farki_Turkiye_geneli <- read_excel("veri/Yas_Farki_Turkiye_geneli.xlsx")
+head(Yas_Farki_Turkiye_geneli)
+
+
 ## Keşifsel Veri Analizi
 
-ggplot(veri_long, aes(x = yil, y = Sayi, color = Durum, group = Durum)) +
-  geom_line(size = 1.2) +
-  geom_point(size = 2) +
-  scale_color_manual(values = c("evlenme_sayisi" = "blue", "bosanma_sayisi" = "red")) +
-  scale_y_continuous() +
-  labs(title = "Türkiye'de Yıllara Göre Evlenme ve Bosanma Sayıları", x = "Yıl",y = "Kişi Sayısı",color = "Durum") +
-  theme_minimal()
-  
-  
+
 ## Trend Analizi
 
 xxxxxx
