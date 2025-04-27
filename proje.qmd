@@ -59,7 +59,7 @@ Kadin_Erkek_Yas_Dagilimlari <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari.xlsx
 head(Kadin_Erkek_Yas_Dagilimlari)
 Evlilik_suresi_Turkiye_geneli <- read_excel("veri/Evlilik_suresi_Turkiye_geneli.xlsx")
 head(Evlilik_suresi_Turkiye_geneli)
-
+....
 ## Keşifsel Veri Analizi
 
 ggplot(veri_long, aes(x = yil, y = Sayi, color = Durum, group = Durum)) +
