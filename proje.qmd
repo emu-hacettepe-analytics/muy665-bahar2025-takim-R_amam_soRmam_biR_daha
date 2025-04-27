@@ -33,7 +33,7 @@ xxxxxx
 ## Ön İşleme
 
 install.packages("readxl") 
-install.packages("dplyr") 
+install.packages("dplyr")
 install.packages("ggplot2")
 install.packages("tidyr") 
 install.packages("kableExtra") 
@@ -42,12 +42,12 @@ install.packages(c("stringr", "scales", "plotly", "ggrepel", "ggthemes"))
 
 library(readxl) 
 library(openxlsx) 
-library(dplyr) 
+library(dplyr)
 library(ggplot2) 
 library(tidyr) 
 library(stringr) 
 library(scales) 
-library(plotly) 
+library(plotly)
 library(ggrepel) 
 library(ggthemes)
 library(kableExtra)
@@ -62,8 +62,15 @@ head(Evlilik_suresi_Turkiye_geneli)
 
 ## Keşifsel Veri Analizi
 
-xxxxxx
-
+ggplot(veri_long, aes(x = yil, y = Sayi, color = Durum, group = Durum)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 2) +
+  scale_color_manual(values = c("evlenme_sayisi" = "blue", "bosanma_sayisi" = "red")) +
+  scale_y_continuous() +
+  labs(title = "Türkiye'de Yıllara Göre Evlenme ve Bosanma Sayıları", x = "Yıl",y = "Kişi Sayısı",color = "Durum") +
+  theme_minimal()
+  
+  
 ## Trend Analizi
 
 xxxxxx
