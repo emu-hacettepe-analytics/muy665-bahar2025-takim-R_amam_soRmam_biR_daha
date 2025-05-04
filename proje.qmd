@@ -79,8 +79,8 @@ bosanma_sayisi$Evlilik_Suresi <- factor(
 print(bosanma_sayisi)
 bosanma_sayisi|> ggplot(aes(x=Evlilik_Suresi, y=total_bosanma_sayisi)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+
 geom_text(aes(label = total_bosanma_sayisi), vjust = -0.5, size = 3)+labs(
-      title = "Evlilik Süresine Göre Boşanma Sayısı",
-    x = "Evlilik Süresi",
+      title = "Evlilik Suresine Gore Bosanma Sayısı",
+    x = "Evlilik Suresi",
     y = "Toplam Boşanma Sayısı"
   ) +
   theme_light() +
@@ -120,16 +120,30 @@ yillar <-vector()
 for(i in seq(1,24))
 {yillar[i]<-evlilik_suresi[i,1]}
 
-
+yillar <- as.numeric (yillar)
 yillara_gore_bs <- data.frame(
-  Yillar = yillar,            
-  `0_1_yil` = yillar_0_1,
-  `1_5_yil` = yillar_1_5,
-  `6_10_yil` = yillar_6_10,
-  `11_15_yil` = yillar_11_15,
-  `16_20_yil` = yillar_16_20)
+  'yil_0_1'=yillar_0_1,
+  `yil_1_5` = yillar_1_5,
+  `yil_6_10` = yillar_6_10,
+  `yil_11_15` = yillar_11_15,
+  `yil_16_20` = yillar_16_20)
 
-str(yillara_gore_bs)
+yillara_gore_bs$Yil <- yillar
+
+df_long <- yillara_gore_bs %>% pivot_longer(cols = -Yil, names_to = "Evlilik_Suresi", values_to = "Deger")
+  
+df_long$Evlilik_Suresi <- factor(df_long$Evlilik_Suresi,
+  levels = c("yil_0_1", "yil_1_5", "yil_6_10", "yil_11_15", "yil_16_20")
+)
+
+ggplot(df_long,aes(x = Yil, y = Deger, color = Evlilik_Suresi)) +
+  geom_line(size = 1.2) + labs(
+      title = "Yıllara Gore Bosanma Sayıları",
+    x = "Yıllar",
+    y = "Toplam Bosanma Sayısı"
+  ) + theme_minimal()+
+  scale_x_continuous(breaks = seq(min(df_long$Yil), max(df_long$Yil), by = 1))+theme( axis.text.x = element_text(angle = 90, hjust = 1))+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold")
+  )
 
 Yas_Farki_Turkiye_geneli <- read_excel("veri/Yas_Farki_Turkiye_geneli.xlsx")
 head(Yas_Farki_Turkiye_geneli)
