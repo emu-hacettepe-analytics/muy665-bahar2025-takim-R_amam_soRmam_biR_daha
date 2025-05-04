@@ -32,6 +32,7 @@ xxxxxx
 
 ## Ön İşleme
 
+
 install.packages("readxl") 
 install.packages("dplyr")
 install.packages("ggplot2")
@@ -52,6 +53,7 @@ library(plotly)
 library(ggrepel) 
 library(ggthemes)
 library(kableExtra)
+
 
 # Analiz
 turkiye_geneli <- read_excel("veri/turkiye_geneli.xlsx")
@@ -152,7 +154,6 @@ head(Yas_Farki_Turkiye_geneli)
 
 ## Keşifsel Veri Analizi
 
-
 Durum <- c("evlenme_sayisi","bosanma_sayisi")
 
 grafik <- turkiye_geneli |> ggplot() +
@@ -169,17 +170,11 @@ grafik <- turkiye_geneli |> ggplot() +
 
 grafik
 
-
-
 Sys.setlocale("LC_ALL", "Turkish")
 
 ## Trend Analizi
 
-xxxxxx
-
 ## Model Uydurma
-
-xxxxxx
 
 ## Sonuçlar
 
