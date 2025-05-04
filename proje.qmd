@@ -210,16 +210,12 @@ grafik <- turkiye_geneli |> ggplot() +
 
 grafik
 
-<<<<<<< HEAD
+
 ## Trend Analizi
-=======
 Sys.setlocale("LC_ALL", "Turkish")
 
 #Kadın Yaş Dağılımları Yıllara göre#
->>>>>>> cf74cde081f95bb4cb1b3df11413d9a283b97f10
 
-library(readxl)
-library(tidyverse)
 
 # Veriyi oku
 df_kadin <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx", sheet = "Kadın Yaş Dağılımı")
@@ -252,7 +248,7 @@ ggplot(df_erkek, aes(x = as.factor(Yil), y = Bosanan_Erkek_Sayisi, fill = Yas_Gr
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 #Erkek Yaş Dağılımları Yıllara göre Bitiş#
 
-```{r}
+
 # Daire grafikleri
 
 library(readxl)
@@ -283,13 +279,11 @@ par(mfrow = c(1, 2))
 # Kadın grafiği
 pie(kadin_veri, labels = kadin_etiketler, main = "Boşanma Yaş Dağılımı (Kadın)", col = renkler,font=2,cex=0.5)
 
-frame()
 
 # Erkek grafiği
 pie(erkek_veri, labels = erkek_etiketler, main = "Boşanma Yaş Dağılımı (Erkek)", col = renkler,font=2,cex=0.5)
 #
 #PieChart Bitiş
-```
 
 
 
