@@ -59,9 +59,9 @@ head(turkiye_geneli)
 Kadin_Erkek_Yas_Dagilimlari <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari.xlsx")
 head(Kadin_Erkek_Yas_Dagilimlari)
 evlilik_suresi<- read_excel("veri/Evlilik_suresi_Turkiye_geneli.xlsx")
-head(Evlilik_suresi_Turkiye_geneli)
+head(evlilik_suresi)
 
-# erdi yasmin
+# erdi yasmin Evlilik süresine göre boşanma sayısı grafiği
 #ortalama_evlilik_suresi_bazli<-apply(evlilik_suresi,2,mean)
 yildan_az_1<-sum(evlilik_suresi[2])
 yil_1_5<-sum(evlilik_suresi[3:7])
@@ -72,11 +72,64 @@ bosanma_sayisi <- data.frame(
   Evlilik_Suresi = c("0-1 yıldan az", "1-5 yıl", "6-10 yıl", "11-15 yıl", "16-20+ yıl"),
   total_bosanma_sayisi<-c(yildan_az_1,yil_1_5,yil_6_10,yil_11_15,yil_16_20)
 )
+bosanma_sayisi$Evlilik_Suresi <- factor(
+  bosanma_sayisi$Evlilik_Suresi,
+  levels = c("0-1 yıldan az", "1-5 yıl", "6-10 yıl", "11-15 yıl", "16-20+ yıl")
+)
 print(bosanma_sayisi)
-bosanma_sayisi|> ggplot(aes(x=Evlilik_Suresi, y=total_bosanma_sayisi)) + geom_bar(stat = "identity", fill = "steelblue")
-#erdi yasmin 
+bosanma_sayisi|> ggplot(aes(x=Evlilik_Suresi, y=total_bosanma_sayisi)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+
+geom_text(aes(label = total_bosanma_sayisi), vjust = -0.5, size = 3)+labs(
+      title = "Evlilik Süresine Göre Boşanma Sayısı",
+    x = "Evlilik Süresi",
+    y = "Toplam Boşanma Sayısı"
+  ) +
+  theme_light() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 12, face = "bold")
+  )
+#erdi yasmin (sütun sıralasmını levels kodu ile yaptık chatgpt den yardım aldık)
+
+#erdi yasmin (2) (Evlilik süresi ve yıllara göre boşanma sayısının karşılaştırılması)
+yillar_0_1<-vector()
+for (i in seq(1,24)) 
+{yillar_0_1[i]<-sum(evlilik_suresi[i,2])
+
+}
+yillar_1_5<-vector()
+for (i in seq(1,24)) 
+{yillar_1_5[i]<-sum(evlilik_suresi[i,3:7])
+
+}
+yillar_6_10<-vector()
+for (i in seq(1,24)) 
+{yillar_6_10[i]<-sum(evlilik_suresi[i,8:12])
+
+}
+yillar_11_15<-vector()
+for (i in seq(1,24)) 
+{yillar_11_15[i]<-sum(evlilik_suresi[i,13:17])
+
+}
+
+yillar_16_20<-vector()
+for (i in seq(1,24)) 
+{yillar_16_20[i]<-sum(evlilik_suresi[i,18:22])
+
+}
+yillar <-vector()
+for(i in seq(1,24))
+{yillar[i]<-evlilik_suresi[i,1]}
 
 
+yillara_gore_bs <- data.frame(
+  Yillar = yillar,            
+  `0_1_yil` = yillar_0_1,
+  `1_5_yil` = yillar_1_5,
+  `6_10_yil` = yillar_6_10,
+  `11_15_yil` = yillar_11_15,
+  `16_20_yil` = yillar_16_20)
+
+str(yillara_gore_bs)
 
 Yas_Farki_Turkiye_geneli <- read_excel("veri/Yas_Farki_Turkiye_geneli.xlsx")
 head(Yas_Farki_Turkiye_geneli)
