@@ -208,8 +208,92 @@ grafik <- turkiye_geneli |> ggplot() +
 
 grafik
 
+<<<<<<< HEAD
 ## Trend Analizi
+=======
+Sys.setlocale("LC_ALL", "Turkish")
 
+#Kadın Yaş Dağılımları Yıllara göre#
+>>>>>>> cf74cde081f95bb4cb1b3df11413d9a283b97f10
+
+library(readxl)
+library(tidyverse)
+
+# Veriyi oku
+df_kadin <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx", sheet = "Kadın Yaş Dağılımı")
+
+# Kolon adını düzelt (boşluk içeriyor)
+colnames(df_kadin)[3] <- "Bosanan_Kadin_Sayisi"
+
+# Barplot çizimi
+ggplot(df_kadin, aes(x = as.factor(Yil), y = Bosanan_Kadin_Sayisi, fill = Yas_Grubu)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_minimal() +
+  labs(title = "Türkiye'de Boşanan Kadın Yaş Dağılımı", x = "Yıl", y = "Boşanan Kadın Sayısı") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+#Kadın Yaş Dağılımları Yıllara göre Bitiş#
+
+##Erkek Yaş Dağılımları Yıllara göre#
+
+# Veriyi oku
+df_erkek <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx", sheet = "Erkek Yaş Dağılımı")
+
+# Kolon adını düzelt (boşluk içeriyor)
+colnames(df_erkek)[3] <- "Bosanan_Erkek_Sayisi"
+
+# Barplot çizimi
+ggplot(df_erkek, aes(x = as.factor(Yil), y = Bosanan_Erkek_Sayisi, fill = Yas_Grubu)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_minimal() +
+  labs(title = "Türkiye'de Boşanan Erkek Yaş Dağılımı", x = "Yıl", y = "Boşanan Erkek Sayısı") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+#Erkek Yaş Dağılımları Yıllara göre Bitiş#
+
+## Daire grafikleri
+library(readxl)
+
+# Excel dosyasını oku (dosya adını kendi bilgisayar yoluna göre değiştir)
+df <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye Genelll.xlsx")
+
+# Kadın verisi
+kadin_veri <- df$Turkiye_Kadin_Dagilim
+yas_gruplari <- df$Yas_Grubu
+
+# Erkek verisi
+erkek_veri <- df$Turkiye_Erkek_Dagilim
+
+#Her yaş Grubuna Renk Belirleme
+renkler <- c("Yaş Aralığı: 16-29"  = "skyblue",
+  "Yaş Aralığı: 30-44"  = "salmon",
+  "Yaş Aralığı: 45-54"  = "gold",
+  "Yaş Aralığı: 55 ve 60 ustu"  = "red")
+  
+#Yaş grubuna denk gelen renkleri seçme
+renk_atama <- renkler[yas_gruplari]
+
+#Yüzdeleri hesapla (kadın ve erkek için ayrı)
+kadin_yuzde <- round(kadin_veri / sum(kadin_veri) * 100, 1)
+erkek_yuzde <- round(erkek_veri / sum(erkek_veri) * 100, 1)
+
+# Etiketleri yüzdeyle birleştir (örnek: "Yaş Aralığı: 30-44 - 56.2%")
+kadin_etiketler <- paste0(yas_gruplari, " - ", kadin_yuzde, "%")
+erkek_etiketler <- paste0(yas_gruplari, " - ", erkek_yuzde, "%")
+
+#iki grafiği beraber çizmek için
+par(mfrow=c(1,2))
+
+# Kadın pasta grafiği çizme
+kadin_grafik <- pie(kadin_veri, labels = yas_gruplari, main = "Kadın Yaş Dağılımı", col = renk_atama)
+
+# Erkek pasta grafiği çizme
+erkek_grafik <- pie(erkek_veri, labels = yas_gruplari, main = "Erkek Yaş Dağılımı", col = renk_atama)
+
+#PieChart Bitiş
+
+
+
+## Trend Analizi
 ## Model Uydurma
 
 ## Sonuçlar
