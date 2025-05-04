@@ -56,6 +56,7 @@ library(kableExtra)
 
 
 # Analiz
+
 turkiye_geneli <- read_excel("veri/turkiye_geneli.xlsx")
 head(turkiye_geneli)
 Kadin_Erkek_Yas_Dagilimlari <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari.xlsx")
@@ -65,6 +66,7 @@ head(evlilik_suresi)
 
 # erdi yasmin Evlilik süresine göre boşanma sayısı grafiği
 #ortalama_evlilik_suresi_bazli<-apply(evlilik_suresi,2,mean)
+
 yildan_az_1<-sum(evlilik_suresi[2])
 yil_1_5<-sum(evlilik_suresi[3:7])
 yil_6_10<-sum(evlilik_suresi[8:12])
@@ -149,8 +151,44 @@ ggplot(df_long,aes(x = Yil, y = Deger, color = Evlilik_Suresi)) +
 
 Yas_Farki_Turkiye_geneli <- read_excel("veri/Yas_Farki_Turkiye_geneli.xlsx")
 head(Yas_Farki_Turkiye_geneli)
+#yasmin erdi 3 bölgelere göre erkek kadın boşanma-start
+
+ornek <- read_excel("veri/yasmin-erdi/ornek.xlsx")
+ornek$Yil <- as.numeric (ornek$Yil)
+str(ornek)
 
 
+veri_long <- ornek %>% pivot_longer(cols = -c(Kadin_Yas_Grubu, Yil),  names_to = "Bolge", values_to = "Deger")
+
+
+
+
+
+# 6 yıllık dönemleri tanımlayalım
+veri_long <- veri_long %>%
+  mutate(Donem = case_when(
+    Yil %in% 2001:2006 ~ "2001–2006",
+    Yil %in% 2007:2012 ~ "2007–2012",
+    Yil %in% 2013:2018 ~ "2013–2018",
+    Yil %in% 2019:2024 ~ "2019–2024",
+    TRUE ~ NA_character_
+  )) %>%
+  filter(!is.na(Donem))  # sadece belirli dönemler kalsın
+
+# Grafik çizimi: 4 facet, her biri bir dönem
+ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
+  geom_point(position = position_jitter(width = 0.1), size = 1, alpha = 1) +
+  facet_wrap(~ Donem, ncol = 2) +
+  labs(title = "Kadın Yaş Gruplarına Gore Bolgesel Dağılım (2001–2024)",
+    x = "Bosanma Sayısı",
+    y = "Kadın Yaş Aralığı",
+    color = "Bolge") +theme_minimal() +theme(axis.text.x = element_text(angle = 0, hjust = 1))+ scale_x_continuous(limits = c(0, 20000),         
+    breaks = seq(0, 20000, 5000))
+
+
+
+
+str(veri_long)
 
 ## Keşifsel Veri Analizi
 
@@ -169,8 +207,6 @@ grafik <- turkiye_geneli |> ggplot() +
   theme( axis.text.x = element_text(angle = 90, hjust = 1))
 
 grafik
-
-Sys.setlocale("LC_ALL", "Turkish")
 
 ## Trend Analizi
 
