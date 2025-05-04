@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -35,12 +69,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f0a835b436c8237afb39a3d661799075.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-23fbdbd68025e54cff3b12d49adbe416.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -132,14 +195,22 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ön-işleme" id="toc-ön-işleme" class="nav-link" data-scroll-target="#ön-işleme"><span class="header-section-number">2.4</span> Ön İşleme</a></li>
   </ul></li>
   <li><a href="#analiz" id="toc-analiz" class="nav-link" data-scroll-target="#analiz"><span class="header-section-number">3</span> Analiz</a></li>
-  <li><a href="#erdi-yasmin" id="toc-erdi-yasmin" class="nav-link" data-scroll-target="#erdi-yasmin"><span class="header-section-number">4</span> erdi yasmin</a>
+  <li><a href="#erdi-yasmin-evlilik-süresine-göre-boşanma-sayısı-grafiği" id="toc-erdi-yasmin-evlilik-süresine-göre-boşanma-sayısı-grafiği" class="nav-link" data-scroll-target="#erdi-yasmin-evlilik-süresine-göre-boşanma-sayısı-grafiği"><span class="header-section-number">4</span> erdi yasmin Evlilik süresine göre boşanma sayısı grafiği</a>
   <ul class="collapse">
   <li><a href="#keşifsel-veri-analizi" id="toc-keşifsel-veri-analizi" class="nav-link" data-scroll-target="#keşifsel-veri-analizi"><span class="header-section-number">4.1</span> Keşifsel Veri Analizi</a></li>
-  <li><a href="#trend-analizi" id="toc-trend-analizi" class="nav-link" data-scroll-target="#trend-analizi"><span class="header-section-number">4.2</span> Trend Analizi</a></li>
-  <li><a href="#model-uydurma" id="toc-model-uydurma" class="nav-link" data-scroll-target="#model-uydurma"><span class="header-section-number">4.3</span> Model Uydurma</a></li>
-  <li><a href="#sonuçlar" id="toc-sonuçlar" class="nav-link" data-scroll-target="#sonuçlar"><span class="header-section-number">4.4</span> Sonuçlar</a></li>
   </ul></li>
-  <li><a href="#sonuçlar-ve-ana-çıkarımlar" id="toc-sonuçlar-ve-ana-çıkarımlar" class="nav-link" data-scroll-target="#sonuçlar-ve-ana-çıkarımlar"><span class="header-section-number">5</span> Sonuçlar ve Ana Çıkarımlar</a></li>
+  <li><a href="#veriyi-oku" id="toc-veriyi-oku" class="nav-link" data-scroll-target="#veriyi-oku"><span class="header-section-number">5</span> Veriyi oku</a></li>
+  <li><a href="#kolon-adını-düzelt-boşluk-içeriyor" id="toc-kolon-adını-düzelt-boşluk-içeriyor" class="nav-link" data-scroll-target="#kolon-adını-düzelt-boşluk-içeriyor"><span class="header-section-number">6</span> Kolon adını düzelt (boşluk içeriyor)</a></li>
+  <li><a href="#barplot-çizimi" id="toc-barplot-çizimi" class="nav-link" data-scroll-target="#barplot-çizimi"><span class="header-section-number">7</span> Barplot çizimi</a></li>
+  <li><a href="#veriyi-oku-1" id="toc-veriyi-oku-1" class="nav-link" data-scroll-target="#veriyi-oku-1"><span class="header-section-number">8</span> Veriyi oku</a></li>
+  <li><a href="#kolon-adını-düzelt-boşluk-içeriyor-1" id="toc-kolon-adını-düzelt-boşluk-içeriyor-1" class="nav-link" data-scroll-target="#kolon-adını-düzelt-boşluk-içeriyor-1"><span class="header-section-number">9</span> Kolon adını düzelt (boşluk içeriyor)</a></li>
+  <li><a href="#barplot-çizimi-1" id="toc-barplot-çizimi-1" class="nav-link" data-scroll-target="#barplot-çizimi-1"><span class="header-section-number">10</span> Barplot çizimi</a>
+  <ul class="collapse">
+  <li><a href="#trend-analizi" id="toc-trend-analizi" class="nav-link" data-scroll-target="#trend-analizi"><span class="header-section-number">10.1</span> Trend Analizi</a></li>
+  <li><a href="#model-uydurma" id="toc-model-uydurma" class="nav-link" data-scroll-target="#model-uydurma"><span class="header-section-number">10.2</span> Model Uydurma</a></li>
+  <li><a href="#sonuçlar" id="toc-sonuçlar" class="nav-link" data-scroll-target="#sonuçlar"><span class="header-section-number">10.3</span> Sonuçlar</a></li>
+  </ul></li>
+  <li><a href="#sonuçlar-ve-ana-çıkarımlar" id="toc-sonuçlar-ve-ana-çıkarımlar" class="nav-link" data-scroll-target="#sonuçlar-ve-ana-çıkarımlar"><span class="header-section-number">11</span> Sonuçlar ve Ana Çıkarımlar</a></li>
   </ul>
 </nav>
 </nav>
@@ -193,17 +264,30 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="ön-işleme" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="ön-işleme"><span class="header-section-number">2.4</span> Ön İşleme</h2>
-<p>install.packages(“readxl”) install.packages(“dplyr”) install.packages(“ggplot2”) install.packages(“tidyr”) install.packages(“kableExtra”) install.packages(“openxlsx”) install.packages(c(“stringr”, “scales”, “plotly”, “ggrepel”, “ggthemes”,“patchwork”))</p>
+<p>install.packages(“readxl”) install.packages(“dplyr”) install.packages(“ggplot2”) install.packages(“tidyr”) install.packages(“kableExtra”) install.packages(“openxlsx”) install.packages(c(“stringr”, “scales”, “plotly”, “ggrepel”, “ggthemes”,“patchwork”)) install.packages(“plotrix”) install.packages(“janitor”)</p>
 <p>library(patchwork) library(readxl) library(openxlsx) library(dplyr) library(ggplot2) library(tidyr) library(stringr) library(scales) library(plotly) library(ggrepel) library(ggthemes) library(kableExtra)</p>
 </section>
 </section>
 <section id="analiz" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Analiz</h1>
-<p>turkiye_geneli &lt;- read_excel(“veri/turkiye_geneli.xlsx”) head(turkiye_geneli) Kadin_Erkek_Yas_Dagilimlari &lt;- read_excel(“veri/Kadin_Erkek_Yas_Dagilimlari.xlsx”) head(Kadin_Erkek_Yas_Dagilimlari) evlilik_suresi&lt;- read_excel(“veri/Evlilik_suresi_Turkiye_geneli.xlsx”) head(Evlilik_suresi_Turkiye_geneli)</p>
+<p>turkiye_geneli &lt;- read_excel(“veri/turkiye_geneli.xlsx”) head(turkiye_geneli) Kadin_Erkek_Yas_Dagilimlari &lt;- read_excel(“veri/Kadin_Erkek_Yas_Dagilimlari.xlsx”) head(Kadin_Erkek_Yas_Dagilimlari) evlilik_suresi&lt;- read_excel(“veri/Evlilik_suresi_Turkiye_geneli.xlsx”) head(evlilik_suresi)</p>
 </section>
-<section id="erdi-yasmin" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> erdi yasmin</h1>
-<p>#ortalama_evlilik_suresi_bazli&lt;-apply(evlilik_suresi,2,mean) yildan_az_1&lt;-sum(evlilik_suresi[2]) yil_1_5&lt;-sum(evlilik_suresi[3:7]) yil_6_10&lt;-sum(evlilik_suresi[8:12]) yil_11_15&lt;-sum(evlilik_suresi[13:17]) yil_16_20&lt;-sum(evlilik_suresi[18:22]) bosanma_sayisi &lt;- data.frame( Evlilik_Suresi = c(“0-1 yıldan az”, “1-5 yıl”, “6-10 yıl”, “11-15 yıl”, “16-20+ yıl”), total_bosanma_sayisi&lt;-c(yildan_az_1,yil_1_5,yil_6_10,yil_11_15,yil_16_20) ) print(bosanma_sayisi) bosanma_sayisi|&gt; ggplot(aes(x=Evlilik_Suresi, y=total_bosanma_sayisi)) + geom_bar(stat = “identity”, fill = “steelblue”) #erdi yasmin</p>
+<section id="erdi-yasmin-evlilik-süresine-göre-boşanma-sayısı-grafiği" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> erdi yasmin Evlilik süresine göre boşanma sayısı grafiği</h1>
+<p>#ortalama_evlilik_suresi_bazli&lt;-apply(evlilik_suresi,2,mean) yildan_az_1&lt;-sum(evlilik_suresi[2]) yil_1_5&lt;-sum(evlilik_suresi[3:7]) yil_6_10&lt;-sum(evlilik_suresi[8:12]) yil_11_15&lt;-sum(evlilik_suresi[13:17]) yil_16_20&lt;-sum(evlilik_suresi[18:22]) bosanma_sayisi &lt;- data.frame( Evlilik_Suresi = c(“0-1 yıldan az”, “1-5 yıl”, “6-10 yıl”, “11-15 yıl”, “16-20+ yıl”), total_bosanma_sayisi&lt;-c(yildan_az_1,yil_1_5,yil_6_10,yil_11_15,yil_16_20) ) bosanma_sayisi<span class="math inline">\(Evlilik_Suresi &lt;- factor(
+  bosanma_sayisi\)</span>Evlilik_Suresi, levels = c(“0-1 yıldan az”, “1-5 yıl”, “6-10 yıl”, “11-15 yıl”, “16-20+ yıl”) ) print(bosanma_sayisi) bosanma_sayisi|&gt; ggplot(aes(x=Evlilik_Suresi, y=total_bosanma_sayisi)) + geom_bar(stat = “identity”, fill = “skyblue”,width = 0.5)+ geom_text(aes(label = total_bosanma_sayisi), vjust = -0.5, size = 3)+labs( title = “Evlilik Suresine Gore Bosanma Sayısı”, x = “Evlilik Suresi”, y = “Toplam Boşanma Sayısı” ) + theme_light() + theme( plot.title = element_text(hjust = 0.5, size = 12, face = “bold”) ) #erdi yasmin (sütun sıralasmını levels kodu ile yaptık chatgpt den yardım aldık)</p>
+<p>#erdi yasmin (2) (Evlilik süresi ve yıllara göre boşanma sayısının karşılaştırılması) yillar_0_1&lt;-vector() for (i in seq(1,24)) {yillar_0_1[i]&lt;-sum(evlilik_suresi[i,2])</p>
+<p>} yillar_1_5&lt;-vector() for (i in seq(1,24)) {yillar_1_5[i]&lt;-sum(evlilik_suresi[i,3:7])</p>
+<p>} yillar_6_10&lt;-vector() for (i in seq(1,24)) {yillar_6_10[i]&lt;-sum(evlilik_suresi[i,8:12])</p>
+<p>} yillar_11_15&lt;-vector() for (i in seq(1,24)) {yillar_11_15[i]&lt;-sum(evlilik_suresi[i,13:17])</p>
+<p>}</p>
+<p>yillar_16_20&lt;-vector() for (i in seq(1,24)) {yillar_16_20[i]&lt;-sum(evlilik_suresi[i,18:22])</p>
+<p>} yillar &lt;-vector() for(i in seq(1,24)) {yillar[i]&lt;-evlilik_suresi[i,1]}</p>
+<p>yillar &lt;- as.numeric (yillar) yillara_gore_bs &lt;- data.frame( ‘yil_0_1’=yillar_0_1, <code>yil_1_5</code> = yillar_1_5, <code>yil_6_10</code> = yillar_6_10, <code>yil_11_15</code> = yillar_11_15, <code>yil_16_20</code> = yillar_16_20)</p>
+<p>yillara_gore_bs$Yil &lt;- yillar</p>
+<p>df_long &lt;- yillara_gore_bs %&gt;% pivot_longer(cols = -Yil, names_to = “Evlilik_Suresi”, values_to = “Deger”)</p>
+<p>df_long<span class="math inline">\(Evlilik_Suresi &lt;- factor(df_long\)</span>Evlilik_Suresi, levels = c(“yil_0_1”, “yil_1_5”, “yil_6_10”, “yil_11_15”, “yil_16_20”) )</p>
+<p>ggplot(df_long,aes(x = Yil, y = Deger, color = Evlilik_Suresi)) + geom_line(size = 1.2) + labs( title = “Yıllara Gore Bosanma Sayıları”, x = “Yıllar”, y = “Toplam Bosanma Sayısı” ) + theme_minimal()+ scale_x_continuous(breaks = seq(min(df_long<span class="math inline">\(Yil), max(df_long\)</span>Yil), by = 1))+theme( axis.text.x = element_text(angle = 90, hjust = 1))+theme(plot.title = element_text(hjust = 0.5, size = 12, face = “bold”) )</p>
 <p>Yas_Farki_Turkiye_geneli &lt;- read_excel(“veri/Yas_Farki_Turkiye_geneli.xlsx”) head(Yas_Farki_Turkiye_geneli)</p>
 <section id="keşifsel-veri-analizi" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="keşifsel-veri-analizi"><span class="header-section-number">4.1</span> Keşifsel Veri Analizi</h2>
@@ -211,22 +295,99 @@ ul.task-list li input[type="checkbox"] {
 <p>grafik &lt;- turkiye_geneli |&gt; ggplot() + geom_line(aes(x = yil, y = evlenme_sayisi, color = “Evlenme Sayısı”,group=1), size = 1.7) + geom_line(aes(x = yil, y = bosanma_sayisi, color = “Boşanma Sayısı”,group=1), size = 1.7) + scale_color_manual(values = c(“Evlenme Sayısı” = “blue”, “Boşanma Sayısı” = “red”)) + scale_y_continuous(breaks = seq(0, 700000, by = 50000), labels = comma) + labs( title = “Türkiye’de Yıllara Göre Evlenme ve Boşanma Sayıları”, x = “Yıl”, y = “Kişi Sayısı”, color = “Durum”) + theme( axis.text.x = element_text(angle = 90, hjust = 1))</p>
 <p>grafik</p>
 <p>Sys.setlocale(“LC_ALL”, “Turkish”)</p>
+<p>#Kadın Yaş Dağılımları Yıllara göre#</p>
+<p>library(readxl) library(tidyverse)</p>
 </section>
-<section id="trend-analizi" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="trend-analizi"><span class="header-section-number">4.2</span> Trend Analizi</h2>
+</section>
+<section id="veriyi-oku" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Veriyi oku</h1>
+<p>df_kadin &lt;- read_excel(“veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx”, sheet = “Kadın Yaş Dağılımı”)</p>
+</section>
+<section id="kolon-adını-düzelt-boşluk-içeriyor" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Kolon adını düzelt (boşluk içeriyor)</h1>
+<p>colnames(df_kadin)[3] &lt;- “Bosanan_Kadin_Sayisi”</p>
+</section>
+<section id="barplot-çizimi" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Barplot çizimi</h1>
+<p>ggplot(df_kadin, aes(x = as.factor(Yil), y = Bosanan_Kadin_Sayisi, fill = Yas_Grubu)) + geom_bar(stat = “identity”, position = “dodge”) + theme_minimal() + labs(title = “Türkiye’de Boşanan Kadın Yaş Dağılımı”, x = “Yıl”, y = “Boşanan Kadın Sayısı”) + theme(axis.text.x = element_text(angle = 45, hjust = 1))</p>
+<p>#Kadın Yaş Dağılımları Yıllara göre Bitiş#</p>
+<p>##Erkek Yaş Dağılımları Yıllara göre#</p>
+</section>
+<section id="veriyi-oku-1" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Veriyi oku</h1>
+<p>df_erkek &lt;- read_excel(“veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx”, sheet = “Erkek Yaş Dağılımı”)</p>
+</section>
+<section id="kolon-adını-düzelt-boşluk-içeriyor-1" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Kolon adını düzelt (boşluk içeriyor)</h1>
+<p>colnames(df_erkek)[3] &lt;- “Bosanan_Erkek_Sayisi”</p>
+</section>
+<section id="barplot-çizimi-1" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Barplot çizimi</h1>
+<p>ggplot(df_erkek, aes(x = as.factor(Yil), y = Bosanan_Erkek_Sayisi, fill = Yas_Grubu)) + geom_bar(stat = “identity”, position = “dodge”) + theme_minimal() + labs(title = “Türkiye’de Boşanan Erkek Yaş Dağılımı”, x = “Yıl”, y = “Boşanan Erkek Sayısı”) + theme(axis.text.x = element_text(angle = 45, hjust = 1)) #Erkek Yaş Dağılımları Yıllara göre Bitiş#</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Daire grafikleri</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Veriyi oku</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye Genelll.xlsx"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Kadın ve erkek verisi</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>kadin_veri <span class="ot">&lt;-</span> df<span class="sc">$</span>Turkiye_Kadin_Dagilim</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>erkek_veri <span class="ot">&lt;-</span> df<span class="sc">$</span>Turkiye_Erkek_Dagilim</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>yas_gruplari <span class="ot">&lt;-</span> df<span class="sc">$</span>Yas_Grubu</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Yüzdeleri hesapla</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>kadin_yuzde <span class="ot">&lt;-</span> <span class="fu">round</span>(kadin_veri <span class="sc">/</span> <span class="fu">sum</span>(kadin_veri) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>erkek_yuzde <span class="ot">&lt;-</span> <span class="fu">round</span>(erkek_veri <span class="sc">/</span> <span class="fu">sum</span>(erkek_veri) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiketleri oluştur</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>kadin_etiketler <span class="ot">&lt;-</span> <span class="fu">paste0</span>(yas_gruplari, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, kadin_yuzde, <span class="st">"%"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>erkek_etiketler <span class="ot">&lt;-</span> <span class="fu">paste0</span>(yas_gruplari, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, erkek_yuzde, <span class="st">"%"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># PASTEL renk paleti (4 yaş grubu için)</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>renkler <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">name =</span> <span class="st">"Pastel1"</span>)  <span class="co"># Alternatif: "Set3"</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Grafik ekranını ikiye böl</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Kadın grafiği</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(kadin_veri, <span class="at">labels =</span> kadin_etiketler, <span class="at">main =</span> <span class="st">"Boşanma Yaş Dağılımı (Kadın)"</span>, <span class="at">col =</span> renkler,<span class="at">font=</span><span class="dv">2</span>,<span class="at">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">frame</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proje_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Erkek grafiği</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(erkek_veri, <span class="at">labels =</span> erkek_etiketler, <span class="at">main =</span> <span class="st">"Boşanma Yaş Dağılımı (Erkek)"</span>, <span class="at">col =</span> renkler,<span class="at">font=</span><span class="dv">2</span>,<span class="at">cex=</span><span class="fl">0.5</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#PieChart Bitiş</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proje_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="trend-analizi" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="trend-analizi"><span class="header-section-number">10.1</span> Trend Analizi</h2>
+</section>
+<section id="model-uydurma" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="model-uydurma"><span class="header-section-number">10.2</span> Model Uydurma</h2>
+</section>
+<section id="sonuçlar" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="sonuçlar"><span class="header-section-number">10.3</span> Sonuçlar</h2>
 <p>xxxxxx</p>
 </section>
-<section id="model-uydurma" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="model-uydurma"><span class="header-section-number">4.3</span> Model Uydurma</h2>
-<p>xxxxxx</p>
 </section>
-<section id="sonuçlar" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="sonuçlar"><span class="header-section-number">4.4</span> Sonuçlar</h2>
-<p>xxxxxx</p>
-</section>
-</section>
-<section id="sonuçlar-ve-ana-çıkarımlar" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Sonuçlar ve Ana Çıkarımlar</h1>
+<section id="sonuçlar-ve-ana-çıkarımlar" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Sonuçlar ve Ana Çıkarımlar</h1>
 <p>xxxxxx</p>
 
 
@@ -459,6 +620,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -569,6 +732,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
