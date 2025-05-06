@@ -292,9 +292,48 @@ pie(kadin_veri, labels = kadin_etiketler, main = "Boşanma Yaş Dağılımı (Ka
 
 # Erkek grafiği
 pie(erkek_veri, labels = erkek_etiketler, main = "Boşanma Yaş Dağılımı (Erkek)", col = renkler,font=2,cex=0.5)
+
+Sys.setlocale("LC_ALL", "Turkish")
 #
 #PieChart Bitiş
 
+### nüfusss orannnnnnn
+library(readxl)
+library(dplyr)
+library(ggplot2)
+
+# Excel dosyasını oku
+evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
+
+
+# Kaba hızları hesapla
+evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
+  mutate(
+    Kaba_Evlenme_Hizi = (Evlenme_Sayisi / Nufus_Sayisi) * 1000,
+    Kaba_Bosanma_Hizi = (Bosanma_Sayisi / Nufus_Sayisi) * 1000
+  )
+  
+  ggplot(veri, aes(x = Yil)) +
+  geom_bar(aes(y = Evlenme_Sayisi), stat = "identity", fill = "cornflowerblue") +
+  geom_line(aes(y = Kaba_Evlenme_Hizi * 80000), color = "darkred", size = 1.2) +
+  geom_line(aes(y = Kaba_Bosanma_Hizi * 80000), color = "darkgreen", size = 1.2, linetype = "dashed") +
+  geom_point(aes(y = Kaba_Evlenme_Hizi * 80000), color = "darkred", size = 2) +
+  geom_point(aes(y = Kaba_Bosanma_Hizi * 80000), color = "darkgreen", size = 2) +
+
+  scale_y_continuous(
+    name = "Evlenme sayısı",
+    sec.axis = sec_axis(~./80000, name = "Kaba hız (Binde)", breaks = seq(0, 10, 1))
+  ) +
+  labs(
+    title = "Yıllara Göre Evlenme Sayısı ve Kaba Hızlar (Evlenme & Boşanma)",
+    x = "Yıl"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.title.y = element_text(color = "black", size = 12),
+    axis.title.y.right = element_text(color = "black", size = 12),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
+    
 
 
 ## Trend Analizi
