@@ -151,22 +151,20 @@ ggplot(df_long,aes(x = Yil, y = Deger, color = Evlilik_Suresi)) +
   scale_x_continuous(breaks = seq(min(df_long$Yil), max(df_long$Yil), by = 1))+theme( axis.text.x = element_text(angle = 90, hjust = 1))+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold")
   )
 
-Yas_Farki_Turkiye_geneli <- read_excel("veri/Yas_Farki_Turkiye_geneli.xlsx")
-head(Yas_Farki_Turkiye_geneli)
+
 #yasmin erdi 3 bölgelere göre erkek kadın boşanma-start
 
-ornek <- read_excel("veri/yasmin-erdi/ornek.xlsx")
-ornek$Yil <- as.numeric (ornek$Yil)
-str(ornek)
+
+kadin_bosanma_bolge <- read_excel("veri/yasmin-erdi/kadin_bosanma_bolge.xlsx")
+
+kadin_bosanma_bolge$Yil <- as.numeric (kadin_bosanma_bolge$Yil)
+str(kadin_bosanma_bolge)
 
 
-veri_long <- ornek %>% pivot_longer(cols = -c(Kadin_Yas_Grubu, Yil),  names_to = "Bolge", values_to = "Deger")
+veri_long <- kadin_bosanma_bolge %>% pivot_longer(cols = -c(Kadin_Yas_Grubu, Yil),  names_to = "Bolge", values_to = "Deger")
 
 
 
-
-
-# 6 yıllık dönemleri tanımlayalım
 veri_long <- veri_long %>%
   mutate(Donem = case_when(
     Yil %in% 2001:2006 ~ "2001–2006",
@@ -177,7 +175,7 @@ veri_long <- veri_long %>%
   )) %>%
   filter(!is.na(Donem))  # sadece belirli dönemler kalsın
 
-# Grafik çizimi: 4 facet, her biri bir dönem
+# Grafik çizimi: 4 facet, her biri bir dönem (kadın)(yasmin-erdi)
 ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
   geom_point(position = position_jitter(width = 0.1), size = 1, alpha = 1) +
   facet_wrap(~ Donem, ncol = 2) +
@@ -185,19 +183,138 @@ ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
     x = "Bosanma Sayısı",
     y = "Kadın Yaş Aralığı",
     color = "Bolge") +theme_minimal() +theme(axis.text.x = element_text(angle = 0, hjust = 1))+ scale_x_continuous(limits = c(0, 20000),         
-    breaks = seq(0, 20000, 5000))
+    breaks = seq(0, 20000, 5000))+scale_color_manual(values = c(
+  "Akdeniz" = "#E69F00",
+  "Dogu_Anadolu" = "#56B4E9",
+  "Ege" = "#009E73",
+  "Guneydogu_Anadolu" = "#F0E442",
+  "Ic_Anadolu" = "#0072B2",
+  "Karadeniz" = "#D55E00",
+  "Marmara" = "#CC79A7"
+))
+
+# Grafik çizimi: 4 facet, her biri bir dönem (erkek)(yasmin-erdi)
+erkek_bosanma_bolge <- read_excel("veri/yasmin-erdi/erkek_bosanma_bolge.xlsx")
+str(erkek_bosanma_bolge)
+
+
+erkek_bosanma_bolge$Yil <- as.numeric (erkek_bosanma_bolge$Yil)
+
+
+veri_long1 <- erkek_bosanma_bolge %>% pivot_longer(cols = -c(Erkek_Yas_Grubu, Yil),  names_to = "Bolge", values_to = "Deger")
+
+
+veri_long1 <- veri_long1 %>%
+  mutate(Donem = case_when(
+    Yil %in% 2001:2006 ~ "2001–2006",
+    Yil %in% 2007:2012 ~ "2007–2012",
+    Yil %in% 2013:2018 ~ "2013–2018",
+    Yil %in% 2019:2024 ~ "2019–2024",
+    TRUE ~ NA_character_
+  )) %>%
+  filter(!is.na(Donem))
 
 
 
+ggplot(veri_long1, aes(x = Deger , y = Erkek_Yas_Grubu, color = Bolge)) +
+  geom_point(position = position_jitter(width = 0.1), size = 1, alpha = 1) +
+  facet_wrap(~ Donem, ncol = 2) +
+  labs(title = "Erkek Yaş Gruplarına Gore Bolgesel Dağılım (2001–2024)",
+    x = "Bosanma Sayısı",
+    y = "Erkek Yaş Aralığı",
+    color = "Bolge") +theme_minimal() +theme(axis.text.x = element_text(angle = 0, hjust = 1))+ scale_x_continuous(limits = c(0, 20000),         
+    breaks = seq(0, 20000, 5000))+scale_color_manual(values = c(
+  "Akdeniz" = "#E69F00",
+  "Dogu_Anadolu" = "#56B4E9",
+  "Ege" = "#009E73",
+  "Guneydogu_Anadolu" = "#F0E442",
+  "Ic_Anadolu" = "#0072B2",
+  "Karadeniz" = "#D55E00",
+  "Marmara" = "#CC79A7"
+))
 
-str(veri_long)
+
+#türkiye geneli eşler arası yaş farkı (yasmin-erdi)
+
+Yas_Farki_Turkiye_geneli <- read_excel("veri/yasmin-erdi/Yas_Farki_Turkiye_geneli.xlsx")
+
+
+str(Yas_Farki_Turkiye_geneli)
+
+Yas_Farki_Turkiye_geneli$Yil <- as.numeric (Yas_Farki_Turkiye_geneli$Yil)
+
+Yas_Farki_0_yils<-sum(Yas_Farki_Turkiye_geneli[2])
+Yas_Farki_1_5_yils<-sum(Yas_Farki_Turkiye_geneli[3])
+Yas_Farki_6_10_yils<-sum(Yas_Farki_Turkiye_geneli[4])
+Yas_Farki_11s<-sum(Yas_Farki_Turkiye_geneli[5])
+
+Esler_arasi_yas_farki <- data.frame(
+  kategori = c("0 yıl", "1-5 yıl", "6-10 yıl", "11+ yıl"),
+  deger = c(Yas_Farki_0_yils, Yas_Farki_1_5_yils, Yas_Farki_6_10_yils, Yas_Farki_11s)
+)
+ggplot(Esler_arasi_yas_farki, aes(x = "", y = deger, fill = kategori)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y", start = 0) +
+  labs(title = "Yaş Farki Dagilimi (Turkiye Geneli)") +
+  theme_void()+theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),  
+    legend.title = element_text(size = 12),  
+    legend.text = element_text(size = 10)  
+  ) +
+  scale_fill_manual(values = c("skyblue", "red", "darkgreen", "purple"))
+  
+#radar çizme
+  
+library(fmsb)
+library(scales)
+
+yasmin <- Yas_Farki_Turkiye_geneli
+colnames(yasmin) <- c("Yil", "Yas_Farki_0_yil", "Yas_Farki_1_5_yil", "Yas_Farki_6_10_yil", "Yas_Farki_11")
+
+# 2. Yaş farkı gruplarını satır yap, yılları sütun yap
+data <- data.frame(
+  row.names = c("Yas_Farki_0_yil", "Yas_Farki_1_5_yil", "Yas_Farki_6_10_yil", "Yas_Farki_11"),
+  t(yasmin[, -1]) 
+)
+colnames(data) <- yasmin$Yil
+
+# 3. Max-min değerleri ekle (gerekli)
+data <- rbind(
+  rep(max(data), ncol(data)),
+  rep(0, ncol(data)),
+  data
+)
+
+# 4. Grafik çizimi
+colors <- c("deepskyblue", "darkorange", "forestgreen", "steelblue")
+radarchart(data,
+           axistype = 1,
+           pcol = colors,
+           pfcol = alpha(colors, 0.3),
+           plwd = 3,
+           cglcol = "grey80",
+           cglty = 1,
+           axislabcol = "black",
+           caxislabels = seq(0, max(data), length.out = 5),
+           vlcex = 0.6  
+)
+       legend("bottom", legend = rownames(data)[-c(1,2)],
+       col = colors, lwd = 3, bty = "n", horiz = TRUE, cex = 0.8)
+# Yıl etiketlerini dışa yaz
+n_yillar <- ncol(data)
+angles <- seq(0, 2*pi, length.out = n_yillar + 1)[-1]
+radius <- 1.25
+x <- radius * sin(angles)
+y <- radius * cos(angles)
+
+
 
 ## Keşifsel Veri Analizi
 
 Durum <- c("evlenme_sayisi","bosanma_sayisi")
 
 grafik <- turkiye_geneli |> ggplot() +
-  geom_line(aes(x = yil, y = evlenme_sayisi, color = "Evlenme Sayısı",group=1), size = 1.7) +
+  geom_line(aes(x = yil, y = evlenme_salaryisi, color = "Evlenme Sayısı",group=1), size = 1.7) +
   geom_line(aes(x = yil, y = bosanma_sayisi, color = "Boşanma Sayısı",group=1), size = 1.7) +
   scale_color_manual(values = c("Evlenme Sayısı" = "blue", "Boşanma Sayısı" = "red")) +
   scale_y_continuous(breaks = seq(0, 700000, by = 50000), labels = comma) +
