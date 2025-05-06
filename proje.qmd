@@ -288,7 +288,153 @@ pie(erkek_veri, labels = erkek_etiketler, main = "Boşanma Yaş Dağılımı (Er
 
 
 ## Trend Analizi
-## Model Uydurma
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+
+# Veriyi oku
+evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
+
+# Kaba evlenme hızı hesapla
+evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
+  mutate(
+    Yil = as.numeric(Yil),
+    Kaba_Evlenme_Hizi = (Evlenme_Sayisi / Nufus_Sayisi) * 1000
+  )
+
+# Çizgi verisi hazırlığı
+hizlar <- evlilik_bosanma_hiz %>%
+  select(Yil, Kaba_Evlenme_Hizi) %>%
+  pivot_longer(cols = Kaba_Evlenme_Hizi, names_to = "Kaba_Evlenme_Hizi", values_to = "Deger") %>%
+  mutate(
+    Kaba_Evlenme_Hizi = "Kaba evlenme hızı",  # legend için etiket
+    Etiket = paste0(format(round(Deger, 2), nsmall = 2), " "),
+    Y_Pos = Deger * 80000
+  )
+
+# Barplot çizelim
+ggplot() +
+  geom_bar(data = evlilik_bosanma_hiz,
+           aes(x = Yil, y = Evlenme_Sayisi),
+           stat = "identity", fill = "cornflowerblue") +
+
+  geom_text(data = evlilik_bosanma_hiz,
+            aes(x = Yil, y = Evlenme_Sayisi,
+                label = format(Evlenme_Sayisi)),
+            angle = 90, vjust = 0.5, hjust = 3,
+            color = "white", size = 4) +
+
+#Çizgi ve nokta grafiği çizelim
+
+  geom_line(data = hizlar,
+            aes(x = Yil, y = Y_Pos, color = Kaba_Evlenme_Hizi, group = Kaba_Evlenme_Hizi),
+            size = 1.2) +
+  geom_point(data = hizlar,
+             aes(x = Yil, y = Y_Pos, color = Kaba_Evlenme_Hizi),
+             size = 2.5) +
+  geom_text(data = hizlar,
+            aes(x = Yil, y = Y_Pos, label = Etiket, color = Kaba_Evlenme_Hizi),
+            vjust = -1, size = 3, show.legend = FALSE) +
+
+  scale_color_manual(values = c("Kaba evlenme hızı" = "darkred")) +
+
+# Ekseni ayarla
+  scale_y_continuous(
+    name = "Evlenme sayısı",
+    sec.axis = sec_axis(~./80000, name = "Kaba hız (Binde)")
+  ) +
+  scale_x_continuous(breaks = evlilik_bosanma_hiz$Yil) +
+
+  # Etiketler ve tema
+  labs(
+    title = "Yıllara Göre Evlenme Sayısı ve Kaba Evlenme Hızı",
+    x = "Yıl",
+    color = "Gösterge"  # sadece çizgi için legend başlığı
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    axis.title.y = element_text(color = "black", size = 12),
+    axis.title.y.right = element_text(color = "black", size = 12),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
+  )
+# Sonuçları göster
+
+
+#boşanma nüfus grafiği
+
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+
+# Veriyi oku
+evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
+
+# Kaba evlenme hızı hesapla
+evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
+  mutate(
+    Yil = as.numeric(Yil),
+    Kaba_Bosanma_Hizi = (Bosanma_Sayisi / Nufus_Sayisi) * 1000
+  )
+
+# Çizgi verisi hazırlığı
+hizlar <- evlilik_bosanma_hiz %>%
+  select(Yil, Kaba_Bosanma_Hizi) %>%
+  pivot_longer(cols = Kaba_Bosanma_Hizi, names_to = "Kaba_Bosanma_Hizi", values_to = "Deger") %>%
+  mutate(
+    Kaba_Bosanma_Hizi = "Kaba bosanma hızı",
+    Etiket = paste0(format(round(Deger, 2), nsmall = 2), " "),
+    Y_Pos = Deger * 80000
+  )
+
+# Barplot çizelim
+ggplot() +
+  geom_bar(data = evlilik_bosanma_hiz,
+           aes(x = Yil, y = Bosanma_Sayisi),
+           stat = "identity", fill = "pink") +
+
+  geom_text(data = evlilik_bosanma_hiz,
+            aes(x = Yil, y = Bosanma_Sayisi,
+                label = format(Bosanma_Sayisi)),
+            angle = 90, vjust = 0.5, hjust = 3,
+            color = "black",size = 4) +
+
+#Çizgi ve nokta grafiği çizelim
+
+  geom_line(data = hizlar,
+            aes(x = Yil, y = Y_Pos, color = Kaba_Bosanma_Hizi, group = Kaba_Bosanma_Hizi),
+            size = 1.2) +
+  geom_point(data = hizlar,
+             aes(x = Yil, y = Y_Pos, color = Kaba_Bosanma_Hizi),
+             size = 2.5) +
+  geom_text(data = hizlar,
+            aes(x = Yil, y = Y_Pos, label = Etiket, color = Kaba_Bosanma_Hizi),
+            vjust = -1, size = 3, show.legend = FALSE) +
+
+  scale_color_manual(values = c("Kaba bosanma hızı" = "purple")) +
+
+# Ekseni ayarla
+  scale_y_continuous(
+    name = "Bosanma sayısı",
+    sec.axis = sec_axis(~./80000, name = "Kaba hız (Binde)")
+  ) +
+  scale_x_continuous(breaks = evlilik_bosanma_hiz$Yil) +
+
+  # Etiketler ve tema
+  labs(
+    title = "Yıllara Göre Bosanma Sayısı ve Kaba Bosanma Hızı",
+    x = "Yıl",
+    color = "Black"  
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    axis.title.y = element_text(color = "black", size = 12),
+    axis.title.y.right = element_text(color = "black", size = 12),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
+  )
 
 ## Sonuçlar
 
