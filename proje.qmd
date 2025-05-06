@@ -32,6 +32,7 @@ xxxxxx
 
 ## Ön İşleme
 
+<<<<<<< Updated upstream
 
 install.packages("readxl") 
 install.packages("dplyr")
@@ -55,10 +56,16 @@ library(plotly)
 library(ggrepel) 
 library(ggthemes)
 library(kableExtra)
+=======
+install.packages("readxl") install.packages("dplyr") install.packages("ggplot2") install.packages("tidyr") install.packages("kableExtra") install.packages("openxlsx") install.packages(c("stringr", "scales", "plotly", "ggrepel", "ggthemes"))
+
+library(readxl) library(openxlsx) library(dplyr) library(ggplot2) library(tidyr) library(stringr) library(scales) library(plotly) library(ggrepel) library(ggthemes) library(kableExtra)
+>>>>>>> Stashed changes
 
 
 # Analiz
 
+<<<<<<< Updated upstream
 turkiye_geneli <- read_excel("veri/turkiye_geneli.xlsx")
 head(turkiye_geneli)
 Kadin_Erkek_Yas_Dagilimlari <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari.xlsx")
@@ -191,6 +198,9 @@ ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
 
 
 str(veri_long)
+=======
+turkiye_geneli \<- read_excel("veri/turkiye_geneli.xlsx") head(turkiye_geneli) Kadin_Erkek_Yas_Dagilimlari \<- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari.xlsx") head(Kadin_Erkek_Yas_Dagilimlari) Evlilik_suresi_Turkiye_geneli \<- read_excel("veri/Evlilik_suresi_Turkiye_geneli.xlsx") head(Evlilik_suresi_Turkiye_geneli)
+>>>>>>> Stashed changes
 
 ## Keşifsel Veri Analizi
 
