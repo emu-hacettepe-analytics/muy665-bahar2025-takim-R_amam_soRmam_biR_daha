@@ -32,8 +32,6 @@ xxxxxx
 
 ## Ön İşleme
 
-<<<<<<< Updated upstream
-
 install.packages("readxl") 
 install.packages("dplyr")
 install.packages("ggplot2")
@@ -43,7 +41,7 @@ install.packages("openxlsx")
 install.packages(c("stringr", "scales", "plotly", "ggrepel", "ggthemes","patchwork"))
 install.packages("plotrix")
 install.packages("janitor")
-
+```{r}
 library(patchwork)
 library(readxl) 
 library(openxlsx) 
@@ -56,19 +54,14 @@ library(plotly)
 library(ggrepel) 
 library(ggthemes)
 library(kableExtra)
-
+```
 # Analiz
-
-
-turkiye_geneli <- read_excel("veri/turkiye_geneli.xlsx")
-head(turkiye_geneli)
-Kadin_Erkek_Yas_Dagilimlari <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari.xlsx")
-head(Kadin_Erkek_Yas_Dagilimlari)
-evlilik_suresi<- read_excel("veri/Evlilik_suresi_Turkiye_geneli.xlsx")
-head(evlilik_suresi)
+```{r}
 
 # erdi yasmin Evlilik süresine göre boşanma sayısı grafiği
 #ortalama_evlilik_suresi_bazli<-apply(evlilik_suresi,2,mean)
+evlilik_suresi<- read_excel("veri/Evlilik_suresi_Turkiye_geneli.xlsx")
+head(evlilik_suresi)
 
 yildan_az_1<-sum(evlilik_suresi[2])
 yil_1_5<-sum(evlilik_suresi[3:7])
@@ -83,49 +76,39 @@ bosanma_sayisi$Evlilik_Suresi <- factor(
   bosanma_sayisi$Evlilik_Suresi,
   levels = c("0-1 yıldan az", "1-5 yıl", "6-10 yıl", "11-15 yıl", "16-20+ yıl")
 )
-print(bosanma_sayisi)
-bosanma_sayisi|> ggplot(aes(x=Evlilik_Suresi, y=total_bosanma_sayisi)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+
-geom_text(aes(label = total_bosanma_sayisi), vjust = -0.5, size = 3)+labs(
-      title = "Evlilik Suresine Gore Bosanma Sayısı",
+bosanma_sayisi|> ggplot(aes(x=Evlilik_Suresi, y=total_bosanma_sayisi)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+ geom_text(aes(label = total_bosanma_sayisi), vjust = -0.5, size = 3)+labs(title = "Evlilik Suresine Gore Bosanma Sayısı",
     x = "Evlilik Suresi",
-    y = "Toplam Boşanma Sayısı"
-  ) +
-  theme_light() +
-  theme(
-    plot.title = element_text(hjust = 0.5, size = 12, face = "bold")
-  )
-#erdi yasmin (sütun sıralasmını levels kodu ile yaptık chatgpt den yardım aldık)
-
+    y = "Toplam Boşanma Sayısı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))
+#erdi yasmin level kodu
+```
+```{r}
 #erdi yasmin (2) (Evlilik süresi ve yıllara göre boşanma sayısının karşılaştırılması)
 yillar_0_1<-vector()
-for (i in seq(1,24)) 
-{yillar_0_1[i]<-sum(evlilik_suresi[i,2])
-
+for (i in seq(1,24)){
+  yillar_0_1[i]<-sum(evlilik_suresi[i,2])
 }
 yillar_1_5<-vector()
-for (i in seq(1,24)) 
-{yillar_1_5[i]<-sum(evlilik_suresi[i,3:7])
-
+for (i in seq(1,24)){
+  yillar_1_5[i]<-sum(evlilik_suresi[i,3:7])
 }
-yillar_6_10<-vector()
-for (i in seq(1,24)) 
-{yillar_6_10[i]<-sum(evlilik_suresi[i,8:12])
 
+yillar_6_10<-vector()
+for (i in seq(1,24)){
+  yillar_6_10[i]<-sum(evlilik_suresi[i,8:12])
 }
 yillar_11_15<-vector()
-for (i in seq(1,24)) 
-{yillar_11_15[i]<-sum(evlilik_suresi[i,13:17])
-
+for (i in seq(1,24)){
+  yillar_11_15[i]<-sum(evlilik_suresi[i,13:17])
 }
 
 yillar_16_20<-vector()
-for (i in seq(1,24)) 
-{yillar_16_20[i]<-sum(evlilik_suresi[i,18:22])
-
+for (i in seq(1,24)){
+  yillar_16_20[i]<-sum(evlilik_suresi[i,18:22])
 }
 yillar <-vector()
-for(i in seq(1,24))
-{yillar[i]<-evlilik_suresi[i,1]}
+for(i in seq(1,24)){
+  yillar[i]<-evlilik_suresi[i,1]
+}
 
 yillar <- as.numeric (yillar)
 yillara_gore_bs <- data.frame(
@@ -144,17 +127,15 @@ df_long$Evlilik_Suresi <- factor(df_long$Evlilik_Suresi,
 )
 
 ggplot(df_long,aes(x = Yil, y = Deger, color = Evlilik_Suresi)) +
-  geom_line(size = 1.2) + labs(
+  geom_line(linewidth = 1.2) + labs(
       title = "Yıllara Gore Bosanma Sayıları",
     x = "Yıllar",
     y = "Toplam Bosanma Sayısı"
-  ) + theme_minimal()+
-  scale_x_continuous(breaks = seq(min(df_long$Yil), max(df_long$Yil), by = 1))+theme( axis.text.x = element_text(angle = 90, hjust = 1))+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold")
+  ) + theme_minimal()+scale_x_continuous(breaks = seq(min(df_long$Yil), max(df_long$Yil), by = 1))+theme( axis.text.x = element_text(angle = 90, hjust = 1))+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold")
   )
-
-
+```
+```{r}
 #yasmin erdi 3 bölgelere göre erkek kadın boşanma-start
-
 
 kadin_bosanma_bolge <- read_excel("veri/yasmin-erdi/kadin_bosanma_bolge.xlsx")
 
@@ -164,8 +145,6 @@ str(kadin_bosanma_bolge)
 
 veri_long <- kadin_bosanma_bolge %>% pivot_longer(cols = -c(Kadin_Yas_Grubu, Yil),  names_to = "Bolge", values_to = "Deger")
 
-
-
 veri_long <- veri_long %>%
   mutate(Donem = case_when(
     Yil %in% 2001:2006 ~ "2001–2006",
@@ -173,8 +152,7 @@ veri_long <- veri_long %>%
     Yil %in% 2013:2018 ~ "2013–2018",
     Yil %in% 2019:2024 ~ "2019–2024",
     TRUE ~ NA_character_
-  )) %>%
-  filter(!is.na(Donem))  # sadece belirli dönemler kalsın
+  )) %>% filter(!is.na(Donem))
 
 # Grafik çizimi: 4 facet, her biri bir dönem (kadın)(yasmin-erdi)
 ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
@@ -193,14 +171,14 @@ ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
   "Karadeniz" = "#D55E00",
   "Marmara" = "#CC79A7"
 ))
-
+```
+```{r}
 # Grafik çizimi: 4 facet, her biri bir dönem (erkek)(yasmin-erdi)
 erkek_bosanma_bolge <- read_excel("veri/yasmin-erdi/erkek_bosanma_bolge.xlsx")
 str(erkek_bosanma_bolge)
-
-
+```
+```{r}
 erkek_bosanma_bolge$Yil <- as.numeric (erkek_bosanma_bolge$Yil)
-
 
 veri_long1 <- erkek_bosanma_bolge %>% pivot_longer(cols = -c(Erkek_Yas_Grubu, Yil),  names_to = "Bolge", values_to = "Deger")
 
@@ -215,15 +193,13 @@ veri_long1 <- veri_long1 %>%
   )) %>%
   filter(!is.na(Donem))
 
-
-
 ggplot(veri_long1, aes(x = Deger , y = Erkek_Yas_Grubu, color = Bolge)) +
   geom_point(position = position_jitter(width = 0.1), size = 1, alpha = 1) +
   facet_wrap(~ Donem, ncol = 2) +
   labs(title = "Erkek Yaş Gruplarına Gore Bolgesel Dağılım (2001–2024)",
     x = "Bosanma Sayısı",
     y = "Erkek Yaş Aralığı",
-    color = "Bolge") +theme_minimal() +theme(axis.text.x = element_text(angle = 0, hjust = 1))+ scale_x_continuous(limits = c(0, 20000),         
+    color = "Bolge") +theme_minimal() +theme(axis.text.x = element_text(angle = 0, hjust = 1))+ scale_x_continuous(limits = c(0, 22000),         
     breaks = seq(0, 20000, 5000))+scale_color_manual(values = c(
   "Akdeniz" = "#E69F00",
   "Dogu_Anadolu" = "#56B4E9",
@@ -233,14 +209,15 @@ ggplot(veri_long1, aes(x = Deger , y = Erkek_Yas_Grubu, color = Bolge)) +
   "Karadeniz" = "#D55E00",
   "Marmara" = "#CC79A7"
 ))
-
-
+```
+```{r}
 #türkiye geneli eşler arası yaş farkı (yasmin-erdi)
 
 Yas_Farki_Turkiye_geneli <- read_excel("veri/yasmin-erdi/Yas_Farki_Turkiye_geneli.xlsx")
 
-
 str(Yas_Farki_Turkiye_geneli)
+```
+```{r}
 
 Yas_Farki_Turkiye_geneli$Yil <- as.numeric (Yas_Farki_Turkiye_geneli$Yil)
 
@@ -265,7 +242,6 @@ ggplot(Esler_arasi_yas_farki, aes(x = "", y = deger, fill = kategori)) +
   scale_fill_manual(values = c("skyblue", "red", "darkgreen", "purple"))
   
 #radar çizme
-  
 library(fmsb)
 library(scales)
 
@@ -308,9 +284,14 @@ radius <- 1.25
 x <- radius * sin(angles)
 y <- radius * cos(angles)
 
-
+```
+```{r}
 ## Keşifsel Veri Analizi
 
+turkiye_geneli <- read_excel("veri/turkiye_geneli.xlsx")
+head(turkiye_geneli)
+```
+```{r}
 Durum <- c("evlenme_sayisi","bosanma_sayisi")
 
 grafik <- turkiye_geneli |> ggplot() +
@@ -319,23 +300,23 @@ grafik <- turkiye_geneli |> ggplot() +
   scale_color_manual(values = c("Evlenme Sayısı" = "blue", "Boşanma Sayısı" = "red")) +
   scale_y_continuous(breaks = seq(0, 700000, by = 50000), labels = comma) +
   labs(
-    title = "Türkiye'de Yıllara Göre Evlenme ve Boşanma Sayıları",
+    title = "Türkiye'de Yıllara Göre Evlenme ve Bosanma Sayıları",
     x = "Yıl",
     y = "Kişi Sayısı",
     color = "Durum") +
   theme( axis.text.x = element_text(angle = 90, hjust = 1))
 
 grafik
-
-
-## Trend Analizi
-
-
+```
 #Kadın Yaş Dağılımları Yıllara göre#
-
+```{r}
 
 # Veriyi oku
 df_kadin <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx", sheet = "Kadın Yaş Dağılımı")
+str(df_kadin)
+
+```
+```{r}
 
 # Kolon adını düzelt (boşluk içeriyor)
 colnames(df_kadin)[3] <- "Bosanan_Kadin_Sayisi"
@@ -344,16 +325,19 @@ colnames(df_kadin)[3] <- "Bosanan_Kadin_Sayisi"
 ggplot(df_kadin, aes(x = as.factor(Yil), y = Bosanan_Kadin_Sayisi, fill = Yas_Grubu)) +
   geom_bar(stat = "identity", position = "dodge") +
   theme_minimal() +
-  labs(title = "Türkiye'de Boşanan Kadın Yaş Dağılımı", x = "Yıl", y = "Boşanan Kadın Sayısı") +
+  labs(title = "Turkiye'de Bosanan Kadın Yaş Dağılımı", x = "Yıl", y = "Boşanan Kadın Sayısı") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
   
 #Kadın Yaş Dağılımları Yıllara göre Bitiş#
-
+```
 ##Erkek Yaş Dağılımları Yıllara göre#
+```{r}
 
 # Veriyi oku
 df_erkek <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx", sheet = "Erkek Yaş Dağılımı")
-
+str(df_erkek)
+```
+```{r}
 # Kolon adını düzelt (boşluk içeriyor)
 colnames(df_erkek)[3] <- "Bosanan_Erkek_Sayisi"
 
@@ -361,11 +345,11 @@ colnames(df_erkek)[3] <- "Bosanan_Erkek_Sayisi"
 ggplot(df_erkek, aes(x = as.factor(Yil), y = Bosanan_Erkek_Sayisi, fill = Yas_Grubu)) +
   geom_bar(stat = "identity", position = "dodge") +
   theme_minimal() +
-  labs(title = "Türkiye'de Boşanan Erkek Yaş Dağılımı", x = "Yıl", y = "Boşanan Erkek Sayısı") +
+  labs(title = "Turkiye'de Bosanan Erkek Yaş Dağılımı", x = "Yıl", y = "Boşanan Erkek Sayısı") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 #Erkek Yaş Dağılımları Yıllara göre Bitiş#
-
-
+```
+```{r}
 # Daire grafikleri
 
 library(readxl)
@@ -400,19 +384,17 @@ pie(kadin_veri, labels = kadin_etiketler, main = "Boşanma Yaş Dağılımı (Ka
 # Erkek grafiği
 pie(erkek_veri, labels = erkek_etiketler, main = "Boşanma Yaş Dağılımı (Erkek)", col = renkler,font=2,cex=0.5)
 
-Sys.setlocale("LC_ALL", "Turkish")
 #
 #PieChart Bitiş
+```
 
-### nüfusss orannnnnnn
-library(readxl)
-library(dplyr)
-library(ggplot2)
-
+#Nufüs oranlarına göre Boşanma Sayılarının Gösterilmesi
+```{r}
 # Excel dosyasını oku
 evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
-
-
+head(evlilik_bosanma_hiz)
+```
+```{r}
 # Kaba hızları hesapla
 evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
   mutate(
@@ -420,14 +402,11 @@ evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
     Kaba_Bosanma_Hizi = (Bosanma_Sayisi / Nufus_Sayisi) * 1000
   )
   
-  ggplot(veri, aes(x = Yil)) +
-  geom_bar(aes(y = Evlenme_Sayisi), stat = "identity", fill = "cornflowerblue") +
+  ggplot(evlilik_bosanma_hiz, aes(x = Yil)) +geom_bar(aes(y = Evlenme_Sayisi), stat = "identity", fill = "cornflowerblue") +
   geom_line(aes(y = Kaba_Evlenme_Hizi * 80000), color = "darkred", size = 1.2) +
   geom_line(aes(y = Kaba_Bosanma_Hizi * 80000), color = "darkgreen", size = 1.2, linetype = "dashed") +
   geom_point(aes(y = Kaba_Evlenme_Hizi * 80000), color = "darkred", size = 2) +
-  geom_point(aes(y = Kaba_Bosanma_Hizi * 80000), color = "darkgreen", size = 2) +
-
-  scale_y_continuous(
+  geom_point(aes(y = Kaba_Bosanma_Hizi * 80000), color = "darkgreen", size = 2) +scale_y_continuous(
     name = "Evlenme sayısı",
     sec.axis = sec_axis(~./80000, name = "Kaba hız (Binde)", breaks = seq(0, 10, 1))
   ) +
@@ -436,97 +415,59 @@ evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
     x = "Yıl"
   ) +
   theme_minimal() +
-  theme(
-    axis.title.y = element_text(color = "black", size = 12),
+  theme(axis.title.y = element_text(color = "black", size = 12),
     axis.title.y.right = element_text(color = "black", size = 12),
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
-    
-
-
-## Trend Analizi
-library(readxl)
-library(dplyr)
-library(ggplot2)
-library(tidyr)
-
-# Veriyi oku
-evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
-
-# Kaba evlenme hızı hesapla
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"))
+```
+```{r}
+#Kaba evlenme hızı hesapla
 evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
   mutate(
     Yil = as.numeric(Yil),
-    Kaba_Evlenme_Hizi = (Evlenme_Sayisi / Nufus_Sayisi) * 1000
-  )
+    Kaba_Evlenme_Hizi = (Evlenme_Sayisi / Nufus_Sayisi) * 1000)
 
 # Çizgi verisi hazırlığı
 hizlar <- evlilik_bosanma_hiz %>%
   select(Yil, Kaba_Evlenme_Hizi) %>%
-  pivot_longer(cols = Kaba_Evlenme_Hizi, names_to = "Kaba_Evlenme_Hizi", values_to = "Deger") %>%
-  mutate(
+  pivot_longer(cols = Kaba_Evlenme_Hizi, names_to = "Kaba_Evlenme_Hizi", values_to = "Deger") %>%mutate(
     Kaba_Evlenme_Hizi = "Kaba evlenme hızı",  # legend için etiket
     Etiket = paste0(format(round(Deger, 2), nsmall = 2), " "),
     Y_Pos = Deger * 80000
   )
 
 # Barplot çizelim
-ggplot() +
-  geom_bar(data = evlilik_bosanma_hiz,
+ggplot() + geom_bar(data = evlilik_bosanma_hiz,
            aes(x = Yil, y = Evlenme_Sayisi),
-           stat = "identity", fill = "cornflowerblue") +
-
-  geom_text(data = evlilik_bosanma_hiz,
-            aes(x = Yil, y = Evlenme_Sayisi,
-                label = format(Evlenme_Sayisi)),
+           stat = "identity", fill = "cornflowerblue")+
+  geom_text(data = evlilik_bosanma_hiz,aes(x = Yil, y = Evlenme_Sayisi,
+            label = format(Evlenme_Sayisi)),
             angle = 90, vjust = 0.5, hjust = 3,
-            color = "white", size = 4) +
-
-#Çizgi ve nokta grafiği çizelim
-
+            color = "white", size = 4)+
   geom_line(data = hizlar,
             aes(x = Yil, y = Y_Pos, color = Kaba_Evlenme_Hizi, group = Kaba_Evlenme_Hizi),
             size = 1.2) +
   geom_point(data = hizlar,
-             aes(x = Yil, y = Y_Pos, color = Kaba_Evlenme_Hizi),
+            aes(x = Yil, y = Y_Pos, color = Kaba_Evlenme_Hizi),
              size = 2.5) +
-  geom_text(data = hizlar,
-            aes(x = Yil, y = Y_Pos, label = Etiket, color = Kaba_Evlenme_Hizi),
+  geom_text(data = hizlar, aes(x = Yil, y = Y_Pos, label = Etiket, color=Kaba_Evlenme_Hizi),
             vjust = -1, size = 3, show.legend = FALSE) +
-
-  scale_color_manual(values = c("Kaba evlenme hızı" = "darkred")) +
-
-# Ekseni ayarla
-  scale_y_continuous(
+  scale_color_manual(values = c("Kaba evlenme hızı" = "darkred")) +scale_y_continuous(
     name = "Evlenme sayısı",
-    sec.axis = sec_axis(~./80000, name = "Kaba hız (Binde)")
-  ) +
-  scale_x_continuous(breaks = evlilik_bosanma_hiz$Yil) +
-
-  # Etiketler ve tema
-  labs(
-    title = "Yıllara Göre Evlenme Sayısı ve Kaba Evlenme Hızı",
-    x = "Yıl",
-    color = "Gösterge"  # sadece çizgi için legend başlığı
-  ) +
+    sec.axis = sec_axis(~./80000, name = "Kaba hız (Binde)"))+
+  scale_x_continuous(breaks = evlilik_bosanma_hiz$Yil)+
+  labs(title = "Yıllara Göre Evlenme Sayısı ve Kaba Evlenme Hızı",
+    x = "Yıl",color = "Gösterge") +
   theme_minimal() +
-  theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
     axis.title.y = element_text(color = "black", size = 12),
     axis.title.y.right = element_text(color = "black", size = 12),
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
-  )
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"))
 # Sonuçları göster
-
+```
 
 #boşanma nüfus grafiği
+```{r}
 
-library(readxl)
-library(dplyr)
-library(ggplot2)
-library(tidyr)
-
-# Veriyi oku
-evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
 
 # Kaba evlenme hızı hesapla
 evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
@@ -591,7 +532,7 @@ ggplot() +
     axis.title.y.right = element_text(color = "black", size = 12),
     plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
   )
-
+```
 ## Sonuçlar
 
 xxxxxx
