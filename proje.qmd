@@ -557,13 +557,14 @@ library(ggplot2)
 
 # Veri setimizi yükleyelim
 veri<- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
-# Uzun formata çevir (pivot_longer)
 veri_long <- veri %>%
   pivot_longer(
     cols = -`Bosanma_Nedeni`,
     names_to = "Grup",
     values_to = "Yuzde"
-  )
+  ) %>%
+  mutate(Yuzde = as.numeric(gsub(",", ".", Yuzde))) %>%
+  filter(!is.na(Yuzde))
 
 # Grafik çiz
 ggplot(veri_long, aes(x = `Bosanma_Nedeni`, y = Yuzde, fill = Grup)) +
@@ -580,8 +581,7 @@ ggplot(veri_long, aes(x = `Bosanma_Nedeni`, y = Yuzde, fill = Grup)) +
     plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
   )
   
-  
-xxxxxx
+
 
 # Sonuçlar ve Ana Çıkarımlar
 
