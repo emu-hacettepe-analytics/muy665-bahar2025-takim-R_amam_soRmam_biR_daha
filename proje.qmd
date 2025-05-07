@@ -230,16 +230,27 @@ Esler_arasi_yas_farki <- data.frame(
   kategori = c("0 yıl", "1-5 yıl", "6-10 yıl", "11+ yıl"),
   deger = c(Yas_Farki_0_yils, Yas_Farki_1_5_yils, Yas_Farki_6_10_yils, Yas_Farki_11s)
 )
-ggplot(Esler_arasi_yas_farki, aes(x = "", y = deger, fill = kategori)) +
-  geom_bar(stat = "identity", width = 1) +
-  coord_polar("y", start = 0) +
-  labs(title = "Yaş Farki Dagilimi (Turkiye Geneli)") +
-  theme_void()+theme(
-    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),  
-    legend.title = element_text(size = 12),  
-    legend.text = element_text(size = 10)  
+Esler_arasi_yas_farki$kategori <- reorder(Esler_arasi_yas_farki$kategori, -Esler_arasi_yas_farki$deger)
+
+# Dikey bar grafiği oluşturma
+ggplot(Esler_arasi_yas_farki, aes(x = kategori, y = deger, fill = kategori)) +
+  geom_bar(stat = "identity", width = 0.5) +  
+  geom_text(aes(label = deger), vjust = -0.5, size = 4) +  
+  labs(
+    title = "Eşler Arası Yaş Farkı Dağılımı (Türkiye Geneli)",
+    x = "Yaş Farkı Kategorisi",
+    y = "Toplam Sayı",
+    fill = "Kategori"
   ) +
-  scale_fill_manual(values = c("skyblue", "red", "darkgreen", "purple"))
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12),
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10)
+  ) +
+  ylim(0, max(Esler_arasi_yas_farki$deger) * 1.1)
   
 #radar çizme
 library(fmsb)
@@ -263,26 +274,32 @@ data <- rbind(
 )
 
 # 4. Grafik çizimi
-colors <- c("deepskyblue", "darkorange", "forestgreen", "steelblue")
+colors <- c("black", "darkorange", "forestgreen", "steelblue")
 radarchart(data,
            axistype = 1,
            pcol = colors,
            pfcol = alpha(colors, 0.3),
-           plwd = 3,
+           plwd = 0.1,
            cglcol = "grey80",
            cglty = 1,
            axislabcol = "black",
            caxislabels = seq(0, max(data), length.out = 5),
-           vlcex = 0.6  
+           vlcex = 0.5,  #Senelerin boyutu
+           calcex=0.7
 )
-       legend("bottom", legend = rownames(data)[-c(1,2)],
-       col = colors, lwd = 3, bty = "n", horiz = TRUE, cex = 0.8)
+       legend("right", legend = rownames(data)[-c(1,2)],
+       col = colors, lwd = 3, bty = "n", horiz = FALSE, cex = 0.6)
 # Yıl etiketlerini dışa yaz
 n_yillar <- ncol(data)
 angles <- seq(0, 2*pi, length.out = n_yillar + 1)[-1]
-radius <- 1.25
+radius <- 0.9
 x <- radius * sin(angles)
-y <- radius * cos(angles)
+y <- radius * cos(angles)+title(main = "Eşler Arası Yaş Farkı")
+
+
+#şehirlere göre boşanma sayısı
+Sehir_bosanma_sayisi_2001 <- read_excel("veri/Sehir_bosanma_sayisi_2001.xlsx")
+View(Sehir_bosanma_sayisi_2001)
 
 ```
 ```{r}
@@ -422,7 +439,7 @@ evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
 ```
 ```{r}
 #Kaba evlenme hızı hesapla
-=======
+
 
 ## Trend Analizi
 library(readxl)
@@ -434,7 +451,7 @@ library(tidyr)
 evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
 
 # Kaba evlenme hızı hesapla
->>>>>>> 710126e (sildim.)
+
 evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
   mutate(
     Yil = as.numeric(Yil),
@@ -548,40 +565,12 @@ ggplot() +
   )
 ```
 ## Sonuçlar
-## Boşanma Nedenleri 
-# Gerekli kütüphaneleri yükle
-library(readxl)
-library(dplyr)
-library(tidyr)
-library(ggplot2)
 
-# Veri setimizi yükleyelim
-veri<- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
-veri_long <- veri %>%
-  pivot_longer(
-    cols = -`Bosanma_Nedeni`,
-    names_to = "Grup",
-    values_to = "Yuzde"
-  ) %>%
-  mutate(Yuzde = as.numeric(gsub(",", ".", Yuzde))) %>%
-  filter(!is.na(Yuzde))
+<<<<<<< HEAD
+=======
+xxxxxx
 
-# Grafik çiz
-ggplot(veri_long, aes(x = `Bosanma_Nedeni`, y = Yuzde, fill = Grup)) +
-  geom_bar(stat = "identity", position = position_dodge(width = 0.8)) +
-  labs(
-    title = "2006 ve 2021 Yıllarında Erkek ve Kadınların Boşanma Nedenleri",
-    x = "Boşanma Nedeni",
-    y = "Yüzde (%)",
-    fill = "Grup"
-  ) +
-  theme_minimal() +
-  theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
-  )
-  
-
+>>>>>>> origin/main
 # Sonuçlar ve Ana Çıkarımlar
 
 xxxxxx
