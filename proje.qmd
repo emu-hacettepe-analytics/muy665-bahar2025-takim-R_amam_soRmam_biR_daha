@@ -284,7 +284,7 @@ radarchart(data,
            cglty = 1,
            axislabcol = "black",
            caxislabels = seq(0, max(data), length.out = 5),
-           vlcex = 0.7,  #Senelerin boyutu
+           vlcex = 0.5,  #Senelerin boyutu
            calcex=0.7
 )
        legend("right", legend = rownames(data)[-c(1,2)],
@@ -295,6 +295,11 @@ angles <- seq(0, 2*pi, length.out = n_yillar + 1)[-1]
 radius <- 0.9
 x <- radius * sin(angles)
 y <- radius * cos(angles)+title(main = "Eşler Arası Yaş Farkı")
+
+
+#şehirlere göre boşanma sayısı
+Sehir_bosanma_sayisi_2001 <- read_excel("veri/Sehir_bosanma_sayisi_2001.xlsx")
+View(Sehir_bosanma_sayisi_2001)
 
 ```
 ```{r}
@@ -560,40 +565,8 @@ ggplot() +
   )
 ```
 ## Sonuçlar
-## Boşanma Nedenleri 
-# Gerekli kütüphaneleri yükle
-library(readxl)
-library(dplyr)
-library(tidyr)
-library(ggplot2)
 
-# Veri setimizi yükleyelim
-veri<- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
-veri_long <- veri %>%
-  pivot_longer(
-    cols = -`Bosanma_Nedeni`,
-    names_to = "Grup",
-    values_to = "Yuzde"
-  ) %>%
-  mutate(Yuzde = as.numeric(gsub(",", ".", Yuzde))) %>%
-  filter(!is.na(Yuzde))
-
-# Grafik çiz
-ggplot(veri_long, aes(x = `Bosanma_Nedeni`, y = Yuzde, fill = Grup)) +
-  geom_bar(stat = "identity", position = position_dodge(width = 0.8)) +
-  labs(
-    title = "2006 ve 2021 Yıllarında Erkek ve Kadınların Boşanma Nedenleri",
-    x = "Boşanma Nedeni",
-    y = "Yüzde (%)",
-    fill = "Grup"
-  ) +
-  theme_minimal() +
-  theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
-  )
-  
-
+xxxxxx
 
 # Sonuçlar ve Ana Çıkarımlar
 
