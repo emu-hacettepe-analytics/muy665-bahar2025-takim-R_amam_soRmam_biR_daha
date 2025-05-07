@@ -388,6 +388,7 @@ pie(erkek_veri, labels = erkek_etiketler, main = "Boşanma Yaş Dağılımı (Er
 #PieChart Bitiş
 ```
 
+<<<<<<< HEAD
 #Nufüs oranlarına göre Boşanma Sayılarının Gösterilmesi
 ```{r}
 # Excel dosyasını oku
@@ -421,6 +422,19 @@ evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
 ```
 ```{r}
 #Kaba evlenme hızı hesapla
+=======
+
+## Trend Analizi
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+
+# Veriyi oku
+evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
+
+# Kaba evlenme hızı hesapla
+>>>>>>> 710126e (sildim.)
 evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
   mutate(
     Yil = as.numeric(Yil),
