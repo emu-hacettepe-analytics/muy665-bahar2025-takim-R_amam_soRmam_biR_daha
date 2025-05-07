@@ -439,7 +439,7 @@ evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
 ```
 ```{r}
 #Kaba evlenme hızı hesapla
-=======
+
 
 ## Trend Analizi
 library(readxl)
@@ -451,7 +451,7 @@ library(tidyr)
 evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
 
 # Kaba evlenme hızı hesapla
->>>>>>> 710126e (sildim.)
+
 evlilik_bosanma_hiz <- evlilik_bosanma_hiz %>%
   mutate(
     Yil = as.numeric(Yil),
