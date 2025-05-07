@@ -566,15 +566,14 @@ ggplot() +
 ```
 ## Sonuçlar
 
-<<<<<<< HEAD
-=======
-xxxxxx
+
+
 
 library(readxl)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
-
+```{r}
 # Dosyayı oku
 veri <- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
 
@@ -587,16 +586,15 @@ veri_long <- veri %>%
     cols = -Bosanma_Nedeni,
     names_to = "Grup",
     values_to = "Yuzde"
-  ) %>%
-  mutate(Yuzde = as.numeric(gsub(",", ".", Yuzde))) %>%
+  ) %>%mutate(Yuzde = as.numeric(gsub(",", ".", Yuzde))) %>%
   filter(!is.na(Yuzde))  # NA varsa temizle
 
 # Grafik
-g <- ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
+ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
   geom_bar(stat = "identity", position = position_dodge()) +
   labs(
     title = "2006 ve 2021 Yıllarında Erkek ve Kadınların Boşanma Nedenleri",
-    x = "Boşanma Nedeni", y = "Yüzde (%)", fill = "Grup"
+    x = "Bosanma Nedeni", y = "Yuzde (%)", fill = "Grup"
   ) +
   theme_minimal() +
   theme(
@@ -605,7 +603,7 @@ g <- ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
   )
 
 # Çıktıyı göster
-print(g)
+```
 
 
 >>>>>>> origin/main
