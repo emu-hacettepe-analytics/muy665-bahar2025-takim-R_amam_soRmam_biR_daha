@@ -582,7 +582,6 @@ ggplot(veri_long, aes(x = `Bosanma_Nedeni`, y = Yuzde, fill = Grup)) +
   )
   
 
-
 # Sonuçlar ve Ana Çıkarımlar
 
 xxxxxx
