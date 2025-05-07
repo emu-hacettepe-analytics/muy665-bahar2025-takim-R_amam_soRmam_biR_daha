@@ -250,7 +250,7 @@ ggplot(Esler_arasi_yas_farki, aes(x = kategori, y = deger, fill = kategori)) +
     legend.title = element_text(size = 12),
     legend.text = element_text(size = 10)
   ) +
-  ylim(0, max(Esler_arasi_yas_farki$deger) * 1.1)
+  ylim(0, max(Esler_arasi_yas_farki$degfaceer) * 1.1)
   
 #radar çizme
 library(fmsb)
@@ -590,7 +590,7 @@ veri_long <- veri %>%
   filter(!is.na(Yuzde))  # NA varsa temizle
 
 # Grafik
-ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
+ggplot(veri_long, aes(x =Yuzde , y =Bosanma_Nedeni ,fill= Grup )) +
   geom_bar(stat = "identity", position = position_dodge()) +
   labs(
     title = "2006 ve 2021 Yıllarında Erkek ve Kadınların Boşanma Nedenleri",
@@ -600,7 +600,7 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
   theme(
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
     plot.title = element_text(hjust = 0.5, face = "bold")
-  )
+  )+facet_wrap(~ Grup)
 
 # Çıktıyı göster
 ```
