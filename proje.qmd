@@ -548,7 +548,37 @@ ggplot() +
   )
 ```
 ## Sonuçlar
+## Boşanma Nedenleri 
+# Gerekli kütüphaneleri yükle
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 
+# Veri setimizi yükleyelim
+veri<- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
+# Uzun formata çevir (pivot_longer)
+veri_long <- veri %>%
+  pivot_longer(
+    cols = -`Bosanma_Nedeni`,
+    names_to = "Grup",
+    values_to = "Yuzde"
+  )
+
+# Grafik çiz
+ggplot(veri_long, aes(x = `Bosanma_Nedeni`, y = Yuzde, fill = Grup)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8)) +
+  labs(
+    title = "2006 ve 2021 Yıllarında Erkek ve Kadınların Boşanma Nedenleri",
+    x = "Boşanma Nedeni",
+    y = "Yüzde (%)",
+    fill = "Grup"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
+  )
 xxxxxx
 
 # Sonuçlar ve Ana Çıkarımlar
