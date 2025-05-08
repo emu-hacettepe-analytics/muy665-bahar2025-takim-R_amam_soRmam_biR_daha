@@ -642,7 +642,8 @@ library(readxl)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
-
+#| fig.width: 10
+#| fig.height: 6
 # Veri
 veri <- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
 
@@ -674,5 +675,31 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
 ```
 
 # Sonuçlar ve Ana Çıkarımlar
+ 
+library(readxl)
+library(dplyr)
+library(ggplot2)
 
-xxxxxx
+# Excel dosyasını oku
+ulkeler_arasi <- read_excel("veri/Dunya_ve_Turkiye_bosanma_kaba_hizi.xlsx")
+
+ulkeler_arasi$`Bosanma_Kaba_Hizi` <- as.numeric(gsub(",", ".", ulkeler_arasi$`Bosanma_Kaba_Hizi`))
+
+# Veriyi sıralı hale getir (artan sırayla)
+ulkeler_arasi <- ulkeler_arasi %>% arrange(Bosanma_Kaba_Hizi)
+
+# Grafik çizimi
+ggplot(ulkeler_arasi, aes(x= `Bosanma_Kaba_Hizi`, y= reorder(Ulke, `Bosanma_Kaba_Hizi`))) +
+  geom_bar(stat = "identity", fill = "dark red") +
+  labs(
+    title = "2022 Yılı Ülkelerde Bosanma Kaba Hızı",
+    x = "Bosanma Kaba Hızı (‰)",
+    y = "Ulke") +
+ theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+    axis.title.x = element_text(face = "bold", size = 14),
+    axis.title.y = element_text(face = "bold", size = 12),
+    axis.text.x  = element_text(face = "bold", size = 12),
+    axis.text.y  = element_text(face = "bold", size = 12)
+  )
+  xxxxxx
