@@ -171,7 +171,10 @@ ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
 ```
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 ```{r}
 >>>>>>> Stashed changes
 # Grafik çizimi: 4 facet, her biri bir dönem (erkek)(yasmin-erdi)
