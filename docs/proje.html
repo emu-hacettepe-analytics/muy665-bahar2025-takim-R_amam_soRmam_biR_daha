@@ -195,10 +195,14 @@ window.Quarto = {
   <li><a href="#ön-işleme" id="toc-ön-işleme" class="nav-link" data-scroll-target="#ön-işleme"><span class="header-section-number">2.4</span> Ön İşleme</a></li>
   </ul></li>
   <li><a href="#analiz" id="toc-analiz" class="nav-link" data-scroll-target="#analiz"><span class="header-section-number">3</span> Analiz</a></li>
-  <li><a href="#sonuçlar-ve-ana-çıkarımlar" id="toc-sonuçlar-ve-ana-çıkarımlar" class="nav-link" data-scroll-target="#sonuçlar-ve-ana-çıkarımlar"><span class="header-section-number">4</span> Sonuçlar ve Ana Çıkarımlar</a></li>
-  <li><a href="#excel-dosyasını-oku" id="toc-excel-dosyasını-oku" class="nav-link" data-scroll-target="#excel-dosyasını-oku"><span class="header-section-number">5</span> Excel dosyasını oku</a></li>
-  <li><a href="#veriyi-sıralı-hale-getir-artan-sırayla" id="toc-veriyi-sıralı-hale-getir-artan-sırayla" class="nav-link" data-scroll-target="#veriyi-sıralı-hale-getir-artan-sırayla"><span class="header-section-number">6</span> Veriyi sıralı hale getir (artan sırayla)</a></li>
-  <li><a href="#grafik-çizimi" id="toc-grafik-çizimi" class="nav-link" data-scroll-target="#grafik-çizimi"><span class="header-section-number">7</span> Grafik çizimi</a></li>
+  <li><a href="#grafik-çizimi-4-facet-her-biri-bir-dönem-erkekyasmin-erdi" id="toc-grafik-çizimi-4-facet-her-biri-bir-dönem-erkekyasmin-erdi" class="nav-link" data-scroll-target="#grafik-çizimi-4-facet-her-biri-bir-dönem-erkekyasmin-erdi"><span class="header-section-number">4</span> Grafik çizimi: 4 facet, her biri bir dönem (erkek)(yasmin-erdi)</a>
+  <ul class="collapse">
+  <li><a href="#kadın-2006-2021-bosanma-nedenleri" id="toc-kadın-2006-2021-bosanma-nedenleri" class="nav-link" data-scroll-target="#kadın-2006-2021-bosanma-nedenleri"><span class="header-section-number">4.1</span> kadın 2006-2021 bosanma nedenleri</a></li>
+  </ul></li>
+  <li><a href="#sonuçlar-ve-ana-çıkarımlar" id="toc-sonuçlar-ve-ana-çıkarımlar" class="nav-link" data-scroll-target="#sonuçlar-ve-ana-çıkarımlar"><span class="header-section-number">5</span> Sonuçlar ve Ana Çıkarımlar</a></li>
+  <li><a href="#excel-dosyasını-oku" id="toc-excel-dosyasını-oku" class="nav-link" data-scroll-target="#excel-dosyasını-oku"><span class="header-section-number">6</span> Excel dosyasını oku</a></li>
+  <li><a href="#veriyi-sıralı-hale-getir-artan-sırayla" id="toc-veriyi-sıralı-hale-getir-artan-sırayla" class="nav-link" data-scroll-target="#veriyi-sıralı-hale-getir-artan-sırayla"><span class="header-section-number">7</span> Veriyi sıralı hale getir (artan sırayla)</a></li>
+  <li><a href="#grafik-çizimi" id="toc-grafik-çizimi" class="nav-link" data-scroll-target="#grafik-çizimi"><span class="header-section-number">8</span> Grafik çizimi</a></li>
   </ul>
 </nav>
 </nav>
@@ -473,10 +477,12 @@ Attaching package: 'kableExtra'</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="grafik-çizimi-4-facet-her-biri-bir-dönem-erkekyasmin-erdi" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Grafik çizimi: 4 facet, her biri bir dönem (erkek)(yasmin-erdi)</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grafik çizimi: 4 facet, her biri bir dönem (erkek)(yasmin-erdi)</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>erkek_bosanma_bolge <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/yasmin-erdi/erkek_bosanma_bolge.xlsx"</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(erkek_bosanma_bolge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>erkek_bosanma_bolge <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/yasmin-erdi/erkek_bosanma_bolge.xlsx"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(erkek_bosanma_bolge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [96 × 9] (S3: tbl_df/tbl/data.frame)
  $ Erkek_Yas_Grubu  : chr [1:96] "Yas_16_29" "Yas_16_29" "Yas_16_29" "Yas_16_29" ...
@@ -1053,45 +1059,45 @@ yok; -Inf döndürülüyor</code></pre>
 </div>
 </div>
 </div>
+<section id="kadın-2006-2021-bosanma-nedenleri" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="kadın-2006-2021-bosanma-nedenleri"><span class="header-section-number">4.1</span> kadın 2006-2021 bosanma nedenleri</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="do">## kadın 2006-2021 bosanma nedenleri</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Veri</span></span>
-<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>veri <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/Bosanma_sebepleri_2006_2021.xlsx"</span>)</span>
-<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>veri_long <span class="ot">&lt;-</span> veri <span class="sc">%&gt;%</span></span>
-<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Bosanma_Nedeni, <span class="at">names_to =</span> <span class="st">"Grup"</span>, <span class="at">values_to =</span> <span class="st">"Yuzde"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Yuzde =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, Yuzde))) <span class="sc">%&gt;%</span></span>
-<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Grup <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kadin_2006"</span>, <span class="st">"Kadin_2021"</span>))</span>
-<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-15"><a href="#cb57-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Grafik</span></span>
-<span id="cb57-16"><a href="#cb57-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(veri_long, <span class="fu">aes</span>(<span class="at">x =</span> Bosanma_Nedeni, <span class="at">y =</span> Yuzde, <span class="at">fill =</span> Grup)) <span class="sc">+</span></span>
-<span id="cb57-17"><a href="#cb57-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>), <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb57-18"><a href="#cb57-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Yuzde, <span class="dv">1</span>)), </span>
-<span id="cb57-19"><a href="#cb57-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>), </span>
-<span id="cb57-20"><a href="#cb57-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.5</span>, <span class="at">size =</span> <span class="fl">3.3</span>) <span class="sc">+</span></span>
-<span id="cb57-21"><a href="#cb57-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb57-22"><a href="#cb57-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"2006 ve 2021 Yıllarında Kadınların Bosanma Nedenleri"</span>,</span>
-<span id="cb57-23"><a href="#cb57-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bosanma Nedeni"</span>,</span>
-<span id="cb57-24"><a href="#cb57-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Yuzde (%)"</span>,</span>
-<span id="cb57-25"><a href="#cb57-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Yıl"</span></span>
-<span id="cb57-26"><a href="#cb57-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb57-27"><a href="#cb57-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
-<span id="cb57-28"><a href="#cb57-28" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme</span>(</span>
-<span id="cb57-29"><a href="#cb57-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb57-30"><a href="#cb57-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb57-31"><a href="#cb57-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
-<span id="cb57-32"><a href="#cb57-32" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
-<span id="cb57-33"><a href="#cb57-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Kadin_2006"</span> <span class="ot">=</span> <span class="st">"pink"</span>, <span class="st">"Kadin_2021"</span> <span class="ot">=</span> <span class="st">"dark red"</span>)) <span class="sc">+</span></span>
-<span id="cb57-34"><a href="#cb57-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(veri_long<span class="sc">$</span>Yuzde) <span class="sc">+</span> <span class="dv">5</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Veri</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>veri <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/Bosanma_sebepleri_2006_2021.xlsx"</span>)</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>veri_long <span class="ot">&lt;-</span> veri <span class="sc">%&gt;%</span></span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Bosanma_Nedeni, <span class="at">names_to =</span> <span class="st">"Grup"</span>, <span class="at">values_to =</span> <span class="st">"Yuzde"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Yuzde =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, Yuzde))) <span class="sc">%&gt;%</span></span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Grup <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Kadin_2006"</span>, <span class="st">"Kadin_2021"</span>))</span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Grafik</span></span>
+<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(veri_long, <span class="fu">aes</span>(<span class="at">x =</span> Bosanma_Nedeni, <span class="at">y =</span> Yuzde, <span class="at">fill =</span> Grup)) <span class="sc">+</span></span>
+<span id="cb57-15"><a href="#cb57-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>), <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb57-16"><a href="#cb57-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Yuzde, <span class="dv">1</span>)), </span>
+<span id="cb57-17"><a href="#cb57-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>), </span>
+<span id="cb57-18"><a href="#cb57-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">1.5</span>, <span class="at">size =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb57-19"><a href="#cb57-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb57-20"><a href="#cb57-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"2006 ve 2021 Yıllarında Kadınların Bosanma Nedenleri"</span>,</span>
+<span id="cb57-21"><a href="#cb57-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bosanma Nedeni"</span>,</span>
+<span id="cb57-22"><a href="#cb57-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Yuzde (%)"</span>,</span>
+<span id="cb57-23"><a href="#cb57-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Yıl"</span></span>
+<span id="cb57-24"><a href="#cb57-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb57-25"><a href="#cb57-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb57-26"><a href="#cb57-26" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme</span>(</span>
+<span id="cb57-27"><a href="#cb57-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb57-28"><a href="#cb57-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb57-29"><a href="#cb57-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">70</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">18</span>)</span>
+<span id="cb57-30"><a href="#cb57-30" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb57-31"><a href="#cb57-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Kadin_2006"</span> <span class="ot">=</span> <span class="st">"pink"</span>, <span class="st">"Kadin_2021"</span> <span class="ot">=</span> <span class="st">"dark red"</span>)) <span class="sc">+</span></span>
+<span id="cb57-32"><a href="#cb57-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(veri_long<span class="sc">$</span>Yuzde) <span class="sc">+</span> <span class="dv">7</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -1156,21 +1162,22 @@ yok; -Inf döndürülüyor</code></pre>
 </div>
 </div>
 </section>
-<section id="sonuçlar-ve-ana-çıkarımlar" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Sonuçlar ve Ana Çıkarımlar</h1>
+</section>
+<section id="sonuçlar-ve-ana-çıkarımlar" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Sonuçlar ve Ana Çıkarımlar</h1>
 <p>library(readxl) library(dplyr) library(ggplot2)</p>
 </section>
-<section id="excel-dosyasını-oku" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Excel dosyasını oku</h1>
+<section id="excel-dosyasını-oku" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Excel dosyasını oku</h1>
 <p>ulkeler_arasi &lt;- read_excel(“veri/Dunya_ve_Turkiye_bosanma_kaba_hizi.xlsx”)</p>
 <p>ulkeler_arasi<span class="math inline">\(`Bosanma_Kaba_Hizi` &lt;- as.numeric(gsub(",", ".", ulkeler_arasi\)</span><code>Bosanma_Kaba_Hizi</code>))</p>
 </section>
-<section id="veriyi-sıralı-hale-getir-artan-sırayla" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Veriyi sıralı hale getir (artan sırayla)</h1>
+<section id="veriyi-sıralı-hale-getir-artan-sırayla" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Veriyi sıralı hale getir (artan sırayla)</h1>
 <p>ulkeler_arasi &lt;- ulkeler_arasi %&gt;% arrange(Bosanma_Kaba_Hizi)</p>
 </section>
-<section id="grafik-çizimi" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Grafik çizimi</h1>
+<section id="grafik-çizimi" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Grafik çizimi</h1>
 <p>ggplot(ulkeler_arasi, aes(x= <code>Bosanma_Kaba_Hizi</code>, y= reorder(Ulke, <code>Bosanma_Kaba_Hizi</code>))) + geom_bar(stat = “identity”, fill = “dark red”) + labs( title = “2022 Yılı Ülkelerde Bosanma Kaba Hızı”, x = “Bosanma Kaba Hızı (‰)”, y = “Ulke”) + theme( plot.title = element_text(hjust = 0.5, face = “bold”, size = 14), axis.title.x = element_text(face = “bold”, size = 14), axis.title.y = element_text(face = “bold”, size = 12), axis.text.x = element_text(face = “bold”, size = 12), axis.text.y = element_text(face = “bold”, size = 12) ) xxxxxx</p>
 
 
