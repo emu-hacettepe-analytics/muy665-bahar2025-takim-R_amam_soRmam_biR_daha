@@ -352,6 +352,46 @@ p4 <- p4 + ortak_tema
 
 (p1|p2)
 (p3|p4)
+
+#En büyük 10 şehir kıyaslama piramid
+Iik_10_Sehir_Bosanma <- read_excel("veri/Iik_10_Sehir_Bosanma.xlsx")
+
+
+
+
+# Uzun form ve piramit formatı
+veri_long <- Iik_10_Sehir_Bosanma %>%
+  pivot_longer(cols = starts_with("Oran"), names_to = "Yil", values_to = "Oran") %>%
+  mutate(
+    Yil = str_replace(Yil, "Oran_", ""),
+    Oran = ifelse(Yil == "2010", -Oran, Oran), # 2010 sola, 2024 sağa
+    Il = factor(Il, levels = rev(unique(Il)))  # İl sıralaması yukarıdan aşağı
+  )
+
+# Grafik
+ggplot(veri_long, aes(x = Il, y = Oran, fill = Yil)) +
+  geom_bar(stat = "identity") +
+ geom_text(
+  aes(label = sprintf("%.1f", abs(Oran))),
+  position = position_stack(vjust = 0.5),
+  size = 3,color = "white")+
+  coord_flip() +
+  scale_y_continuous(labels = abs) +
+  scale_fill_manual(values = c("2010" = "skyblue", "2024" = "darkorange")) +
+  labs(
+    title = "2010 ve 2024 Yıllarına Gore En Kalabalık 10 Sehirin Bosanma Oranları ",
+    x = "İl",
+    y = "Oran (%)",
+    fill = "Yıl"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    axis.text.y = element_text(hjust = 0.5),   # Y ekseni (İl isimleri) ortalanır
+    legend.position = "top"
+  )
+
+
 ```
 
 ```{r}
