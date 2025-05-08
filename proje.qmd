@@ -38,7 +38,7 @@ install.packages("ggplot2")
 install.packages("tidyr") 
 install.packages("kableExtra") 
 install.packages("openxlsx") 
-install.packages(c("stringr", "scales", "plotly", "ggrepel", "ggthemes","patchwork"))
+install.packages(c("stringr", "scales", "plotly", "ggrepel", "ggthemes","patchwork","fmsb"))
 install.packages("plotrix")
 install.packages("janitor")
 ```{r}
@@ -564,49 +564,82 @@ ggplot() +
     plot.title = element_text(hjust = 0.5, size = 14, face = "bold")
   )
 ```
-## Sonuçlar
 
+```{r}
 
-
-
+## kadın 2006-2021 bosanma nedenleri
 library(readxl)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
-```{r}
-# Dosyayı oku
+
+# Veri
 veri <- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
 
-# Sütun adını düzelt
-names(veri)[1] <- "Bosanma_Nedeni"
-
-# Uzun formata çevir
 veri_long <- veri %>%
-  pivot_longer(
-    cols = -Bosanma_Nedeni,
-    names_to = "Grup",
-    values_to = "Yuzde"
-  ) %>%mutate(Yuzde = as.numeric(gsub(",", ".", Yuzde))) %>%
-  filter(!is.na(Yuzde))  # NA varsa temizle
+  pivot_longer(cols = -Bosanma_Nedeni, names_to = "Grup", values_to = "Yuzde") %>%
+  mutate(Yuzde = as.numeric(gsub(",", ".", Yuzde))) %>%
+  filter(Grup %in% c("Kadin_2006", "Kadin_2021"))
 
 # Grafik
-ggplot(veri_long, aes(x =Yuzde , y =Bosanma_Nedeni ,fill= Grup )) +
-  geom_bar(stat = "identity", position = position_dodge()) +
+ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
+  geom_text(aes(label = round(Yuzde, 1)), 
+            position = position_dodge(width = 1), 
+            vjust = -1.5, size = 3.3) +
   labs(
-    title = "2006 ve 2021 Yıllarında Erkek ve Kadınların Boşanma Nedenleri",
-    x = "Bosanma Nedeni", y = "Yuzde (%)", fill = "Grup"
+    title = "2006 ve 2021 Yıllarında Kadınların Bosanma Nedenleri",
+    x = "Bosanma Nedeni",
+    y = "Yuzde (%)",
+    fill = "Yıl"
   ) +
-  theme_minimal() +
-  theme(
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
-    plot.title = element_text(hjust = 0.5, face = "bold")
-  )+facet_wrap(~ Grup)
+  theme_minimal(base_size = 13) +
+ theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+    axis.title.x = element_text(face = "bold", size = 14),
+    axis.text.x = element_text(angle = 90, hjust = 1)
+  )+
+  scale_fill_manual(values = c("Kadin_2006" = "pink", "Kadin_2021" = "dark red")) +
+  coord_cartesian(ylim = c(0, max(veri_long$Yuzde) + 5)) 
+```
+>>>>>>> origin/main
+```{r}
+## erkek 2006-2021 bosanma nedenleri
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 
-# Çıktıyı göster
+# Veri
+veri <- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
+
+veri_long <- veri %>%
+  pivot_longer(cols = -Bosanma_Nedeni, names_to = "Grup", values_to = "Yuzde") %>%
+  mutate(Yuzde = as.numeric(gsub(",", ".", Yuzde))) %>%
+  filter(Grup %in% c("Erkek_2006", "Erkek_2021"))
+
+# Grafik
+ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
+  geom_text(aes(label = round(Yuzde, 1)), 
+            position = position_dodge(width = 1), 
+            vjust = -1.5, size = 3.3) +
+  labs(
+    title = "2006 ve 2021 Yıllarında Erkeklerin Bosanma Nedenleri",
+    x = "Bosanma Nedeni",
+    y = "Yuzde (%)",
+    fill = "Yıl"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+    axis.title.x = element_text(face = "bold", size = 14),
+    axis.text.x = element_text(angle = 90, hjust = 1)
+  )+
+  scale_fill_manual(values = c("Erkek_2006" = "sky blue", "Erkek_2021" = "dark blue")) +
+  coord_cartesian(ylim = c(0, max(veri_long$Yuzde) + 5))
 ```
 
-
->>>>>>> origin/main
 # Sonuçlar ve Ana Çıkarımlar
 
 xxxxxx
