@@ -298,9 +298,42 @@ y <- radius * cos(angles)+title(main = "Eşler Arası Yaş Farkı")
 
 
 #şehirlere göre boşanma sayısı
-Sehir_bosanma_sayisi_2001 <- read_excel("veri/Sehir_bosanma_sayisi_2001.xlsx")
-View(Sehir_bosanma_sayisi_2001)
+#Evlenme_bosanma_orani_2010_az
 
+Evlenme_bosanma_orani_2010_az <- read_excel("veri/Evlenme_bosanma_orani_2010_az.xlsx")
+View(Evlenme_bosanma_orani_2010_az)
+
+Evlenme_bosanma_orani_2010_az|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Az Oldugu İller - 2010",
+    x = "İl",
+    y = "Boşanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5)
+
+#Evlenme_bosanma_orani_2024_az
+
+Evlenme_bosanma_orani_2024_az <- read_excel("veri/Evlenme_bosanma_orani_2024_az.xlsx")
+View(Evlenme_bosanma_orani_2024_az)
+
+
+Evlenme_bosanma_orani_2024_az|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Az Oldugu İller - 2024",
+    x = "İl",
+    y = "Boşanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5) 
+
+#Evlenme_bosanma_orani_2010_cok
+
+
+Evlenme_bosanma_orani_2010_cok <- read_excel("veri/Evlenme_bosanma_orani_2010_cok.xlsx")
+View(Evlenme_bosanma_orani_2010_cok)
+
+Evlenme_bosanma_orani_2010_cok|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Cok Oldugu İller - 2024",
+    x = "İl",
+    y = "Boşanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5)
+
+#Evlenme_bosanma_orani_2024_cok
+Evlenme_bosanma_orani_2024_cok <- read_excel("veri/Evlenme_bosanma_orani_2024_cok.xlsx")
+View(Evlenme_bosanma_orani_2024_cok)
+
+Evlenme_bosanma_orani_2024_cok|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Cok Oldugu İller - 2024",
+    x = "İl",
+    y = "Boşanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5)
 ```
 ```{r}
 ## Keşifsel Veri Analizi
