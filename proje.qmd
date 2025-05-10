@@ -53,7 +53,33 @@ library(ggthemes)
 library(kableExtra)
 ```
 
+```{r, fig.width=15, fig.height=15}
 # Analiz
+
+# Excel dosyasını oku
+ulkeler_arasi <- read_excel("veri/Dunya_ve_Turkiye_bosanma_kaba_hizi.xlsx")
+
+ulkeler_arasi$`Bosanma_Kaba_Hizi` <- as.numeric(gsub(",", ".", ulkeler_arasi$`Bosanma_Kaba_Hizi`))
+
+# Veriyi sıralı hale getir (artan sırayla)
+ulkeler_arasi <- ulkeler_arasi %>% arrange(Bosanma_Kaba_Hizi)
+
+# Grafik çizimi
+ggplot(ulkeler_arasi, aes(x= `Bosanma_Kaba_Hizi`, y= reorder(Ulke, `Bosanma_Kaba_Hizi`))) +
+  geom_bar(stat = "identity", fill = "dark red") +
+  labs(
+    title = "2022 Yılı Ülkelerde Bosanma Kaba Hızı",
+    x = "Bosanma Kaba Hızı (‰)",
+    y = "Ulke") +
+ theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+    axis.title.x = element_text(face = "bold", size = 14),
+    axis.title.y = element_text(face = "bold", size = 12),
+    axis.text.x  = element_text(face = "bold", size = 12),
+    axis.text.y  = element_text(face = "bold", size = 12)
+  )
+``` 
+
 
 ```{r, fig.width=15, fig.height=15}
 
@@ -742,36 +768,7 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
   scale_fill_manual(values = c("Erkek_2006" = "sky blue", "Erkek_2021" = "dark blue")) +
   coord_cartesian(ylim = c(0, max(veri_long$Yuzde) + 5))
 ```
-```{r, fig.width=15, fig.height=15}
-# Sonuçlar ve Ana Çıkarımlar
- 
-library(readxl)
-library(dplyr)
-library(ggplot2)
 
-# Excel dosyasını oku
-ulkeler_arasi <- read_excel("veri/Dunya_ve_Turkiye_bosanma_kaba_hizi.xlsx")
-
-ulkeler_arasi$`Bosanma_Kaba_Hizi` <- as.numeric(gsub(",", ".", ulkeler_arasi$`Bosanma_Kaba_Hizi`))
-
-# Veriyi sıralı hale getir (artan sırayla)
-ulkeler_arasi <- ulkeler_arasi %>% arrange(Bosanma_Kaba_Hizi)
-
-# Grafik çizimi
-ggplot(ulkeler_arasi, aes(x= `Bosanma_Kaba_Hizi`, y= reorder(Ulke, `Bosanma_Kaba_Hizi`))) +
-  geom_bar(stat = "identity", fill = "dark red") +
-  labs(
-    title = "2022 Yılı Ülkelerde Bosanma Kaba Hızı",
-    x = "Bosanma Kaba Hızı (‰)",
-    y = "Ulke") +
- theme(
-    plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
-    axis.title.x = element_text(face = "bold", size = 14),
-    axis.title.y = element_text(face = "bold", size = 12),
-    axis.text.x  = element_text(face = "bold", size = 12),
-    axis.text.y  = element_text(face = "bold", size = 12)
-  )
-``` 
 
 # ENFLASYON
 library(readxl)
