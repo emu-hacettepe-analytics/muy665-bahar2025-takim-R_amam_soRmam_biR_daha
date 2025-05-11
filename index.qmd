@@ -3,9 +3,9 @@ title: "Takım: R_amam_soRmam_biR_daha"
 sidebar: false 
 ---
 
-Bu sayfa ile İş Analitiği çalışmalarımızı paylaşıyoruz. Takım Üyelerimize ve proje özetimize aşağıdan erişebilir, çalışmalarımızı daha detaylı incelemek için sayfanın tepesinde bulunan araç çubuğundan faydalanabilirsiniz.
+Merhabalar , Biz 6 kişilik birbiriyle alakasız sektörlerden olan ve yüksek lisansta yaşam mücadelesi veren o ekibiz işte biz !!!! Ama unutmayın bir daha aramaz sormayız :DDD
 
-Lütfen faaliyetlerimizi görmek için bizi takipte kalın.
+![](veri/grupfoto.jpg){fig-align="center"}
 
 ## Takım Üyeleri
 
