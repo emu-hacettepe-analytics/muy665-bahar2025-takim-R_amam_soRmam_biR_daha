@@ -684,41 +684,38 @@ ggplot(veri_long1, aes(x = Deger , y = Erkek_Yas_Grubu, color = Bolge)) +
 #türkiye geneli eşler arası yaş farkı (yasmin-erdi)
 
 Yas_Farki_Turkiye_geneli <- read_excel("veri/yasmin-erdi/Yas_Farki_Turkiye_geneli.xlsx")
+str(Yas_Farki_Turkiye_geneli)
+```
 
-head(Yas_Farki_Turkiye_geneli)
+Yas_Farki_Turkiye_geneli$Yil <- as.numeric(Yas_Farki_Turkiye_geneli$Yil)
 
-
-
-Yas_Farki_Turkiye_geneli$Yil <- as.numeric (Yas_Farki_Turkiye_geneli$Yil)
-# bosanma sayılarını yıl bazlı olarak toplanması 
-Yas_Farki_0_yils<-sum(Yas_Farki_Turkiye_geneli[2])
-Yas_Farki_1_5_yils<-sum(Yas_Farki_Turkiye_geneli[3])
-Yas_Farki_6_10_yils<-sum(Yas_Farki_Turkiye_geneli[4])
-Yas_Farki_11s<-sum(Yas_Farki_Turkiye_geneli[5])
-
+Yas_Farki_0_yils <- mean(Yas_Farki_Turkiye_geneli[[2]], na.rm = TRUE)
+Yas_Farki_1_5_yils <- mean(Yas_Farki_Turkiye_geneli[[3]], na.rm = TRUE)
+Yas_Farki_6_10_yils <- mean(Yas_Farki_Turkiye_geneli[[4]], na.rm = TRUE)
+Yas_Farki_11s <- mean(Yas_Farki_Turkiye_geneli[[5]], na.rm = TRUE)
 Esler_arasi_yas_farki <- data.frame(
   kategori = c("0 yıl", "1-5 yıl", "6-10 yıl", "11+ yıl"),
   deger = c(Yas_Farki_0_yils, Yas_Farki_1_5_yils, Yas_Farki_6_10_yils, Yas_Farki_11s)
 )
 Esler_arasi_yas_farki$kategori <- reorder(Esler_arasi_yas_farki$kategori, -Esler_arasi_yas_farki$deger)
-
+# Dikey bar grafiği oluşturma
 ggplot(Esler_arasi_yas_farki, aes(x = kategori, y = deger, fill = kategori)) +
   geom_bar(stat = "identity", width = 0.5) +  
-  geom_text(aes(label = deger), vjust = -0.5, size = 4) +  
+geom_text(aes(label = label_number(accuracy = 0.01)(deger)), vjust = -0.3, size = 4) +  
   labs(
-    title = "Eşler Arası Yaş Farkına Gore Bosanma Sayıları (Turkiye Geneli)",
-    x = " Eşler Arası Yaş Farkı",
-    y = "Toplam Bosanma Sayısı",
-    fill = "Evlilik Sureleri"
+    title = " Evliligin Bosanmaya Oranı (Eşler Arası Yaş Farkı Dağılımı)",
+    x = "Yaş Farkı Kategorisi",
+    y = "Oran",
+    fill = "Kategori"
   ) +
-  theme_minimal() +
+  theme_minimal(base_size = 15) +
   theme(
-    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
-    axis.text = element_text(size = 10,face = "bold",hjust = 1),
-    axis.title = element_text(size = 12,face = "bold"),
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    axis.text = element_text(size = 12,face = "bold"),
+    axis.title = element_text(size = 14,face = "bold"),
     legend.title = element_text(size = 12,face = "bold"),
-    legend.text = element_text(size = 10,face = "bold")
-  ) +
+    legend.text = element_text(size = 12,face = "bold")
+  ) 
   ylim(0, max(Esler_arasi_yas_farki$deger) * 1.1)
 ```
 

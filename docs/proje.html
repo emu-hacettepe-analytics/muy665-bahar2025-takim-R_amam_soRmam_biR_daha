@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,12 +69,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f0a835b436c8237afb39a3d661799075.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-23fbdbd68025e54cff3b12d49adbe416.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,6 +103,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -163,7 +192,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#veri-kaynağı" id="toc-veri-kaynağı" class="nav-link" data-scroll-target="#veri-kaynağı"><span class="header-section-number">2.1</span> Veri Kaynağı</a></li>
   <li><a href="#veri-hakkında-genel-bilgiler" id="toc-veri-hakkında-genel-bilgiler" class="nav-link" data-scroll-target="#veri-hakkında-genel-bilgiler"><span class="header-section-number">2.2</span> Veri Hakkında Genel Bilgiler</a></li>
   <li><a href="#tercih-sebebi" id="toc-tercih-sebebi" class="nav-link" data-scroll-target="#tercih-sebebi"><span class="header-section-number">2.3</span> Tercih Sebebi</a></li>
-  <li><a href="#ön-işleme" id="toc-ön-işleme" class="nav-link" data-scroll-target="#ön-işleme"><span class="header-section-number">2.4</span> Ön İşleme</a></li>
+  <li><a href="#ön-işleme" id="toc-ön-işleme" class="nav-link" data-scroll-target="#ön-işleme"><span class="header-section-number">2.4</span> Ön İşleme</a>
+  <ul class="collapse">
+  <li><a href="#yillara-göre-boşanma-sayisi-ve-kaba-boşanma-hiz-grafiği" id="toc-yillara-göre-boşanma-sayisi-ve-kaba-boşanma-hiz-grafiği" class="nav-link" data-scroll-target="#yillara-göre-boşanma-sayisi-ve-kaba-boşanma-hiz-grafiği"><span class="header-section-number">2.4.1</span> YILLARA GÖRE BOŞANMA SAYISI VE KABA BOŞANMA HIZ GRAFİĞİ</a></li>
+  </ul></li>
   <li><a href="#kadın-2006-2021-bosanma-nedenleri" id="toc-kadın-2006-2021-bosanma-nedenleri" class="nav-link" data-scroll-target="#kadın-2006-2021-bosanma-nedenleri"><span class="header-section-number">2.5</span> Kadın 2006-2021 bosanma nedenleri</a></li>
   </ul></li>
   </ul>
@@ -225,6 +257,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="ön-işleme" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="ön-işleme"><span class="header-section-number">2.4</span> Ön İşleme</h2>
 <p>install.packages(“readxl”) install.packages(“dplyr”) install.packages(“ggplot2”) install.packages(“tidyr”) install.packages(“kableExtra”) install.packages(“openxlsx”) install.packages(c(“stringr”, “scales”, “plotly”, “ggrepel”, “ggthemes”,“patchwork”,“fmsb”)) install.packages(“plotrix”) install.packages(“janitor”)</p>
+<section id="yillara-göre-boşanma-sayisi-ve-kaba-boşanma-hiz-grafiği" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="yillara-göre-boşanma-sayisi-ve-kaba-boşanma-hiz-grafiği"><span class="header-section-number">2.4.1</span> YILLARA GÖRE BOŞANMA SAYISI VE KABA BOŞANMA HIZ GRAFİĞİ</h3>
+<ul>
+<li>Boşanma konusunda ilk olarak yıllara göre boşanma sayısı verisi ele alındı.</li>
+<li>Bu veri setinde inceleme yapılırken boşanma sayısılarında nüfus artış etkisini de gözlemleyebilmek adına kaba boşanma hızı incelemeye dahil edildi.</li>
+<li>Kaba boşanma hızı, bir yıl içinde evlenebilecek yaştaki her 1000 nüfus başına düşen boşanma sayısıdır.</li>
+</ul>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -243,8 +282,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5 2011          592775         120117     55837694
 6 2012          603751         123325     56770205</code></pre>
 </div>
-</div>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kaba bosanma hızı hesaplaması</span></span>
@@ -314,11 +351,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="1440"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="1440"></p>
 </figure>
 </div>
 </div>
 </div>
+<ul>
+<li><p>Bu grafik, 2007 ile 2024 yılları arasındaki boşanma sayısı ve kaba boşanma hızının ilişkisini göstermektedir. Boşanma sayısı pembe sütunlarla, kaba boşanma hızı ise mor noktalarla ifade edilmiştir.</p></li>
+<li><p>Yıllar içerisinde boşanma sayısında düzensiz bir artış trendi gözlemlenmektedir. Kaba boşanma hızı yıllar içinde artış göstermiştir. Kaba boşanma hızındaki artış, boşanma sayısındaki artış ile paralellik göstermektedir. Kaba boşanma hızındaki artış, boşanma oranların artmaya devam ettiğini ve toplumsal normların değişmesiyle boşanmanın daha yaygın hale geldiği düşünülebilir.</p></li>
+<li><p>2020 yılındaki kritik düşüş pandemi sürecinde ülkemizde yaşanan kapanma, resmi süreçlerin aksaması, mahkemelerin ve davaların gerçekleştirilememesi gibi sebeplerden kaynaklı gerçekleşmiş olabilir.</p></li>
+<li><p>2021 yılındaki kritik artış; pandemi sebebiyle 2020 yılında gerçekleştirilemeyen ve 2021 yılına devredilen davalar sebep olmuş olabilir. Bir diğer sebep ise pandemi sürecindeki aile içi ilişkilerde yaşanan zorluklar neticesinde daha fazla boşanma kararının alınması olabilir.</p></li>
+<li><p>Boşanma verileri incelendiğinde, ani artış veya azalışların ülkemizde yaşanan ekonomik kriz, OHAL, deprem felaketi gibi olağanüstü olayların etkili olduğu düşünülmektedir. &nbsp;(2008-2009: Ekonomik Kriz, 2016 : OHAL, 2023 : Deprem Felaketi )</p></li>
+</ul>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -404,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="1440"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -428,8 +472,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5 2005          641241          95895
 6 2006          636121          93489</code></pre>
 </div>
-</div>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Durum <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"evlenme_sayisi"</span>,<span class="st">"bosanma_sayisi"</span>)</span>
@@ -450,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -475,8 +517,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5  2022 Mısır        2,2              
 6  2022 ABD          2,4              </code></pre>
 </div>
-</div>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ulkeler_arasi<span class="sc">$</span><span class="st">`</span><span class="at">Bosanma_Kaba_Hizi</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, ulkeler_arasi<span class="sc">$</span><span class="st">`</span><span class="at">Bosanma_Kaba_Hizi</span><span class="st">`</span>))</span>
@@ -507,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -530,8 +570,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5 Gaziantep      14.3      26.7
 6 İstanbul       24.0      33.9</code></pre>
 </div>
-</div>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uzun form ve piramit formatı</span></span>
@@ -571,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -661,7 +699,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="1440"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -672,11 +710,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" width="1440"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="1440"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="kadın-2006-2021-bosanma-nedenleri" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="kadın-2006-2021-bosanma-nedenleri"><span class="header-section-number">2.5</span> Kadın 2006-2021 bosanma nedenleri</h2>
@@ -694,8 +733,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ Kadin_2006    : chr [1:12] "3.9" "0.3" "0.3" "31.3" ...
  $ Kadin_2021    : chr [1:12] "1.4" "5.4" "0.5" "19.3" ...</code></pre>
 </div>
-</div>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>veri_long <span class="ot">&lt;-</span> veri <span class="sc">%&gt;%</span></span>
@@ -726,7 +763,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="1440"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -765,7 +802,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="1440"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="1440"></p>
 </figure>
 </div>
 </div>
@@ -787,8 +824,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 5  2019          9215.              2.45
 6  2018          9569.              2.28</code></pre>
 </div>
-</div>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>GSYH<span class="sc">$</span>Kategori <span class="ot">&lt;-</span> <span class="st">"Kaba Bosanma Hızı"</span></span>
@@ -838,7 +873,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="1440"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -866,8 +901,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #   `15_yil` &lt;dbl&gt;, `16_yil` &lt;dbl&gt;, `17_yil` &lt;dbl&gt;, `18_yil` &lt;dbl&gt;,
 #   `19_yil` &lt;dbl&gt;, `20_ustu_yil` &lt;dbl&gt;</code></pre>
 </div>
-</div>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>yildan_az_1<span class="ot">&lt;-</span><span class="fu">sum</span>(evlilik_suresi[<span class="dv">2</span>])</span>
@@ -892,7 +925,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -954,7 +987,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="1152"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -962,43 +995,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kadın-Erkek Yaşlarına GÖre Boşanma Sayının Pie Chart Üzerinden GÖsterimi</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye Genelll.xlsx"</span>)</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>kadin_veri <span class="ot">&lt;-</span> df<span class="sc">$</span>Turkiye_Kadin_Dagilim</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>erkek_veri <span class="ot">&lt;-</span> df<span class="sc">$</span>Turkiye_Erkek_Dagilim</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>yas_gruplari <span class="ot">&lt;-</span> df<span class="sc">$</span>Yas_Grubu</span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Yüzdelerin hesaplanması</span></span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>kadin_yuzde <span class="ot">&lt;-</span> <span class="fu">round</span>(kadin_veri <span class="sc">/</span> <span class="fu">sum</span>(kadin_veri) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>)</span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>erkek_yuzde <span class="ot">&lt;-</span> <span class="fu">round</span>(erkek_veri <span class="sc">/</span> <span class="fu">sum</span>(erkek_veri) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>)</span>
-<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>kadin_etiketler <span class="ot">&lt;-</span> <span class="fu">paste0</span>(yas_gruplari, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, kadin_yuzde, <span class="st">"%"</span>)</span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>erkek_etiketler <span class="ot">&lt;-</span> <span class="fu">paste0</span>(yas_gruplari, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, erkek_yuzde, <span class="st">"%"</span>)</span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>renkler <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">4</span>, <span class="at">name =</span> <span class="st">"Pastel1"</span>)  <span class="co"># Alternatif: "Set3"</span></span>
-<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(kadin_veri, <span class="at">labels =</span> kadin_etiketler, <span class="at">main =</span> <span class="st">"Bosanma Yaş Dağılımı (Kadın)"</span>, <span class="at">col =</span> renkler,<span class="at">font=</span><span class="dv">2</span>,<span class="at">cex=</span><span class="fl">0.7</span>)</span>
-<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(erkek_veri, <span class="at">labels =</span> erkek_etiketler, <span class="at">main =</span> <span class="st">"Bosanma Yaş Dağılımı (Erkek)"</span>, <span class="at">col =</span> renkler,<span class="at">font=</span><span class="dv">2</span>,<span class="at">cex=</span><span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="1152"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veriyi oku</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>df_kadin <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Kadın Yaş Dağılımı"</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df_kadin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veriyi oku</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>df_kadin <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Kadın Yaş Dağılımı"</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df_kadin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [96 × 3] (S3: tbl_df/tbl/data.frame)
@@ -1006,76 +1005,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ Yil      : chr [1:96] "2001" "2002" "2003" "2004" ...
  $ TÜRKİYE  : num [1:96] 21581 21638 20532 19569 19996 ...</code></pre>
 </div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_kadin)[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"Bosanan_Kadin_Sayisi"</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>p5<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_kadin, <span class="fu">aes</span>(<span class="at">x =</span> Yil, <span class="at">y =</span> Bosanan_Kadin_Sayisi, <span class="at">color =</span> Yas_Grubu, <span class="at">group =</span> Yas_Grubu)) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Yas Dagılımlarına Gore Bosanma Sayıları (Kadın)"</span>,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Yıl"</span>,</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bosanan Kadın Sayısı"</span>,</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Yas Grubu"</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  )  <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>,<span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>),<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_kadin)[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"Bosanan_Kadin_Sayisi"</span></span>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bölgelere göre kadın boşanma sayılarının Scatterla Çizimi</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>p5<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_kadin, <span class="fu">aes</span>(<span class="at">x =</span> Yil, <span class="at">y =</span> Bosanan_Kadin_Sayisi, <span class="at">color =</span> Yas_Grubu, <span class="at">group =</span> Yas_Grubu)) <span class="sc">+</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Yas Dagılımlarına Gore Bosanma Sayıları (Kadın)"</span>,</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Yıl"</span>,</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bosanan Kadın Sayısı"</span>,</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Yas Grubu"</span></span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  )  <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">size=</span><span class="dv">12</span>),</span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>,<span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>),<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Veriyi oku</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df_erkek <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Erkek Yaş Dağılımı"</span>)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df_erkek)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>tibble [96 × 3] (S3: tbl_df/tbl/data.frame)
- $ Yas_Grubu: chr [1:96] "Yaş Aralığı: 16-29" "Yaş Aralığı: 16-29" "Yaş Aralığı: 16-29" "Yaş Aralığı: 16-29" ...
- $ Yil      : chr [1:96] "2001" "2002" "2003" "2004" ...
- $ TÜRKİYE  : num [1:96] 28499 26766 25079 24174 24927 ...</code></pre>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_erkek)[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">"Bosanan_Erkek_Sayisi"</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>p6<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_erkek, <span class="fu">aes</span>(<span class="at">x =</span> Yil, <span class="at">y =</span> Bosanan_Erkek_Sayisi, <span class="at">color=</span>Yas_Grubu , <span class="at">group =</span> Yas_Grubu)) <span class="sc">+</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Yas Dagılımlarına Gore Bosanma Sayıları (Erkek)"</span>,</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Yıl"</span>,</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bosanan Erkek Sayısı"</span>,</span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Yas Grubu"</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  )  <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">size=</span><span class="dv">12</span>),</span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>,<span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>),<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>))</span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>(p5<span class="sc">|</span>p6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="2880"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bölgelere göre kadın boşanma sayılarının Scatterla Çizimi</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>kadin_bosanma_bolge <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/yasmin-erdi/kadin_bosanma_bolge.xlsx"</span>)</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>kadin_bosanma_bolge<span class="sc">$</span>Yil <span class="ot">&lt;-</span> <span class="fu">as.numeric</span> (kadin_bosanma_bolge<span class="sc">$</span>Yil)</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(kadin_bosanma_bolge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>kadin_bosanma_bolge <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/yasmin-erdi/kadin_bosanma_bolge.xlsx"</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>kadin_bosanma_bolge<span class="sc">$</span>Yil <span class="ot">&lt;-</span> <span class="fu">as.numeric</span> (kadin_bosanma_bolge<span class="sc">$</span>Yil)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(kadin_bosanma_bolge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [96 × 9] (S3: tbl_df/tbl/data.frame)
@@ -1091,38 +1048,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>veri_long <span class="ot">&lt;-</span> kadin_bosanma_bolge <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(Kadin_Yas_Grubu, Yil),  <span class="at">names_to =</span> <span class="st">"Bolge"</span>, <span class="at">values_to =</span> <span class="st">"Deger"</span>)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>veri_long <span class="ot">&lt;-</span> veri_long <span class="sc">%&gt;%</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Donem =</span> <span class="fu">case_when</span>(</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2001</span><span class="sc">:</span><span class="dv">2006</span> <span class="sc">~</span> <span class="st">"2001–2006"</span>,</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2007</span><span class="sc">:</span><span class="dv">2012</span> <span class="sc">~</span> <span class="st">"2007–2012"</span>,</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2013</span><span class="sc">:</span><span class="dv">2018</span> <span class="sc">~</span> <span class="st">"2013–2018"</span>,</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2019</span><span class="sc">:</span><span class="dv">2024</span> <span class="sc">~</span> <span class="st">"2019–2024"</span>,</span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Donem))</span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(veri_long, <span class="fu">aes</span>(<span class="at">x =</span> Deger , <span class="at">y =</span> Kadin_Yas_Grubu, <span class="at">color =</span> Bolge)) <span class="sc">+</span></span>
-<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Donem, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Kadın Yaş Gruplarına Gore Bolgesel Dağılımlar (2001–2024)"</span>,</span>
-<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bosanma Sayısı"</span>,</span>
-<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Kadın Yaş Aralıkları"</span>,</span>
-<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Bolge"</span>) <span class="sc">+</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span><span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">1</span>),<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">vjust=</span><span class="dv">1</span>),<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>,<span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>))<span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20000</span>),         </span>
-<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">5000</span>))<span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Akdeniz"</span> <span class="ot">=</span> <span class="st">"#D5006D"</span>,</span>
-<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dogu_Anadolu"</span> <span class="ot">=</span><span class="st">"#1E90FF"</span>,</span>
-<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ege"</span> <span class="ot">=</span> <span class="st">"#009E73"</span>,</span>
-<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Guneydogu_Anadolu"</span> <span class="ot">=</span> <span class="st">"#F0E442"</span>,</span>
-<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ic_Anadolu"</span> <span class="ot">=</span> <span class="st">"#40E0D0"</span>,</span>
-<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Karadeniz"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>,</span>
-<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Marmara"</span> <span class="ot">=</span><span class="st">"purple"</span></span>
-<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>veri_long <span class="ot">&lt;-</span> kadin_bosanma_bolge <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(Kadin_Yas_Grubu, Yil),  <span class="at">names_to =</span> <span class="st">"Bolge"</span>, <span class="at">values_to =</span> <span class="st">"Deger"</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>veri_long <span class="ot">&lt;-</span> veri_long <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Donem =</span> <span class="fu">case_when</span>(</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2001</span><span class="sc">:</span><span class="dv">2006</span> <span class="sc">~</span> <span class="st">"2001–2006"</span>,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2007</span><span class="sc">:</span><span class="dv">2012</span> <span class="sc">~</span> <span class="st">"2007–2012"</span>,</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2013</span><span class="sc">:</span><span class="dv">2018</span> <span class="sc">~</span> <span class="st">"2013–2018"</span>,</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2019</span><span class="sc">:</span><span class="dv">2024</span> <span class="sc">~</span> <span class="st">"2019–2024"</span>,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Donem))</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(veri_long, <span class="fu">aes</span>(<span class="at">x =</span> Deger , <span class="at">y =</span> Kadin_Yas_Grubu, <span class="at">color =</span> Bolge)) <span class="sc">+</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Donem, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Kadın Yaş Gruplarına Gore Bolgesel Dağılımlar (2001–2024)"</span>,</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bosanma Sayısı"</span>,</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Kadın Yaş Aralıkları"</span>,</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Bolge"</span>) <span class="sc">+</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span><span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">1</span>),<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">vjust=</span><span class="dv">1</span>),<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>,<span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>))<span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20000</span>),         </span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">5000</span>))<span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Akdeniz"</span> <span class="ot">=</span> <span class="st">"#D5006D"</span>,</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dogu_Anadolu"</span> <span class="ot">=</span><span class="st">"#1E90FF"</span>,</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ege"</span> <span class="ot">=</span> <span class="st">"#009E73"</span>,</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Guneydogu_Anadolu"</span> <span class="ot">=</span> <span class="st">"#F0E442"</span>,</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ic_Anadolu"</span> <span class="ot">=</span> <span class="st">"#40E0D0"</span>,</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Karadeniz"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>,</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Marmara"</span> <span class="ot">=</span><span class="st">"purple"</span></span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="1152"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="2880"></p>
 </figure>
 </div>
 </div>
@@ -1130,8 +1087,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>erkek_bosanma_bolge <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/yasmin-erdi/erkek_bosanma_bolge.xlsx"</span>)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(erkek_bosanma_bolge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>erkek_bosanma_bolge <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/yasmin-erdi/erkek_bosanma_bolge.xlsx"</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(erkek_bosanma_bolge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [96 × 9] (S3: tbl_df/tbl/data.frame)
@@ -1145,47 +1102,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ Ic_Anadolu       : num [1:96] 6314 6156 5746 5417 5683 ...
  $ Marmara          : num [1:96] 7850 7862 7696 7539 7893 ...</code></pre>
 </div>
-</div>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bölgelere göre erkek boşanma sayılarının Scatterla Çizimi</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>erkek_bosanma_bolge<span class="sc">$</span>Yil <span class="ot">&lt;-</span> <span class="fu">as.numeric</span> (erkek_bosanma_bolge<span class="sc">$</span>Yil)</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>veri_long1 <span class="ot">&lt;-</span> erkek_bosanma_bolge <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(Erkek_Yas_Grubu, Yil),  <span class="at">names_to =</span> <span class="st">"Bolge"</span>, <span class="at">values_to =</span> <span class="st">"Deger"</span>)</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate fonksiyonuyla yıllar 6 yıllık periyotlara bölündü ve sutün olarak eklendi</span></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>veri_long1 <span class="ot">&lt;-</span> veri_long1 <span class="sc">%&gt;%</span></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Donem =</span> <span class="fu">case_when</span>(</span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2001</span><span class="sc">:</span><span class="dv">2006</span> <span class="sc">~</span> <span class="st">"2001–2006"</span>,</span>
-<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2007</span><span class="sc">:</span><span class="dv">2012</span> <span class="sc">~</span> <span class="st">"2007–2012"</span>,</span>
-<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2013</span><span class="sc">:</span><span class="dv">2018</span> <span class="sc">~</span> <span class="st">"2013–2018"</span>,</span>
-<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2019</span><span class="sc">:</span><span class="dv">2024</span> <span class="sc">~</span> <span class="st">"2019–2024"</span>,</span>
-<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
-<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
-<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Donem))</span>
-<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(veri_long1, <span class="fu">aes</span>(<span class="at">x =</span> Deger , <span class="at">y =</span> Erkek_Yas_Grubu, <span class="at">color =</span> Bolge)) <span class="sc">+</span></span>
-<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Donem, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Erkek Yaş Gruplarına Gore Bolgesel Dağılım (2001–2024)"</span>,</span>
-<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bosanma Sayısı"</span>,</span>
-<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Erkek Yaş Aralığı"</span>,</span>
-<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Bolge"</span>) <span class="sc">+</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span><span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">1</span>),<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">vjust=</span><span class="dv">1</span>),<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>,<span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>))<span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">22000</span>),         </span>
-<span id="cb48-24"><a href="#cb48-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">5000</span>))<span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Akdeniz"</span> <span class="ot">=</span> <span class="st">"#D5006D"</span>,</span>
-<span id="cb48-26"><a href="#cb48-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dogu_Anadolu"</span> <span class="ot">=</span><span class="st">"#1E90FF"</span>,</span>
-<span id="cb48-27"><a href="#cb48-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ege"</span> <span class="ot">=</span> <span class="st">"#009E73"</span>,</span>
-<span id="cb48-28"><a href="#cb48-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Guneydogu_Anadolu"</span> <span class="ot">=</span> <span class="st">"#F0E442"</span>,</span>
-<span id="cb48-29"><a href="#cb48-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ic_Anadolu"</span> <span class="ot">=</span> <span class="st">"#40E0D0"</span>,</span>
-<span id="cb48-30"><a href="#cb48-30" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Karadeniz"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>,</span>
-<span id="cb48-31"><a href="#cb48-31" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Marmara"</span> <span class="ot">=</span><span class="st">"purple"</span></span>
-<span id="cb48-32"><a href="#cb48-32" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bölgelere göre erkek boşanma sayılarının Scatterla Çizimi</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>erkek_bosanma_bolge<span class="sc">$</span>Yil <span class="ot">&lt;-</span> <span class="fu">as.numeric</span> (erkek_bosanma_bolge<span class="sc">$</span>Yil)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>veri_long1 <span class="ot">&lt;-</span> erkek_bosanma_bolge <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(Erkek_Yas_Grubu, Yil),  <span class="at">names_to =</span> <span class="st">"Bolge"</span>, <span class="at">values_to =</span> <span class="st">"Deger"</span>)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co"># mutate fonksiyonuyla yıllar 6 yıllık periyotlara bölündü ve sutün olarak eklendi</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>veri_long1 <span class="ot">&lt;-</span> veri_long1 <span class="sc">%&gt;%</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Donem =</span> <span class="fu">case_when</span>(</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2001</span><span class="sc">:</span><span class="dv">2006</span> <span class="sc">~</span> <span class="st">"2001–2006"</span>,</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2007</span><span class="sc">:</span><span class="dv">2012</span> <span class="sc">~</span> <span class="st">"2007–2012"</span>,</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2013</span><span class="sc">:</span><span class="dv">2018</span> <span class="sc">~</span> <span class="st">"2013–2018"</span>,</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    Yil <span class="sc">%in%</span> <span class="dv">2019</span><span class="sc">:</span><span class="dv">2024</span> <span class="sc">~</span> <span class="st">"2019–2024"</span>,</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Donem))</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(veri_long1, <span class="fu">aes</span>(<span class="at">x =</span> Deger , <span class="at">y =</span> Erkek_Yas_Grubu, <span class="at">color =</span> Bolge)) <span class="sc">+</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Donem, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Erkek Yaş Gruplarına Gore Bolgesel Dağılım (2001–2024)"</span>,</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bosanma Sayısı"</span>,</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Erkek Yaş Aralığı"</span>,</span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Bolge"</span>) <span class="sc">+</span><span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span><span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">1</span>),<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="dv">1</span>,<span class="at">vjust=</span><span class="dv">1</span>),<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>,<span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>))<span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">22000</span>),         </span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">5000</span>))<span class="sc">+</span><span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Akdeniz"</span> <span class="ot">=</span> <span class="st">"#D5006D"</span>,</span>
+<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Dogu_Anadolu"</span> <span class="ot">=</span><span class="st">"#1E90FF"</span>,</span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ege"</span> <span class="ot">=</span> <span class="st">"#009E73"</span>,</span>
+<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Guneydogu_Anadolu"</span> <span class="ot">=</span> <span class="st">"#F0E442"</span>,</span>
+<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ic_Anadolu"</span> <span class="ot">=</span> <span class="st">"#40E0D0"</span>,</span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Karadeniz"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>,</span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Marmara"</span> <span class="ot">=</span><span class="st">"purple"</span></span>
+<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="1152"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -1193,117 +1148,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#türkiye geneli eşler arası yaş farkı (yasmin-erdi)</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>Yas_Farki_Turkiye_geneli <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/yasmin-erdi/Yas_Farki_Turkiye_geneli.xlsx"</span>)</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Yas_Farki_Turkiye_geneli)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#türkiye geneli eşler arası yaş farkı (yasmin-erdi)</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>Yas_Farki_Turkiye_geneli <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/yasmin-erdi/Yas_Farki_Turkiye_geneli.xlsx"</span>)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Yas_Farki_Turkiye_geneli)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
-  Yil   Yas_Farki_0_yil Yas_Farki_1_5_yil Yas_Farki_6_10_yil Yas_Farkı_11
-  &lt;chr&gt;           &lt;dbl&gt;             &lt;dbl&gt;              &lt;dbl&gt;        &lt;dbl&gt;
-1 2001             9315             47100              21848         7999
-2 2002             8877             48285              22736         8741
-3 2003             8400             46763              22067         8752
-4 2004             8411             45982              21489         8880
-5 2005             8511             48406              23007         9401
-6 2006             8536             47261              22661         9132</code></pre>
+<pre><code>tibble [24 × 5] (S3: tbl_df/tbl/data.frame)
+ $ Yil               : chr [1:24] "2001" "2002" "2003" "2004" ...
+ $ Yas_Farki_0_yil   : num [1:24] 3.92 4.11 4.79 5.3 5.42 ...
+ $ Yas_Farki_1_5_yil : num [1:24] 5.31 4.96 5.67 6.27 6.17 ...
+ $ Yas_Farki_6_10_yil: num [1:24] 6.44 5.42 6.3 7.09 7.01 ...
+ $ Yas_Farkı_11+     : num [1:24] 5.56 4.54 5.01 5.17 4.99 ...</code></pre>
 </div>
 </div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>Yas_Farki_Turkiye_geneli<span class="sc">$</span>Yil <span class="ot">&lt;-</span> <span class="fu">as.numeric</span> (Yas_Farki_Turkiye_geneli<span class="sc">$</span>Yil)</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bosanma sayılarını yıl bazlı olarak toplanması </span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>Yas_Farki_0_yils<span class="ot">&lt;-</span><span class="fu">sum</span>(Yas_Farki_Turkiye_geneli[<span class="dv">2</span>])</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>Yas_Farki_1_5_yils<span class="ot">&lt;-</span><span class="fu">sum</span>(Yas_Farki_Turkiye_geneli[<span class="dv">3</span>])</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>Yas_Farki_6_10_yils<span class="ot">&lt;-</span><span class="fu">sum</span>(Yas_Farki_Turkiye_geneli[<span class="dv">4</span>])</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>Yas_Farki_11s<span class="ot">&lt;-</span><span class="fu">sum</span>(Yas_Farki_Turkiye_geneli[<span class="dv">5</span>])</span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>Esler_arasi_yas_farki <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">kategori =</span> <span class="fu">c</span>(<span class="st">"0 yıl"</span>, <span class="st">"1-5 yıl"</span>, <span class="st">"6-10 yıl"</span>, <span class="st">"11+ yıl"</span>),</span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">deger =</span> <span class="fu">c</span>(Yas_Farki_0_yils, Yas_Farki_1_5_yils, Yas_Farki_6_10_yils, Yas_Farki_11s)</span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>Esler_arasi_yas_farki<span class="sc">$</span>kategori <span class="ot">&lt;-</span> <span class="fu">reorder</span>(Esler_arasi_yas_farki<span class="sc">$</span>kategori, <span class="sc">-</span>Esler_arasi_yas_farki<span class="sc">$</span>deger)</span>
-<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Esler_arasi_yas_farki, <span class="fu">aes</span>(<span class="at">x =</span> kategori, <span class="at">y =</span> deger, <span class="at">fill =</span> kategori)) <span class="sc">+</span></span>
-<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  </span>
-<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> deger), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span>  </span>
-<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Eşler Arası Yaş Farkına Gore Bosanma Sayıları (Turkiye Geneli)"</span>,</span>
-<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">" Eşler Arası Yaş Farkı"</span>,</span>
-<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Toplam Bosanma Sayısı"</span>,</span>
-<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Evlilik Sureleri"</span></span>
-<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>,<span class="at">face =</span> <span class="st">"bold"</span>,<span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>,<span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>,<span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb51-29"><a href="#cb51-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>,<span class="at">face =</span> <span class="st">"bold"</span>)</span>
-<span id="cb51-30"><a href="#cb51-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb51-31"><a href="#cb51-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fu">max</span>(Esler_arasi_yas_farki<span class="sc">$</span>deger) <span class="sc">*</span> <span class="fl">1.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<p>Yas_Farki_Turkiye_geneli<span class="math inline">\(Yil &lt;- as.numeric(Yas_Farki_Turkiye_geneli\)</span>Yil)</p>
+<p>Yas_Farki_0_yils &lt;- mean(Yas_Farki_Turkiye_geneli[[2]], na.rm = TRUE) Yas_Farki_1_5_yils &lt;- mean(Yas_Farki_Turkiye_geneli[[3]], na.rm = TRUE) Yas_Farki_6_10_yils &lt;- mean(Yas_Farki_Turkiye_geneli[[4]], na.rm = TRUE) Yas_Farki_11s &lt;- mean(Yas_Farki_Turkiye_geneli[[5]], na.rm = TRUE) Esler_arasi_yas_farki &lt;- data.frame( kategori = c(“0 yıl”, “1-5 yıl”, “6-10 yıl”, “11+ yıl”), deger = c(Yas_Farki_0_yils, Yas_Farki_1_5_yils, Yas_Farki_6_10_yils, Yas_Farki_11s) ) Esler_arasi_yas_farki<span class="math inline">\(kategori &lt;- reorder(Esler_arasi_yas_farki\)</span>kategori, -Esler_arasi_yas_farki<span class="math inline">\(deger)
+# Dikey bar grafiği oluşturma
+ggplot(Esler_arasi_yas_farki, aes(x = kategori, y = deger, fill = kategori)) +
+  geom_bar(stat = "identity", width = 0.5) +
+geom_text(aes(label = label_number(accuracy = 0.01)(deger)), vjust = -0.3, size = 4) +
+  labs(
+    title = " Evliligin Bosanmaya Oranı (Eşler Arası Yaş Farkı Dağılımı)",
+    x = "Yaş Farkı Kategorisi",
+    y = "Oran",
+    fill = "Kategori"
+  ) +
+  theme_minimal(base_size = 15) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    axis.text = element_text(size = 12,face = "bold"),
+    axis.title = element_text(size = 14,face = "bold"),
+    legend.title = element_text(size = 12,face = "bold"),
+    legend.text = element_text(size = 12,face = "bold")
+  )
+  ylim(0, max(Esler_arasi_yas_farki\)</span>deger) * 1.1)</p>
+<pre><code>
+::: {.cell}
+
+```{.r .cell-code}
+# radar grafiğiyle çizim 
+yasmin &lt;- Yas_Farki_Turkiye_geneli
+colnames(yasmin) &lt;- c("Yil", "Yas_Farki_0_yil", "Yas_Farki_1_5_yil", "Yas_Farki_6_10_yil", "Yas_Farki_11")
+
+data &lt;- data.frame(
+  row.names = c("Yas_Farki_0_yil", "Yas_Farki_1_5_yil", "Yas_Farki_6_10_yil", "Yas_Farki_11"),
+  t(yasmin[, -1]) 
+)
+colnames(data) &lt;- yasmin$Yil
+
+data &lt;- rbind(
+  rep(max(data), ncol(data)),
+  rep(0, ncol(data)),
+  data
+)# maximum ve mn,mum degerleri belirleme
+
+options(scipen = 99999999)# 1000000 değerini scientfic olark gösterimini kapatmak için kullanıldı
+
+colors &lt;- c("black", "darkorange", "forestgreen", "steelblue")
+radarchart(data,
+           axistype = 1,
+           pcol = colors,
+           pfcol = alpha(colors, 0.3),
+           plwd = 0.1,
+           cglcol = "grey80",
+           cglty = 1,
+           axislabcol = "black",
+           caxislabels = seq(0, 100000, length.out = 5),
+           vlcex = 1.5,
+           calcex=1.5
+)
+       legend("bottom", legend = rownames(data)[-c(1,2)],
+       col = colors, lwd = 3, bty = "n", horiz = TRUE, cex = 1)
+n_yillar &lt;- ncol(data)
+angles &lt;- seq(0, 2*pi, length.out = n_yillar + 1)[-1]
+radius &lt;- 0.9
+x &lt;- radius * sin(angles)
+y &lt;- radius * cos(angles)+title(main = "Eşler Arası Yaş Farkının Yıllara Gore Gosterimi")</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="1152"></p>
 </figure>
 </div>
 </div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># radar grafiğiyle çizim </span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>yasmin <span class="ot">&lt;-</span> Yas_Farki_Turkiye_geneli</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(yasmin) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Yil"</span>, <span class="st">"Yas_Farki_0_yil"</span>, <span class="st">"Yas_Farki_1_5_yil"</span>, <span class="st">"Yas_Farki_6_10_yil"</span>, <span class="st">"Yas_Farki_11"</span>)</span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="fu">c</span>(<span class="st">"Yas_Farki_0_yil"</span>, <span class="st">"Yas_Farki_1_5_yil"</span>, <span class="st">"Yas_Farki_6_10_yil"</span>, <span class="st">"Yas_Farki_11"</span>),</span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>(yasmin[, <span class="sc">-</span><span class="dv">1</span>]) </span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data) <span class="ot">&lt;-</span> yasmin<span class="sc">$</span>Yil</span>
-<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
-<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep</span>(<span class="fu">max</span>(data), <span class="fu">ncol</span>(data)),</span>
-<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(data)),</span>
-<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>  data</span>
-<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>)<span class="co"># maximum ve mn,mum degerleri belirleme</span></span>
-<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">99999999</span>)<span class="co"># 1000000 değerini scientfic olark gösterimini kapatmak için kullanıldı</span></span>
-<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"darkorange"</span>, <span class="st">"forestgreen"</span>, <span class="st">"steelblue"</span>)</span>
-<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a><span class="fu">radarchart</span>(data,</span>
-<span id="cb52-21"><a href="#cb52-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">axistype =</span> <span class="dv">1</span>,</span>
-<span id="cb52-22"><a href="#cb52-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">pcol =</span> colors,</span>
-<span id="cb52-23"><a href="#cb52-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">pfcol =</span> <span class="fu">alpha</span>(colors, <span class="fl">0.3</span>),</span>
-<span id="cb52-24"><a href="#cb52-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">plwd =</span> <span class="fl">0.1</span>,</span>
-<span id="cb52-25"><a href="#cb52-25" aria-hidden="true" tabindex="-1"></a>           <span class="at">cglcol =</span> <span class="st">"grey80"</span>,</span>
-<span id="cb52-26"><a href="#cb52-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">cglty =</span> <span class="dv">1</span>,</span>
-<span id="cb52-27"><a href="#cb52-27" aria-hidden="true" tabindex="-1"></a>           <span class="at">axislabcol =</span> <span class="st">"black"</span>,</span>
-<span id="cb52-28"><a href="#cb52-28" aria-hidden="true" tabindex="-1"></a>           <span class="at">caxislabels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100000</span>, <span class="at">length.out =</span> <span class="dv">5</span>),</span>
-<span id="cb52-29"><a href="#cb52-29" aria-hidden="true" tabindex="-1"></a>           <span class="at">vlcex =</span> <span class="fl">1.5</span>,</span>
-<span id="cb52-30"><a href="#cb52-30" aria-hidden="true" tabindex="-1"></a>           <span class="at">calcex=</span><span class="fl">1.5</span></span>
-<span id="cb52-31"><a href="#cb52-31" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb52-32"><a href="#cb52-32" aria-hidden="true" tabindex="-1"></a>       <span class="fu">legend</span>(<span class="st">"bottom"</span>, <span class="at">legend =</span> <span class="fu">rownames</span>(data)[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)],</span>
-<span id="cb52-33"><a href="#cb52-33" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> colors, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">horiz =</span> <span class="cn">TRUE</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
-<span id="cb52-34"><a href="#cb52-34" aria-hidden="true" tabindex="-1"></a>n_yillar <span class="ot">&lt;-</span> <span class="fu">ncol</span>(data)</span>
-<span id="cb52-35"><a href="#cb52-35" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="sc">*</span>pi, <span class="at">length.out =</span> n_yillar <span class="sc">+</span> <span class="dv">1</span>)[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb52-36"><a href="#cb52-36" aria-hidden="true" tabindex="-1"></a>radius <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
-<span id="cb52-37"><a href="#cb52-37" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> radius <span class="sc">*</span> <span class="fu">sin</span>(angles)</span>
-<span id="cb52-38"><a href="#cb52-38" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> radius <span class="sc">*</span> <span class="fu">cos</span>(angles)<span class="sc">+</span><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"Eşler Arası Yaş Farkının Yıllara Gore Gosterimi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="1152"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>:::</p>
 
 
 </section>
@@ -1536,8 +1465,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1648,7 +1575,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
