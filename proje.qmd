@@ -4,11 +4,11 @@ format: html
 number-sections: true
 ---
 
-# [Aşkın Bittiği Yerde, TÜİK Devreye Girer!]{style="color:red"}
+## [Aşkın Bittiği Yerde, TÜİK Devreye Girer!]{style="color:dark red"}
 
 ![](veri/2008.gif){fig-align="center"}
 
-##Proje Genel Bakış ve Kapsamı
+## Proje Genel Bakış ve Kapsamı
 
 Boşanma oranları, toplumun demografik ve sosyoekonomik yapısındaki değişimleri yansıtan önemli göstergelerden biridir. Zaman içinde evlilik ve aile yapılarında yaşanan dönüşümler, boşanma istatistiklerine de yansımaktadır. Bu projede, Türkiye’de ve dünyada boşanma verileri görselleştirilerek incelenmekte; yıllara, bölgelere, cinsiyete ve boşanma değerlerine göre nasıl farklılık gösterdiği analiz edilmektedir. Amaç, boşanma olgusunu yalnızca sayısal bir veri olarak değil, toplumsal eğilimlerin bir yansıması olarak ele almak ve bu eğilimleri daha anlaşılır hale getirmektir.
 
@@ -20,10 +20,10 @@ Boşanma oranları, toplumun demografik ve sosyoekonomik yapısındaki değişim
 
 Kullanılan veri setlerine aşağıdaki linklerden ulaşabilirsiniz.
 
-* https://biruni.tuik.gov.tr/medas/?kn=111&locale=tr 
-* https://nip.tuik.gov.tr/ 
-* https://www.nufusu.com/turkiye-nufusu-yas-gruplari-2007
-* https://divorce.com/blog/divorce-rates-in-the-world/
+-   https://biruni.tuik.gov.tr/medas/?kn=111&locale=tr
+-   https://nip.tuik.gov.tr/
+-   https://www.nufusu.com/turkiye-nufusu-yas-gruplari-2007
+-   https://divorce.com/blog/divorce-rates-in-the-world/
 
 ## Tercih Sebebi
 
