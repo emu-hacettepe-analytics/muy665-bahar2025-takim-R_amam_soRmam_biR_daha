@@ -4,33 +4,56 @@ format: html
 number-sections: true
 ---
 
-**Proje sayfamıza hoş geldiniz.**
+# [Aşkın Bittiği Yerde, TÜİK Devreye Girer!]{style="color:red"}
 
 ![](veri/2008.gif){fig-align="center"}
 
+##Proje Genel Bakış ve Kapsamı
 
-
-# Proje Genel Bakış ve Kapsamı
-
-xxxxxx
-
-# Veri
-
-
-
-## Veri Kaynağı
-
-xxxxxx
+Boşanma oranları, toplumun demografik ve sosyoekonomik yapısındaki değişimleri yansıtan önemli göstergelerden biridir. Zaman içinde evlilik ve aile yapılarında yaşanan dönüşümler, boşanma istatistiklerine de yansımaktadır. Bu projede, Türkiye’de ve dünyada boşanma verileri görselleştirilerek incelenmekte; yıllara, bölgelere, cinsiyete ve boşanma değerlerine göre nasıl farklılık gösterdiği analiz edilmektedir. Amaç, boşanma olgusunu yalnızca sayısal bir veri olarak değil, toplumsal eğilimlerin bir yansıması olarak ele almak ve bu eğilimleri daha anlaşılır hale getirmektir.
 
 ## Veri Hakkında Genel Bilgiler
 
-xxxxxx
+-   Proje kapsamında analiz edilen veriler, Türkiye İstatistik Kurumu (TÜİK) tarafından yayımlanan evlenme ve boşanma istatistiklerinden oluşmaktadır. Veriler yıllık bazda derlenmiş olup 2001–2023 yılları arasındaki dönemi kapsamaktadır. Veri setinde yıllara göre boşanma sayıları, illere göre dağılım, cinsiyet, yaş grubu, evliliğin süresi gibi değişkenler bulunmaktadır. Veriler excel formatında elde edilmiş olup istatistiksel analiz ile görselleştirme işlemleri için temizlenmiş ve düzenlenmiştir. Bu çalışmada 9 adet veri seti kulllanılmış olup ve bu veri setlerinde bazı düzenleme işlemleri sonucunda ek olarak 3 adet alt veri seti oluşturulmuştur. Bu veri seti görselleştirilerek 16 adet grafik elde edilip, yorumlanarak çıkarımlar da bulunulmuştur.
+
+## Veri Kaynağı
+
+Kullanılan veri setlerine aşağıdaki linklerden ulaşabilirsiniz.
+
+* https://biruni.tuik.gov.tr/medas/?kn=111&locale=tr 
+* https://nip.tuik.gov.tr/ 
+* https://www.nufusu.com/turkiye-nufusu-yas-gruplari-2007
+* https://divorce.com/blog/divorce-rates-in-the-world/
 
 ## Tercih Sebebi
 
-xxxxxx
+Bu proje konusunun seçilmesinin başlıca nedenleri şunlardır:
+
+-   Boşanma, aile yapısını ve toplumu etkileyen bir konu olması sebebiyle analiz edilmesi ve çıkarımlarda bulunulması açısından önemlidir.
+
+-   Toplumda son yıllarda duyulan boşanma sayılarındaki artış konu ile ilgili merak uyandırdı.
+
+-   Proje için veri seti araştırması yapılırken Türkiye İstatistik Kurumu (TÜİK)’te bu konuda çok fazla veri olması bizlere kapsamlı bir araştırma yapılabileceği düşüncesini getirdi ve bizi heyecanlandırdı.
+
+-   Proje konumuzun sosyoloji, psikoloji, coğrafya, ekonomi, hukuk gibi çok farklı alanlar ile iç içe olması veri setimizi seçilmesinde etkili olmuştur.
+
+-   Dikkat çekilmesi gereken bir konu olduğunu düşündüğümüz için ilerleyen akademik çalışmalarda da kullanılabileceği düşünülmektedir.
+
+-   Cinsiyet, yaş, medeni durum, meslek grubu farketmeksizin her kitleye hitap edebilecek ve ilgi çekici bir konu olduğu düşünülmektedir.
 
 ## Ön İşleme
+
+-   Projemizde veri setlerimizde gerçekleştirdiğimiz ön işleme adımları aşağıdaki gibidir : Veri setlerinin yapısını anlamak ve gereken ön işleme adımlarını tespit etmekiçin veri seti, değişkenler ve değerler incelendi.
+
+-   Veri setlerindeki anlamsız, yanlış ve aykırı değerler temizlendi. Grafik ve yorumlama için anlam ifade etmeyen sütunlar kaldırıldı.
+
+-   Sütun ve satılarda bazı adlandırmalar ve karakterler düzeltildi.
+
+-   Gerekli matematiksel işlemler gerçekleştirilerek veri istenilen hale getirildi. (ortalama, oran,toplam vb.)
+
+-   Eksik ve aykırı veriler belirlendi. Eksik verileri doldurmak için uygun tahmin yöntemleri kullanılarak veri setleri düzenlendi. Bazı eksik veri doldurma işlemlerinde ise ortalama kullanıldı. Aykırı veriler için de bazen eksik verilere uygulanan yöntemler gerçekleştirilirken bazen analiz dışı bırakıldı.
+
+-   Kategorik değişkenler sayısal değerlere dönüştürüldü. Veri görselleştirme yapılabilmesi için verilere bazı matematiksel işlemler uygulandı daha sonrasında veriler data frame formatına dönüştürülerek bir araya getirildi. Ardından görselleştirme ve analiz adımları gerçekleştirildi.
 
 ```{r}
 #| echo: false
@@ -55,11 +78,11 @@ library(fmsb)
 
 ```
 
-### YILLARA GÖRE BOŞANMA SAYISI VE KABA BOŞANMA HIZ GRAFİĞİ
+## ANALİZ EDİLEN GRAFİKLER
 
--   Boşanma konusunda ilk olarak yıllara göre boşanma sayısı verisi ele alındı.
--   Bu veri setinde inceleme yapılırken boşanma sayısılarında nüfus artış etkisini de gözlemleyebilmek adına kaba boşanma hızı incelemeye dahil edildi.
--   Kaba boşanma hızı, bir yıl içinde evlenebilecek yaştaki her 1000 nüfus başına düşen boşanma sayısıdır.
+### YILLARA GÖRE BOŞANMA SAYISI VE KABA BOŞANMA HIZI GRAFİĞİ
+
+Boşanma konusunda ilk olarak yıllara göre boşanma sayısı verisi ele alındı. Bu veri setinde inceleme yapılırken boşanma sayısılarında nüfus artış etkisini de gözlemleyebilmek adına kaba boşanma hızı incelemeye dahil edildi. Kaba boşanma hızı, bir yıl içinde evlenebilecek yaştaki her 1000 nüfus başına düşen boşanma sayısıdır.
 
 ```{r, fig.width=15, fig.height=9}
 # Excel dosyasını oku
@@ -139,6 +162,10 @@ scale_color_manual(values = c("Kaba bosanma hızı" = "purple"), name = NULL) +
 -   2021 yılındaki kritik artış; pandemi sebebiyle 2020 yılında gerçekleştirilemeyen ve 2021 yılına devredilen davalar sebep olmuş olabilir. Bir diğer sebep ise pandemi sürecindeki aile içi ilişkilerde yaşanan zorluklar neticesinde daha fazla boşanma kararının alınması olabilir.
 
 -   Boşanma verileri incelendiğinde, ani artış veya azalışların ülkemizde yaşanan ekonomik kriz, OHAL, deprem felaketi gibi olağanüstü olayların etkili olduğu düşünülmektedir.  (2008-2009: Ekonomik Kriz, 2016 : OHAL, 2023 : Deprem Felaketi )
+
+### YILLARA GÖRE EVLENME SAYISI VE KABA EVLENME HIZI GRAFİĞİ
+
+Yıllar içerisinde boşanma sayısındaki değişimin gözlemlenmesinin ardından evlilik sayısı ve kaba evlenme hızındaki değişim merak konusu olmuştur. Kaba evlenme hızı, bir yıl için¬de evlenebilecek yaştaki her 1000 nüfus başına düşen evlenme sayısıdır.
 
 ```{r, fig.width=15, fig.height=9}
 #Kaba evlenme hızı hesapla
@@ -220,6 +247,14 @@ theme_minimal(base_size = 20) +
 
 ```
 
+-   Bu grafik, 2007 ile 2024 yılları arasında Türkiye'deki evlenme sayısı ve kaba evlenme hızının ilişkisini göstermektedir. Mavi barlar evlenme sayısını, kırmızı noktalar ise kaba evlenme hızını (binde) göstermektedir.
+-   Grafik incelendiğinde evlilik sayısında durağanlık gözlemlenirken kaba evlilik hızında ise yıllar içinde belirgin bir düşüş gözlemlenmektedir. Kaba evlenme hızındaki bu düşüş, önceki yıllarda daha fazla kişinin evlendiği ve evlenme oranının daha yüksekken son yıllarda evlenme oranlarının düştüğünü göstermektedir. Evlenme oranlarındaki azalma, toplumsal normların, kültürel değişimlerin ve ekonomik faktörlerin evlilik üzerinde etkili olduğu düşünülmektedir.
+-   Boşanma sayısında olduğu gibi evlilik sayısında da 2020 yılında büyük bir düşüş yaşanmıştır. Bu yılda yaşanan pandemi ile toplumsal kısıtlamalar ve yaşam düzenindeki büyük değişiklikler evlenme sayılarını olumsuz etkilemiş olabilir. 2021 yılındaki artış pandemi sonrası normalleşme süreciyle birlikte evlenme oranlarının tekrar yükseldiğini gösteriyor olabilir.
+
+### YILLARA GÖRE EVLENME VE BOŞANMA SAYISI (TÜRKİYE GENELİ)
+
+Boşanma ve evlilik verileri incelenirken en çok merak edilen konulardan biri de aynı yıl içerisinde evlenme-boşanma sayılarının nasıl değişiklik gösterdiğidir.
+
 ```{r, fig.width=10, fig.height=5}
 
 
@@ -241,7 +276,14 @@ grafik <- turkiye_geneli |> ggplot() +
 grafik
 ```
 
-```{r, fig.width=10, fig.height=10}
+-   Bu grafik, Türkiye'deki evlenme ve boşanma sayılarını yıllara göre karşılaştırmaktadır. Kırımızı renk yıllara göre boşanma sayısını, mavi renk ise yıllara göre evlenme sayısını temsil etmektedir.
+-   Evlenme sayıları yıllar içerisinde azalış trendi gösterirken boşanma sayıları artış içerisindedir bu durum evlenme ve boşanma sayıları arasında doğrusal bir ilişki olmadığını göstermektedir.
+
+### 2022 YILINA GÖRE EVLENME VE BOŞANMA SAYISI (DÜNYA GENELİ)
+
+Türkiye boşanma verilerinin incelenmesinin ardından kaba boşanma hız değeri Dünya ülkeleriyle karşılaştırılmıştır. Bu karşılaştırma yapılırken Türkiyedeki kaba boşanma hızının yüksek olduğu 2022 yılı seçilmiştir. Karşılaştırmaya dahil edilen ülkeler farklı kıtalardan seçilmiştir.
+
+```{r, fig.width=8, fig.height=8}
 
 ulkeler_arasi <- read_excel("veri/Dunya_ve_Turkiye_bosanma_kaba_hizi.xlsx")
 
@@ -271,10 +313,88 @@ ggplot(ulkeler_arasi, aes(x= `Bosanma_Kaba_Hizi`, y= reorder(Ulke, `Bosanma_Kaba
   )
 ```
 
-```{r, fig.width=10, fig.height=10}
+-   Grafikte 2022 yılına ait çeşitli ülkelerdeki boşanma kaba hızı gösterilmektedir. Grafiği incelediğimizde :
+    -   Ülkeler arasında kültürel, ekonomik ve sosyal farklılıkları olmasına rağmen ülkelerin bir çoğunun yakın kaba boşanma hızına sahip olduğu gözlemlenmiştir. Bazı ülkelerde dini ve kültürel sebepler ön plana çıkarken bazı ülkelerde ekonomik sebeplerin ön plana çıkmış olması sonucunda bu ülkelerde yakın oranlar ortaya çıkmış olabilir.
+    -   Türkiye açısından değerlendirdiğimizde son yıllardaki kaba boşanma hızının artışına rağmen diğer ülkelerle kıyaslandığında hala ortalama bir seviyede olduğu gözlemlenmektedir.
+    -   Sonuç olarak her ülkenin ve kıtanın kendi toplumsal yapısına, ekonomik koşullarına ve kültürel normlarına göre kaba boşanma hızları farklılık gösterebilir. Bu sebeple daha güçlü çıkarımlar için daha detaylı veriler incelenmelidir.
+
+### 2010 ve 2024 YILLARINA GÖRE BOŞANMA SAYISI/EVLENME SAYISI (İL BAZLI(EN AZ 10))
+
+Boşanma verileri çalışmasında Türkiye’de illerin evlilik veya boşanma eğilimlerini analiz edebilmek için boşanma sayısının evlilik sayısına oranı hesaplandı. 2010 ve 2024 yıllarında bu oranın en az olduğu 10 il incelenmiştir.
+
+```{r, fig.width=15, fig.height=10}
+#2010 yılındaki Nufüsa Göre Boşanma oranının en az olduğu 10 Şehrin Gösterimi
+#Evlenme_bosanma_orani_2010_az
+
+Evlenme_bosanma_orani_2010_az <- read_excel("veri/Evlenme_bosanma_orani_2010_az.xlsx")
+
+p1<-Evlenme_bosanma_orani_2010_az|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Az Oldugu İller - 2010",
+    x = "İl",
+    y = "Bosanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5,size =4,fontface = "bold")+ylim(0, 15)
+
+#2024 yılındaki Nufüsa Göre Boşanma oranının en az olduğu 10 Şehrin Gösterimi
+
+Evlenme_bosanma_orani_2024_az <- read_excel("veri/Evlenme_bosanma_orani_2024_az.xlsx")
+
+p2<-Evlenme_bosanma_orani_2024_az|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "red",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Az Oldugu İller - 2024",
+    x = "Il",
+    y = "Bosanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5,size =4,fontface = "bold")+ylim(0, 15)
+(p1|p2)
+```
+
+-   Grafik incelendiğinde; boşanma sayısının evlilik sayısına oranlarının genel olarak arttığı gözlemlenmektedir.
+-   Önceki veriler de incelendiğinde oranlarındaki artışın sebebinin illerin evlenme sayılarının durağan seyrederken, boşanma sayılarındaki artıştan dolayı olduğu görülmektedir.
+-   Grafikte yer alan çoğu şehrin Doğu Anadolu ve Güney Doğu Anadolu bölgesinde yer aldığı gözlemlenmiştir.
+-   2010 ve 2024 yılları arasında geçen 14 yıllık sürece rağmen iki grafiğinde aynı bölgelerdeki şehirlerden oluştuğunun gözlemlenmesi bu bölgelerin kültürel yapılarından ve toplum normlarından kaynaklı olduğu düşünülmektedir.
+
+### 2010 ve 2024 YILLARINA GÖRE BOŞANMA SAYISI/EVLENME SAYISI (İL BAZLI(EN ÇOK 10))
+
+```{r, fig.width=15, fig.height=10}
+#2010 yılındaki Nufüsa Göre Boşanma oranının en çok olduğu 10 Şehrin Gösterimi
+
+
+Evlenme_bosanma_orani_2010_cok <- read_excel("veri/Evlenme_bosanma_orani_2010_cok.xlsx")
+
+p3<-Evlenme_bosanma_orani_2010_cok|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Cok Oldugu İller - 2010",
+    x = "İl",
+    y = "Bosanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5,size =4,fontface = "bold")+ylim(0, 70)
+
+#2024 yılındaki Nufüsa Göre Boşanma oranının en çok olduğu 10 Şehrin Gösterimi
+Evlenme_bosanma_orani_2024_cok <- read_excel("veri/Evlenme_bosanma_orani_2024_cok.xlsx")
+
+p4<-Evlenme_bosanma_orani_2024_cok|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "red",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Cok Oldugu İller - 2024",
+    x = "İl",
+    y = "Bosanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5,size =4,fontface = "bold" )+ylim(0, 70)
+
+
+ortak_tema <- theme(
+  plot.title = element_text(size = 16),
+  axis.text = element_text(size = 12,angle = 90,face ="bold"),
+  axis.title = element_text(size = 14,face ="bold")
+)
+
+p1 <- p1 + ortak_tema
+p2 <- p2 + ortak_tema
+p3 <- p3 + ortak_tema
+p4 <- p4 + ortak_tema
+
+(p3|p4)
+
+```
+
+-   Bu veri incelendikten sonra bir de evlilik sayının boşanma saysına oranının en yüksek olduğu 10 il incelenmiştir.
+-   Grafik incelendiğinde yine boşanma sayısının evlilik sayısına oranlarının genel olarak arttığı gözlemlenmektedir. Genel olarak artmasına rağmen diğer grafikte olduğu kadar büyük bir artış gözlemlenmemiştir.
+-   İncelenen 2 yılda da en fazla evlilik boşanma oranının çoğunlukla Batı illeri ve büyükşehirlerden oluştuğu görülmektedir.
+-   Veri detaylı incelendiğinde Tunceli ilindeki oran artışı dikkat çekmektedir.Sebebi incelendiğinde Tunceli ilindeki toplam nüfusun düşük olması sebebiyle artan veya azalan her değerin büyükşehirlere kıyasla daha büyük bir etkisi olduğu tespit edilmiştir.
+
+### 2010 ve 2024 YILLARINA GÖRE BOŞANMA SAYISI/EVLENME SAYISI (İL BAZLI(EN BÜYÜK 10 İL))
+
+Türkiye’nin en kalabalık 10 şehirinin 2010 ve 2024 yılları boşanma verileri incelenerek boşanma oranlarındaki değişim, zaman içindeki eğilimler ve büyük şehirlerdeki davranış gözlemlenmek istenmiştir.
+
+```{r, fig.width=8, fig.height=8}
 #En büyük 10 şehir kıyaslama piramid
 Iik_10_Sehir_Bosanma <- read_excel("veri/Iik_10_Sehir_Bosanma.xlsx")
-head(Iik_10_Sehir_Bosanma)
+
 # Uzun form ve piramit formatı
 veri_long <- Iik_10_Sehir_Bosanma %>%
   pivot_longer(cols = starts_with("Oran"), names_to = "Yil", values_to = "Oran") %>%
@@ -309,63 +429,12 @@ ggplot(veri_long, aes(x = Il, y = Oran, fill = Yil)) +
   )
 ```
 
-```{r, fig.width=15, fig.height=10}
-#2010 yılındaki Nufüsa Göre Boşanma oranının en az olduğu 10 Şehrin Gösterimi
-#Evlenme_bosanma_orani_2010_az
+-   Grafikte, Türkiyenin en çok nufüsa sahip 10 ilinin 2010-2024 yıllarındaki boşanma oranları gösterilmektedir. 2010 yılı mavi renk çubuklarla, 2024 yılı turuncu renk çubuklarla gösterilmektedir.
+-   Grafik incelendiğinde 2024 yılında 2010 yılına göre daha fazla oranda boşanma yaşandığı görülmektedir. En dikkat çekici artış Şanlıurfa ilinde görülmektedir. (Yaklaşık 2.5 kat)
 
-Evlenme_bosanma_orani_2010_az <- read_excel("veri/Evlenme_bosanma_orani_2010_az.xlsx")
-str(Evlenme_bosanma_orani_2010_az)
+### 2006-2021 YILINDAKİ BOŞANMA NEDENLERİ (KADIN-ERKEK)
 
-p1<-Evlenme_bosanma_orani_2010_az|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Az Oldugu İller - 2010",
-    x = "İl",
-    y = "Bosanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5,size =4,fontface = "bold")+ylim(0, 15)
-
-#2024 yılındaki Nufüsa Göre Boşanma oranının en az olduğu 10 Şehrin Gösterimi
-
-Evlenme_bosanma_orani_2024_az <- read_excel("veri/Evlenme_bosanma_orani_2024_az.xlsx")
-str(Evlenme_bosanma_orani_2024_az)
-
-
-p2<-Evlenme_bosanma_orani_2024_az|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "red",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Az Oldugu İller - 2024",
-    x = "Il",
-    y = "Bosanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5,size =4,fontface = "bold")+ylim(0, 15)
-
-#2010 yılındaki Nufüsa Göre Boşanma oranının en çok olduğu 10 Şehrin Gösterimi
-
-
-Evlenme_bosanma_orani_2010_cok <- read_excel("veri/Evlenme_bosanma_orani_2010_cok.xlsx")
-str(Evlenme_bosanma_orani_2010_cok)
-
-p3<-Evlenme_bosanma_orani_2010_cok|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "skyblue",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Cok Oldugu İller - 2010",
-    x = "İl",
-    y = "Bosanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5,size =4,fontface = "bold")+ylim(0, 70)
-
-#2024 yılındaki Nufüsa Göre Boşanma oranının en çok olduğu 10 Şehrin Gösterimi
-Evlenme_bosanma_orani_2024_cok <- read_excel("veri/Evlenme_bosanma_orani_2024_cok.xlsx")
-str(Evlenme_bosanma_orani_2024_cok)
-
-p4<-Evlenme_bosanma_orani_2024_cok|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "red",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Cok Oldugu İller - 2024",
-    x = "İl",
-    y = "Bosanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5,size =4,fontface = "bold" )+ylim(0, 70)
-
-
-ortak_tema <- theme(
-  plot.title = element_text(size = 16),
-  axis.text = element_text(size = 12,angle = 90,face ="bold"),
-  axis.title = element_text(size = 14,face ="bold")
-)
-
-p1 <- p1 + ortak_tema
-p2 <- p2 + ortak_tema
-p3 <- p3 + ortak_tema
-p4 <- p4 + ortak_tema
-
-(p1|p2)
-(p3|p4)
-
-```
-
-## Kadın 2006-2021 bosanma nedenleri
+Türkiyede yıllar içerisindeki boşanma sayılarındaki artışlar doğrultusunda kadın ve erkek boşanma nedenleri merak konusu olmuştur. Bu konuda 2006 ve 2021 yıllarında kadın ve erkeklerinboşanma nedenleri incelenerek hem cinsiyet hem de yıl faktörleri analiz edilmiştir.
 
 ```{r, fig.width=10, fig.height=10}
 veri <- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
@@ -396,7 +465,7 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
   coord_cartesian(ylim = c(0, max(veri_long$Yuzde) + 7)) 
 ```
 
-```{r, fig.width=15, fig.height=10}
+```{r, fig.width=10, fig.height=10}
 ## erkek 2006-2021 bosanma nedenleri
 
 veri_long <- veri %>%
@@ -425,6 +494,26 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
   scale_fill_manual(values = c("Erkek_2006" = "sky blue", "Erkek_2021" = "dark blue")) +
   coord_cartesian(ylim = c(0, max(veri_long$Yuzde) + 7))
 ```
+
+-   2006 yılına bakıldığında aldatma, şiddet ve ilgisizlik sebepleri kadınlar için boşanma sebepleri arasında ön plana çıkmaktadır. Süreç içerisinde aldatma sebepli boşanma oranları azalmasına rağmen kadınlar için boşanma sebebi olarak önemini korumaktadır.
+
+-   Grafikten, kadının sosyal rolü, ekonomik durumu ve hakları ile ilgili toplumsal değişimlerin boşanma sebeplerine doğrudan etkilediği çıkarımında bulunulabilir.
+
+-   2006 yılına bakıldığında aldatma, aile büyüklerine saygısızlık ve ilgisizlik sebepleri erkekler için boşanma sebepleri arasında ön plana çıkmaktadır. Süreç içerisinde aldatma sebepli boşanma oranlarının azalmasına rağmen erkekler için boşanma sebebi olarak önemini korumaktadır.
+
+-   Aldatma, ilgisizlik ve ekonomik sorunlar hem kadınlar hem de erkekler için boşanma nedenleri arasında ilk sıralarda yer alıyor. - Kadın ve erkekler arasında boşanma nedenlerinde bazı benzerlikler olsa da, kadınlar için ekonomik sebepler ve erkekler için sorumsuzluk ve ilgisizlik daha belirgin hale gelmiş.
+
+-   Kadın ve erkeklerde sorumsuzluk ve ilgisizlik sebebi ise süreç içerisinde artarak 2021 yılında en önemli boşanma sebebi haline gelmiştir. Yeni teknolojik dünya düzeni, dijital bağımlılık, yoğun iş tempoları gibi durumlar aile yapısını bozarak ilgisizlik sebepli boşanmaların sebebi olarak değerlendirilebilir.
+
+-   Kadın ve erkeklerde aile büyüklerinin ilişkiye karışması 2006 yılında önemli bir boşanma faktörü değilken 2021 yılında ciddi bir artış ile boşanma sebepleri arasında önemli bir yer tutmaktadır. Günümüzde bireylerin özgürlüklerine ve kendi alanlarına verdikleri önem sayesinde bu durum önemli bir boşanma sebebi olarak düşünülebilir.
+
+-   Yıllar içerisinde değişim incelendiğinde kadın ve erkeklerde karşımıza çıkan bir diğer kritik nokta ise ekonomik sebepler ile gerçekleşen boşanma sayılarındaki artıştır. Süreç içerisinde yaşanan ekonomik krizler, alım gücünün düşmesi ve geçim sıkıntısı gibi faktörlerin aile birliğinin bozulmasında etkili olduğu görülmektedir.
+
+-   2006 yılında kadınlar ve erkekler için boşanma sebepleri arasında öne çıkan aile büyüklerine karşı saygısızlık ve aldatma sebepleri 2021 yılında büyük bir düşüş gösterek boşanma sebepleri arasında daha az bir orana sahip olmuştur. Aile büyüklerine karşı saygısızlık sebebinde yaşanan düşüş aile bağlarının zayıflaması, aileye olan saygının artması, toplumda aile yapısının giderek küçülmesi gibi sebepler olabilir.
+
+### KİŞİ BAŞINA DÜŞEN GELİR ORANIYLA BOŞANMA KABA HIZININ KARŞILAŞTIRILMASI
+
+2021 yılı itibariyle kadın ve erkeklerde ön plana çıkan sebeplerden biri olan ekonomik sebepler için GSYH verileri kaba boşanma hız verileri ile kıyaslanmıştır.
 
 ```{r, fig.width=12, fig.height=10}
 
@@ -475,6 +564,22 @@ scale_color_manual(values = c("Kaba Bosanma Hızı" = "#e6550d"), name = NULL)+
   )
 ```
 
+-   Bu grafikte 2007-2023 yılları arasındaki kişi başına GSYH verisi yeşil bar ile kaba boşanma hızı verisi ise turuncu noktalarla gösterilmiştir.
+
+-   GSYH verileri incelendiğinde süreç içerisinde yaşanan ekonomik kriz dönemlerinde düşüş (2009 ve 2020 yılları) gözlemlenmiştir. Bu düşüşler dışında 2010-2013 yılları ve 2020-2023 yılları arasında artış tespit edilmiştir. Genel olarak belirli bir artış veya azalış trendi görülmemektedir.
+
+-   Kaba boşanma oranları ile kıyaslama yaptığımızda ise net bir ilişkiden bahsetmek mümkün değildir. Pandemi senesi olan 2020 yılındaki kritik değişimler dışında artış ve azalış trendleri birbiriyle tam anlamıyla uyumlu değildir. GSYH verilerinin ülke içerisindeki alım gücü ile uyumlu olmaması ve enflasyon verilerinin özellikle kaba boşanma hızının tavan yaptığı son senelerde yüksek olması da göz önünde bulundurularak GSYH verilerinin boşanma ile anlamlı bir ilişkisi olmadığı yorumu yapılabilir.
+
+Resmi verilerde bulunan sebepler incelendi.
+
+**Peki toplum yapımızda evliliklerin bitmesiyle bağdaştırılan sebepler gerçekten verilerle destekleniyor mu?**
+
+Bu konuda toplumumuzda boşanma sebebi olarak görülen **evlilik süreleri, eşler arası yaş farkları, boşanma yaşı verileri** incelendi.
+
+İlk olarak evlilik süresine göre boşanma sayısı verileri analiz edildi.
+
+### EVLİLİK SÜRELERİNE GÖRE BOŞANMA SAYILARININ ANALİZİ
+
 ```{r, fig.width=10, fig.height=6}
 
 
@@ -503,6 +608,18 @@ bosanma_sayisi|> ggplot(aes(x=Evlilik_Suresi, y=total_bosanma_sayisi)) + geom_ba
     axis.title.y = element_text(color = "black", size = 12,face = "bold"),axis.text.x = element_text(angle = 0, vjust = 10, hjust = 0.5,size=10,face = "bold"))
 
 ```
+
+Grafikte evlilik süreleri 5 farklı döneme ayrılmıştır.
+
+-   Evliliğin ilk yılında boşanma sayısının en düşük olmasının önemli sebeplerine; ilişkide ortaya çıkan sorunlarda sevgiden kaynaklı ilişkiye dair hala bir umudun olması, uyum süreci olarak nitelendirebileceğimiz bu süreçte çiftlerin birbirlerine daha özenli davranması ve boşanma kararının evlilik kararından daha zor olması gibi örnekler verilebilir. Bunun yanı sıra çiftler bu süreçte boşanma kararı alsa bile yasal süreçler sebebi ile boşanma sürecinin uzaması yine bu kategorideki verinin düşük kalmasında bir etmen olarak yorumlanabilir.
+
+-   En fazla boşanma sayısının olduğu aralık 1-5 yıl olarak göz önüne çıkmıştır. Evliliğin ilk senelerinde oluşan sorunların bireyler arasında çözümünün daha zor olması, birbirlerine olan bağın yüksek seviyede olmaması sebebiyle evlilikten daha kolay vazgeçebilmeleri ve evliliğin \* \* ilk yılında boşanmaya karar vermiş ancak yasal süreç sebebi ile sürecin tamamlanmasının bu yıl aralığına sarkması gibi nedenlerle 1-5 yıl arası ön plana çıkmış olabilir.
+
+-   Bu grafikte öne çıkan en çarpıcı veri ise toplumsal normların dışında 16-20+ yıllardaki değerlerin en yüksek ikinci boşanma sayısına sahip olmasıdır. Evlilik süresi arttıkça insanların birbirine bağımlılıkları ve alışkanlıklarının artacağı düşüncesi, çocuk vb. sebeplerle boşanmanın azalacağı düşüncesi gibi toplum beklentileri dışında bir sonuç ortaya çıkmıştır. Fakat zaman geçtikçe çiftlerin ilişkiyi sorgulamaya başlaması, kişisel gelişimlerin farklı yönlere gitmesi, çocukların büyümesi ve finansal bağımsızlığın artması gibi sebepler boşanma sayısının bu aralıkta fazla olmasına sebep olarak görülebilir.
+
+-   TÜİK’te yer alan 16-20+ grubunda veri aralığının geniş olması, boşanma verisinin fazla olmasının en büyük sebeplerinden biri olabilir. Yaş aralık gruplarında analizin daha sağlıklı olması adına daha detaylı ve tam bir veri setine ihtiyaç duyulmaktadır.
+
+### EVLİLİK SÜRELERİNE GÖRE BOŞANMA SAYILARININ ANALİZİ (YILLARA GÖRE)
 
 ```{r, fig.width=12, fig.height=10}
 # (Evlilik süresi ve boşanma sayısının yıllara göre karşılaştırılması)
@@ -558,6 +675,10 @@ ggplot(df_long,aes(x = Yil, y = Deger, color = Evlilik_Suresi)) +
   
 ```
 
+### KADIN VE ERKEKLERİN BOŞANMA YAŞLARINA GÖRE BOŞANMA SAYILARININ ANALİZİ
+
+Kadınlar ve erkekler arasındaki boşanma sayılarının yaş gruplarına göre nasıl değiştiğini yıllara göre incelendi.
+
 ```{r, fig.width=10, fig.height=8}
 
 
@@ -567,7 +688,7 @@ df_kadin <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx", sheet = 
 colnames(df_kadin)[3] <- "Bosanan_Kadin_Sayisi"
 
 p5<-ggplot(df_kadin, aes(x = Yil, y = Bosanan_Kadin_Sayisi, color = Yas_Grubu, group = Yas_Grubu)) +
-  geom_line(size = 1.2) +
+  geom_line(linewidth = 1.2) +
   geom_point(size = 2) +
 
   labs(
@@ -582,7 +703,15 @@ p5<-ggplot(df_kadin, aes(x = Yil, y = Bosanan_Kadin_Sayisi, color = Yas_Grubu, g
 
 ```
 
-```{r, fig.width=30, fig.height=10}
+-   Grafik incelendiğinde 16-29 yaş grubunda boşanma sayılarının azalan bir yapıda olduğu gözlemlenmektedir. Bu azalışın sebebi olarak yıllar içerisinde kadın ve erkeklerin ilk evlenme yaşının artması sayılabilir. Bu artışın 30-44 yaş grubuna artış olarak yansıdığı düşünülmektedir.
+
+-   16-29 yaş grubu haricindeki her grupta yıllar içerisinde boşanma sayılarında artış olmasına rağmen 30-44 yaş aralığındaki artış dikkat çekicidir.
+
+***Önceki grafiğimizde boşanma sayısı ile yaş ilişkisi Türkiye için genel olarak incelenmişti. Peki bölgelere göre bakarsak durum ne?***
+
+### BÖLGELERE GÖRE BOŞANMA SAYILARININ İNCELENMESİ (KADIN)
+
+```{r, fig.width=12, fig.height=10}
 
 #bölgelere göre kadın boşanma sayılarının Scatterla Çizimi
 
@@ -618,6 +747,16 @@ ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
   "Marmara" ="purple"
 ))
 ```
+
+-   Bu grafik, kadınların yaş gruplarına göre boşanma sayılarını ve bu boşanmaların Türkiye'nin farklı bölgelerinde nasıl dağıldığını gösteriyor. 2001-2024 yılları arasındaki veriler kullanılarak, farklı yaş aralıklarında kadınlar arasında boşanma sayılarının bölgesel dağılımı görselleştirilmiştir.
+
+-   Grafik incelendiğinde tüm bölgelerde yıllar geçtikçe boşanma sayıları arttığı için grafikte sağa doğru yayılım gözlemlenmektedir. Doğu Anadolu bölgesi tüm yıllarda ve tüm yaş gruplarında en az boşanma değerine, Marmara bölgesi ise en fazla değere sahiptir.
+
+-   Tüm yıllar gözlemlendiğinde her bölgede 30-44 yaş aralığı en çok boşanma sayısına sahipken en az boşanma sayısı 55-60 üstü yaş grubundadır.
+
+-   Geçmiş yıllarda bütün bölgeler arası boşanma sayıları her yaş grubu için aynı karakteristiği sergilerken son yıllarda bölgeler arası toplumsal farklılıkların artması sebebiyle değişimler gözlemlenmektedir. Örneğin Marmara bölgesi 2001-2006 yılları arasında diğer bölgelerle benzer bir dağılıma sahipken son yıllarda 30-44 yaş grubundaki fazla boşanma sayıları ile diğer bölgelerden ayrılmıştır. Bu durumun sebepleri olarak bu bölgenin göç alması, kadınların ekonomik bağımsızlığının olması, eğitim düzey farklılıkları ve toplumdaki boşanma algısının bölgesel farklılıkları sıralanabilir.
+
+### BÖLGELERE GÖRE BOŞANMA SAYILARININ İNCELENMESİ (ERKEK)
 
 ```{r, fig.width=12, fig.height=10}
 erkek_bosanma_bolge <- read_excel("veri/yasmin-erdi/erkek_bosanma_bolge.xlsx")
@@ -656,8 +795,20 @@ ggplot(veri_long1, aes(x = Deger , y = Erkek_Yas_Grubu, color = Bolge)) +
 ))
 ```
 
+-   Bu grafikte ise erkeklerin yaş gruplarına göre boşanma sayılarını ve bu boşanmaların Türkiye'nin farklı bölgelerinde nasıl dağıldığını gösteriyor. 2001-2024 yılları arasındaki veriler kullanılarak, farklı yaş aralıklarında kadınlar arasında boşanma sayılarının bölgesel dağılımı görselleştirilmiştir.
+
+-   Kadın grafiğinde olduğu gibi boşanma sayılarının arttığı ve grafikte sağa doğru yayılım gözlemlenmektedir ancak bu artış ve yayılımın daha fazla olduğu dikkat çekmektedir. Kadın grafiği ile ortak olarak en az boşanma sayısı Doğu Anadolu bölgesinde en fazla ise Marmara bölgesinde gerçekleşmiştir. En çok boşanma oranına sahip olan yaş aralığı 30-44 yaş grubudur.
+
+-   Kadın grafiğinden farklı olarak Marmara bölgesindeki tüm yaş aralıklarında boşanma sayısının bütün yıllarda diğer bölgelerden ayrıldığını ve fazla olduğu görülmektedir. Bunun sebebinin kadınların toplumda geçmiş yıllarda değer görmemesi, ekonomik bağımsızlıklarının olmaması ve ata erkil bir toplum olmamız olduğu düşünülmektedir.
+
+-   Kadın grafiğinde Marmara bölgesindeki dağılımı Ege ve Akdeniz bölgesi , erkek grafiğinde ise İç Anadolu bölgesi takip etmektedir. Bu durumun sebebi İç Anadolu bölgesinde kadınların ekonomik bağımlılığı, erkeklerin baskın olması, geleneksel aile yapısı, toplum baskısı, muhafazakar yapı olabilir. Karadeniz bölgesi de İç Anadolu bölgesi ile aynı karakteristiği sergilemektedir.
+
+Toplumda bir diğer boşanma sebebi olarak görülen **eşler arası yaş farkına** göre boşanma verileri ve yıllar içindeki değişimi incelenmiştir.
+
+### EŞLER ARASI YAŞ FARKINA GÖRE BOŞANMA SAYILARI
+
 ```{r, fig.width=10, fig.height=6}
-#türkiye geneli eşler arası yaş farkı (yasmin-erdi)
+#türkiye geneli eşler arası yaş farkı
 
 Yas_Farki_Turkiye_geneli <- read_excel("veri/yasmin-erdi/Yas_Farki_Turkiye_geneli.xlsx")
 
@@ -690,10 +841,19 @@ geom_text(aes(label = label_number(accuracy = 0.01)(deger)), vjust = -0.3, size 
     legend.title = element_text(size = 12,face = "bold"),
     legend.text = element_text(size = 12,face = "bold")
   ) 
-  ylim(0, max(Esler_arasi_yas_farki$deger) * 1.1)
 ```
 
-```{r, fig.width=8, fig.height=8}
+-   Bu grafik 4 farklı yaş aralığını baz alarak hazırlanmıştır. Grafik 2001-2024 yılları arasındaki toplam evlilik sayılarının toplam boşanma sayılarına oranını yaş farkı gözeterek vermektedir. 0 yıl (yaş farkı yok) turuncu, 1-5 yıl mavi, 6-10 yıl yeşil ve 11+ yıl mor renk ile gösterilmektedir.
+
+-   Grafik incelendiğinde en yüksek orana sahip verinin 0 yıl (yaş farkı yok) kategorisinde olduğu görülmektedir. 0 yıl verisinde bu oranın yüksek olması evlilik sayısına göre daha az bir boşanmaya sahip olduğunu göstermektedir. Bu yaş farkı kategorisindeki her 5.41 evlilikte 1 boşanma olduğunu gözlemlenmektedir. Bu oran ile aynı yaşa sahip bireylerde boşanmanın daha az oranda gerçekleştiği yorumu çıkarılabilir.
+
+-   En az orana sahip olan 11+ yaş farkı olan bireylerde ise her 3.70 evlilikte 1 boşanma olduğu görülmüştür. Bu veri kullanılarak bu yaş farkı kategorisinde boşanmanın diğer kategorilere göre daha fazla oranda gerçekleştiği yorumu yapılabilir.
+
+-   Toplam evlenme ve boşanma sayısının 1-5 yıl ve 6-10 yıl arasında yoğun olduğunu diğer grafiklerde de görülmüştür. Genel olarak yakın yaşa sahip bireylerin daha olumlu bir evlilik/boşanma sayısı verisine sahip olduğu yorumu yapabiliriz.
+
+### EŞLER ARASI YAŞ FARKINA GÖRE BOŞANMA SAYILARI (YILLARA GÖRE)
+
+```{r, fig.width=8, fig.height=10}
 
 # radar grafiğiyle çizim 
 Yas_Farki_Turkiye_geneli_1 <- read_excel("veri/Yas_Farki_Turkiye_geneli_1.xlsx")
@@ -736,3 +896,7 @@ x <- radius * sin(angles)
 y <- radius * cos(angles)+title(main = "Eşler Arası Yaş Farkının Yıllara Gore Gosterimi")
 
 ```
+
+-   Bu grafik, eşler arasındaki yaş farkının yıllara göre dağılımını göstermektedir. Grafikteki farklı renkli alanlar, farklı yaş aralıklarını temsil etmektedir: 0 yaş farkı (gri), 1-5 yaş farkı (turuncu), 6-10 yaş farkı (yeşil) ve 11 ve üzeri yaş farkı (mavi).
+
+-   Grafik incelendiğinde sarı renkli olarak gösterilen 1-5 yaş farkının en büyük alanı kapsadığı ve seneler içerisinde genel olarak bir artış trendine sahip olduğu görülmüştür. Genel dağılım incelendiğinde yıllar geçtikte boşanma sayılarındaki artış net olarak görülmektedir.

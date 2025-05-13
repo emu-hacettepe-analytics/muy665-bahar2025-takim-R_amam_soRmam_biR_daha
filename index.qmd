@@ -1,31 +1,34 @@
 ---
-title: "Takım: R_amam_soRmam_biR_daha"
+title: "TakD1m: R_amam_soRmam_biR_daha"
 sidebar: false 
 ---
 
-Merhabalar , Biz 6 kişilik birbiriyle alakasız sektörlerden olan ve yüksek lisansta yaşam mücadelesi veren o ekibiz işte biz !!!! Ama unutmayın bir daha aramaz sormayız :DDD
+Merhabalar , Biz 6 kisilik birbiriyle alakasız sektorlerden olan ve yuksek lisansta yasam mücadelesi veren o ekibiz iste biz !!!! Ama unutmayın bir daha aramaz sormayız ama grafik çizeriz :DD
+
 
 ![](veri/grupfoto.jpg){fig-align="center"}
 
-## Takım Üyeleri
+## TakD1m Cyeleri
 
-1.  [Alperen SEÇKİNOĞULLARI](/takim/alperen.qmd)
-2.  [Buse Nur YAŞAR](/takim/buse.qmd)
-3.  [Erdi YAŞAR](/takim/erdi.qmd)
-4.  [Fikret Emin SEVGİLİ](/takim/fikret.qmd)
-5.  [Yasmin Yağmur KARSLI](/takim/yasmin.qmd)
+1.  [Alperen SECKD0NODULLARI](/takim/alperen.qmd)
+2.  [Buse Nur YAEAR](/takim/buse.qmd)
+3.  [Erdi YAEAR](/takim/erdi.qmd)
+4.  [Fikret Emin SEVGD0LD0](/takim/fikret.qmd)
+5.  [Yasmin YaDmur KARSLI](/takim/yasmin.qmd)
 6.  [Zahide CANSIZ FIRAT](/takim/zahide.qmd)
 
 ## Proje Adı
 
-MUY660-İş Analitiği Örnek Proje
+Aşkın Bittiği Yerde, TÜİK Devreye Girer!
 
 ## Proje Konusu
 
-Bu projede MUY660-Analitiği ders içeriğinin analitik yaklaşımlarla iyileştirilmesini hedefledik. Bu doğrultuda tüm üniversitelerdeki benzer derslerin verisini toplayarak bir veri seti oluşturduk. Analiz için çeşitli yöntemleri kullanarak, çeşitli çalışmalar yaptık. Sonuç olarak, MUY660-Analitiği dersinin dünyadaki tüm derslerden daha iyi olduğunu ve bu dersi aldığımıza çok mutlu olduğumuzu tespit ettik.
+Boşanma oranları, toplumun demografik ve sosyoekonomik yapısındaki değişimleri yansıtan önemli göstergelerden biridir. Zaman içinde evlilik ve aile yapılarında yaşanan dönüşümler, boşanma istatistiklerine de yansımaktadır. Bu projede, Türkiye’de ve dünyada boşanma verileri görselleştirilerek incelenmekte; yıllara, bölgelere, cinsiyete ve boşanma değerlerine göre nasıl farklılık gösterdiği analiz edilmektedir. Amaç, boşanma olgusunu yalnızca sayısal bir veri olarak değil, toplumsal eğilimlerin bir yansıması olarak ele almak ve bu eğilimleri daha anlaşılır hale getirmektir.
 
-## Veri Seti Hakkında Özet Bilgi
+## Veri Seti HakkD1nda Ozet Bilgi
 
-## Sonuçlar
+Bu proje, Türkiye İstatistik Kurumu (TÜİK) tarafından yayımlanan evlenme ve boşanma istatistiklerini analiz etmektedir. Veriler, 2001-2023 yılları arasındaki dönemi kapsayan yıllık bazda derlenmiş olup, boşanma sayıları, illere göre dağılım, cinsiyet, yaş grubu, evliliğin süresi gibi değişkenleri içermektedir. Veriler Excel formatında elde edilip, istatistiksel analiz ve görselleştirme için temizlenmiş ve düzenlenmiştir. Çalışma kapsamında 9 veri seti kullanılmış ve bu veri setlerinden ek olarak 3 alt veri seti oluşturulmuştur. Bu alt veri setleri görselleştirilerek 16 grafik elde edilmiş, yorumlanmış ve çıkarımlar yapılmıştır.
 
-Burada key takeways verilmelidir. En az 3 en fazla 5 madde ile çarpıcı sonuçlar sunulmalıdır.
+## SonuC'lar
+
+Burada key takeways verilmelidir. En az 3 en fazla 5 madde ile C'arpD1cD1 sonuC'lar sunulmalD1dD1r.
