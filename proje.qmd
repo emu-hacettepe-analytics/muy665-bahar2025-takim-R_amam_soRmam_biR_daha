@@ -324,7 +324,7 @@ ggplot(ulkeler_arasi, aes(x= `Bosanma_Kaba_Hizi`, y= reorder(Ulke, `Bosanma_Kaba
     
     -   Sonuç olarak her ülkenin ve kıtanın kendi toplumsal yapısına, ekonomik koşullarına ve kültürel normlarına göre kaba boşanma hızları farklılık gösterebilir. Bu sebeple daha güçlü çıkarımlar için daha detaylı veriler incelenmelidir.
 
-### 2010 Ve 2024 Yıllarına Göre Boşanma Sayısı/Evlenme Sayısı (İl Bazlı(En Az 10))
+### 2010 Ve 2024 Yıllarına Göre Boşanma Sayısı/Evlenme Sayısı (En Az 10 İl)
 
 Boşanma verileri çalışmasında Türkiye’de illerin evlilik veya boşanma eğilimlerini analiz edebilmek için boşanma sayısının evlilik sayısına oranı hesaplandı. 2010 ve 2024 yıllarında bu oranın en az olduğu 10 il incelenmiştir.
 
@@ -356,7 +356,7 @@ p2<-Evlenme_bosanma_orani_2024_az|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = 
 
 -   2010 ve 2024 yılları arasında geçen 14 yıllık sürece rağmen iki grafiğinde aynı bölgelerdeki şehirlerden oluştuğunun gözlemlenmesi bu bölgelerin kültürel yapılarından ve toplum normlarından kaynaklı olduğu düşünülmektedir.
 
-### 2010 Ve 2024 Yıllarına Göre Boşanma Sayısı/Evlenme Sayısı (İl Bazlı(En Çok 10))
+### 2010 Ve 2024 Yıllarına Göre Boşanma Sayısı/Evlenme Sayısı (En Fazla 10 İl)
 
 
 ```{r, fig.width=20, fig.height=10}
@@ -400,11 +400,11 @@ p4 <- p4 + ortak_tema
 
 -   Veri detaylı incelendiğinde Tunceli ilindeki oran artışı dikkat çekmektedir.Sebebi incelendiğinde Tunceli ilindeki toplam nüfusun düşük olması sebebiyle artan veya azalan her değerin büyükşehirlere kıyasla daha büyük bir etkisi olduğu tespit edilmiştir.
 
-### 2010 Ve 2024 Yıllarına Göre Boşanma Sayısı/Evlenme Sayısı (İl Bazlı(En Büyük 10 İl))
+### 2010 ve 2024 Yıllarına Göre Boşanma Sayısı/Evlenme Sayısı (En Büyük 10 İl)
 
 Türkiye’nin en kalabalık 10 şehirinin 2010 ve 2024 yılları boşanma verileri incelenerek boşanma oranlarındaki değişim, zaman içindeki eğilimler ve büyük şehirlerdeki davranış gözlemlenmek istenmiştir.
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=5, fig.height=5}
 #En büyük 10 şehir kıyaslama piramid
 Iik_10_Sehir_Bosanma <- read_excel("veri/Iik_10_Sehir_Bosanma.xlsx")
 
@@ -914,3 +914,26 @@ y <- radius * cos(angles)+title(main = "Eşler Arası Yaş Farkının Yıllara G
 -   Bu grafik, eşler arasındaki yaş farkının yıllara göre dağılımını göstermektedir. Grafikteki farklı renkli alanlar, farklı yaş aralıklarını temsil etmektedir: 0 yaş farkı (gri), 1-5 yaş farkı (turuncu), 6-10 yaş farkı (yeşil) ve 11 ve üzeri yaş farkı (mavi).
 
 -   Grafik incelendiğinde sarı renkli olarak gösterilen 1-5 yaş farkının en büyük alanı kapsadığı ve seneler içerisinde genel olarak bir artış trendine sahip olduğu görülmüştür. Genel dağılım incelendiğinde yıllar geçtikte boşanma sayılarındaki artış net olarak görülmektedir.
+##SONUCLAR 
+
+* **Boşanma sayısındaki artış**
+
+  + Türkiyede boşanma sayısı yıllar içerisinde artış göstermiştir. Bu artışın sebepleri arasında sosyolojik, ekonomik ve hukuksal değişimler bulunmaktadır. Toplumun süreç içerisinde daha kolay boşanma kararı aldığı bir değişim yaşanmıştır. Boşanma sayısının artmış olmasına rağmen evlilik sayılarındaki azalış verilerimizde dikkat çekmiştir.  
+  
+* **Boşanma sebepleri** 
+
+  + Boşanma sebepleri yıllar içerisinde hem erkekler hem de kadınlar için farklılıklar göstermiştir. Bu farklılıkların temel sebebi kadınlar açısından iş hayatına katılmaları, erkeklere olan bağımlılıkların azalması ve ekonomik özgürlüklerini kazanması olabilir. Erkekler açısından ise sosyal medya ve teknolojinin gelişmesiyle ortaya çıkan ilgisizlik, geçmişte kadınlara biçtikleri rollerin değişmesiyle beklentilerini karşılayamamaları gibi sebeplerle boşanmayı tercih etmeleri olabilir. Ekonomik neden olarak GSYH incelendiğinde boşanma ile arasında paralel bir durum gözükmemektedir.  
+  
+* **Toplumsal normlar ve verilerle kıyaslama** 
+
+  + Resmi nedenler arasında bulunmayan fakat toplumda kabul gören boşanma nedenleri verilerle incelenmiştir. Uzun evliliklerde boşanmaların daha az olacağı düşünülse de veriler incelendiğinde durumun böyle olmadığı gözükmüştür. Bölgelerin incelendiğinde zaman içerisinde boşanmanın tüm bölgelerde artış göstermesi normların da zamanla değiştiğini göstermiştir. Eşler arasındaki yaş farkının fazla olduğu durumlarda evlilik başına düşen boşanma sayısının yüksek olduğu ve birbirine yakın yaşta olan kişilerde daha düşük olduğu görülmüştür. 
+  
+* **Dönemsel kritik değişmeler** 
+
+  + Yıllar içerisinde yaşanan ekonomik krizler, pandemi ve deprem gibi sebeplerle belirli yıllardaki verilerde ciddi değişimler gözükmüştür. Ayrıca toplumsal hareketler, kadın hakları, toplumsal cinsiyet eşitliği gibi çeşitli etkenler evlenme ve boşanma sayılarının yıllara göre yükselmesi veya düşmesinde etkili olduğu düşünülmektedir. 
+
+
+
+
+
+
