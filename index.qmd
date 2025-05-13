@@ -1,5 +1,5 @@
 ---
-title: "TakD1m: R_amam_soRmam_biR_daha"
+title: "Takım: R_amam_soRmam_biR_daha"
 sidebar: false 
 ---
 
@@ -8,13 +8,13 @@ Merhabalar , Biz 6 kisilik birbiriyle alakasız sektorlerden olan ve yuksek lisa
 
 ![](veri/grupfoto.jpg){fig-align="center"}
 
-## TakD1m Cyeleri
+## Takım Üyeleri
 
-1.  [Alperen SECKD0NODULLARI](/takim/alperen.qmd)
-2.  [Buse Nur YAEAR](/takim/buse.qmd)
-3.  [Erdi YAEAR](/takim/erdi.qmd)
-4.  [Fikret Emin SEVGD0LD0](/takim/fikret.qmd)
-5.  [Yasmin YaDmur KARSLI](/takim/yasmin.qmd)
+1.  [Alperen SECKINOGULLARI](/takim/alperen.qmd)
+2.  [Buse Nur YASAR](/takim/buse.qmd)
+3.  [Erdi YASAR](/takim/erdi.qmd)
+4.  [Fikret Emin SEVGILI](/takim/fikret.qmd)
+5.  [Yasmin Yagmur KARSLI](/takim/yasmin.qmd)
 6.  [Zahide CANSIZ FIRAT](/takim/zahide.qmd)
 
 ## Proje Adı
@@ -29,6 +29,4 @@ Boşanma oranları, toplumun demografik ve sosyoekonomik yapısındaki değişim
 
 Bu proje, Türkiye İstatistik Kurumu (TÜİK) tarafından yayımlanan evlenme ve boşanma istatistiklerini analiz etmektedir. Veriler, 2001-2023 yılları arasındaki dönemi kapsayan yıllık bazda derlenmiş olup, boşanma sayıları, illere göre dağılım, cinsiyet, yaş grubu, evliliğin süresi gibi değişkenleri içermektedir. Veriler Excel formatında elde edilip, istatistiksel analiz ve görselleştirme için temizlenmiş ve düzenlenmiştir. Çalışma kapsamında 9 veri seti kullanılmış ve bu veri setlerinden ek olarak 3 alt veri seti oluşturulmuştur. Bu alt veri setleri görselleştirilerek 16 grafik elde edilmiş, yorumlanmış ve çıkarımlar yapılmıştır.
 
-## SonuC'lar
 
-Burada key takeways verilmelidir. En az 3 en fazla 5 madde ile C'arpD1cD1 sonuC'lar sunulmalD1dD1r.
