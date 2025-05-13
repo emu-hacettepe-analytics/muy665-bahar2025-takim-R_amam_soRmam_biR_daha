@@ -103,35 +103,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -1151,88 +1122,105 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#türkiye geneli eşler arası yaş farkı (yasmin-erdi)</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>Yas_Farki_Turkiye_geneli <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/yasmin-erdi/Yas_Farki_Turkiye_geneli.xlsx"</span>)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(Yas_Farki_Turkiye_geneli)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>Yas_Farki_Turkiye_geneli<span class="sc">$</span>Yil <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(Yas_Farki_Turkiye_geneli<span class="sc">$</span>Yil)</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>Yas_Farki_0_yils <span class="ot">&lt;-</span> <span class="fu">mean</span>(Yas_Farki_Turkiye_geneli[[<span class="dv">2</span>]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>Yas_Farki_1_5_yils <span class="ot">&lt;-</span> <span class="fu">mean</span>(Yas_Farki_Turkiye_geneli[[<span class="dv">3</span>]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>Yas_Farki_6_10_yils <span class="ot">&lt;-</span> <span class="fu">mean</span>(Yas_Farki_Turkiye_geneli[[<span class="dv">4</span>]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>Yas_Farki_11s <span class="ot">&lt;-</span> <span class="fu">mean</span>(Yas_Farki_Turkiye_geneli[[<span class="dv">5</span>]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>Esler_arasi_yas_farki <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">kategori =</span> <span class="fu">c</span>(<span class="st">"0 yıl"</span>, <span class="st">"1-5 yıl"</span>, <span class="st">"6-10 yıl"</span>, <span class="st">"11+ yıl"</span>),</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">deger =</span> <span class="fu">c</span>(Yas_Farki_0_yils, Yas_Farki_1_5_yils, Yas_Farki_6_10_yils, Yas_Farki_11s)</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>Esler_arasi_yas_farki<span class="sc">$</span>kategori <span class="ot">&lt;-</span> <span class="fu">reorder</span>(Esler_arasi_yas_farki<span class="sc">$</span>kategori, <span class="sc">-</span>Esler_arasi_yas_farki<span class="sc">$</span>deger)</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Dikey bar grafiği oluşturma</span></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Esler_arasi_yas_farki, <span class="fu">aes</span>(<span class="at">x =</span> kategori, <span class="at">y =</span> deger, <span class="at">fill =</span> kategori)) <span class="sc">+</span></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span>  </span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">label_number</span>(<span class="at">accuracy =</span> <span class="fl">0.01</span>)(deger)), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.3</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span>  </span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">" Evliligin Bosanmaya Oranı (Eşler Arası Yaş Farkı Dağılımı)"</span>,</span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Yaş Farkı Kategorisi"</span>,</span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Oran"</span>,</span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Kategori"</span></span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>,<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>,<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>,<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>,<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>tibble [24 × 5] (S3: tbl_df/tbl/data.frame)
- $ Yil               : chr [1:24] "2001" "2002" "2003" "2004" ...
- $ Yas_Farki_0_yil   : num [1:24] 3.92 4.11 4.79 5.3 5.42 ...
- $ Yas_Farki_1_5_yil : num [1:24] 5.31 4.96 5.67 6.27 6.17 ...
- $ Yas_Farki_6_10_yil: num [1:24] 6.44 5.42 6.3 7.09 7.01 ...
- $ Yas_Farkı_11+     : num [1:24] 5.56 4.54 5.01 5.17 4.99 ...</code></pre>
-</div>
-</div>
-<p>Yas_Farki_Turkiye_geneli<span class="math inline">\(Yil &lt;- as.numeric(Yas_Farki_Turkiye_geneli\)</span>Yil)</p>
-<p>Yas_Farki_0_yils &lt;- mean(Yas_Farki_Turkiye_geneli[[2]], na.rm = TRUE) Yas_Farki_1_5_yils &lt;- mean(Yas_Farki_Turkiye_geneli[[3]], na.rm = TRUE) Yas_Farki_6_10_yils &lt;- mean(Yas_Farki_Turkiye_geneli[[4]], na.rm = TRUE) Yas_Farki_11s &lt;- mean(Yas_Farki_Turkiye_geneli[[5]], na.rm = TRUE) Esler_arasi_yas_farki &lt;- data.frame( kategori = c(“0 yıl”, “1-5 yıl”, “6-10 yıl”, “11+ yıl”), deger = c(Yas_Farki_0_yils, Yas_Farki_1_5_yils, Yas_Farki_6_10_yils, Yas_Farki_11s) ) Esler_arasi_yas_farki<span class="math inline">\(kategori &lt;- reorder(Esler_arasi_yas_farki\)</span>kategori, -Esler_arasi_yas_farki<span class="math inline">\(deger)
-# Dikey bar grafiği oluşturma
-ggplot(Esler_arasi_yas_farki, aes(x = kategori, y = deger, fill = kategori)) +
-  geom_bar(stat = "identity", width = 0.5) +
-geom_text(aes(label = label_number(accuracy = 0.01)(deger)), vjust = -0.3, size = 4) +
-  labs(
-    title = " Evliligin Bosanmaya Oranı (Eşler Arası Yaş Farkı Dağılımı)",
-    x = "Yaş Farkı Kategorisi",
-    y = "Oran",
-    fill = "Kategori"
-  ) +
-  theme_minimal(base_size = 15) +
-  theme(
-    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
-    axis.text = element_text(size = 12,face = "bold"),
-    axis.title = element_text(size = 14,face = "bold"),
-    legend.title = element_text(size = 12,face = "bold"),
-    legend.text = element_text(size = 12,face = "bold")
-  )
-  ylim(0, max(Esler_arasi_yas_farki\)</span>deger) * 1.1)</p>
-<pre><code>
-::: {.cell}
-
-```{.r .cell-code}
-# radar grafiğiyle çizim 
-yasmin &lt;- Yas_Farki_Turkiye_geneli
-colnames(yasmin) &lt;- c("Yil", "Yas_Farki_0_yil", "Yas_Farki_1_5_yil", "Yas_Farki_6_10_yil", "Yas_Farki_11")
-
-data &lt;- data.frame(
-  row.names = c("Yas_Farki_0_yil", "Yas_Farki_1_5_yil", "Yas_Farki_6_10_yil", "Yas_Farki_11"),
-  t(yasmin[, -1]) 
-)
-colnames(data) &lt;- yasmin$Yil
-
-data &lt;- rbind(
-  rep(max(data), ncol(data)),
-  rep(0, ncol(data)),
-  data
-)# maximum ve mn,mum degerleri belirleme
-
-options(scipen = 99999999)# 1000000 değerini scientfic olark gösterimini kapatmak için kullanıldı
-
-colors &lt;- c("black", "darkorange", "forestgreen", "steelblue")
-radarchart(data,
-           axistype = 1,
-           pcol = colors,
-           pfcol = alpha(colors, 0.3),
-           plwd = 0.1,
-           cglcol = "grey80",
-           cglty = 1,
-           axislabcol = "black",
-           caxislabels = seq(0, 100000, length.out = 5),
-           vlcex = 1.5,
-           calcex=1.5
-)
-       legend("bottom", legend = rownames(data)[-c(1,2)],
-       col = colors, lwd = 3, bty = "n", horiz = TRUE, cex = 1)
-n_yillar &lt;- ncol(data)
-angles &lt;- seq(0, 2*pi, length.out = n_yillar + 1)[-1]
-radius &lt;- 0.9
-x &lt;- radius * sin(angles)
-y &lt;- radius * cos(angles)+title(main = "Eşler Arası Yaş Farkının Yıllara Gore Gosterimi")</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="proje_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="1152"></p>
+<p><img src="proje_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
-<p>:::</p>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fu">max</span>(Esler_arasi_yas_farki<span class="sc">$</span>deger) <span class="sc">*</span> <span class="fl">1.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;ScaleContinuousPosition&gt;
+ Range:  
+ Limits:    0 -- 5.95</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># radar grafiğiyle çizim </span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>Yas_Farki_Turkiye_geneli_1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"veri/Yas_Farki_Turkiye_geneli_1.xlsx"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>yasmin <span class="ot">&lt;-</span> Yas_Farki_Turkiye_geneli_1</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(yasmin) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Yil"</span>, <span class="st">"Yas_Farki_0_yil"</span>, <span class="st">"Yas_Farki_1_5_yil"</span>, <span class="st">"Yas_Farki_6_10_yil"</span>, <span class="st">"Yas_Farki_11"</span>)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="fu">c</span>(<span class="st">"Yas_Farki_0_yil"</span>, <span class="st">"Yas_Farki_1_5_yil"</span>, <span class="st">"Yas_Farki_6_10_yil"</span>, <span class="st">"Yas_Farki_11"</span>),</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t</span>(yasmin[, <span class="sc">-</span><span class="dv">1</span>]) </span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data) <span class="ot">&lt;-</span> yasmin<span class="sc">$</span>Yil</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep</span>(<span class="fu">max</span>(data), <span class="fu">ncol</span>(data)),</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(data)),</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>  data</span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>)<span class="co"># maximum ve mn,mum degerleri belirleme</span></span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">99999999</span>)<span class="co"># 1000000 değerini scientfic olark gösterimini kapatmak için kullanıldı</span></span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"darkorange"</span>, <span class="st">"forestgreen"</span>, <span class="st">"steelblue"</span>)</span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a><span class="fu">radarchart</span>(data,</span>
+<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">axistype =</span> <span class="dv">1</span>,</span>
+<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">pcol =</span> colors,</span>
+<span id="cb48-24"><a href="#cb48-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">pfcol =</span> <span class="fu">alpha</span>(colors, <span class="fl">0.3</span>),</span>
+<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a>           <span class="at">plwd =</span> <span class="fl">0.1</span>,</span>
+<span id="cb48-26"><a href="#cb48-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">cglcol =</span> <span class="st">"grey80"</span>,</span>
+<span id="cb48-27"><a href="#cb48-27" aria-hidden="true" tabindex="-1"></a>           <span class="at">cglty =</span> <span class="dv">1</span>,</span>
+<span id="cb48-28"><a href="#cb48-28" aria-hidden="true" tabindex="-1"></a>           <span class="at">axislabcol =</span> <span class="st">"black"</span>,</span>
+<span id="cb48-29"><a href="#cb48-29" aria-hidden="true" tabindex="-1"></a>           <span class="at">caxislabels =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100000</span>, <span class="at">length.out =</span> <span class="dv">5</span>),</span>
+<span id="cb48-30"><a href="#cb48-30" aria-hidden="true" tabindex="-1"></a>           <span class="at">vlcex =</span> <span class="dv">1</span>,</span>
+<span id="cb48-31"><a href="#cb48-31" aria-hidden="true" tabindex="-1"></a>           <span class="at">calcex=</span><span class="fl">1.5</span></span>
+<span id="cb48-32"><a href="#cb48-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb48-33"><a href="#cb48-33" aria-hidden="true" tabindex="-1"></a>       <span class="fu">legend</span>(<span class="st">"bottom"</span>, <span class="at">legend =</span> <span class="fu">rownames</span>(data)[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)],</span>
+<span id="cb48-34"><a href="#cb48-34" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> colors, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">bty =</span> <span class="st">"n"</span>, <span class="at">horiz =</span> <span class="cn">TRUE</span>, <span class="at">cex =</span> <span class="dv">1</span>)</span>
+<span id="cb48-35"><a href="#cb48-35" aria-hidden="true" tabindex="-1"></a>n_yillar <span class="ot">&lt;-</span> <span class="fu">ncol</span>(data)</span>
+<span id="cb48-36"><a href="#cb48-36" aria-hidden="true" tabindex="-1"></a>angles <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="sc">*</span>pi, <span class="at">length.out =</span> n_yillar <span class="sc">+</span> <span class="dv">1</span>)[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb48-37"><a href="#cb48-37" aria-hidden="true" tabindex="-1"></a>radius <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
+<span id="cb48-38"><a href="#cb48-38" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> radius <span class="sc">*</span> <span class="fu">sin</span>(angles)</span>
+<span id="cb48-39"><a href="#cb48-39" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> radius <span class="sc">*</span> <span class="fu">cos</span>(angles)<span class="sc">+</span><span class="fu">title</span>(<span class="at">main =</span> <span class="st">"Eşler Arası Yaş Farkının Yıllara Gore Gosterimi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proje_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>

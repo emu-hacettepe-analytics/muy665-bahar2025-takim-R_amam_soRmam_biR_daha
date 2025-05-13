@@ -684,8 +684,6 @@ ggplot(veri_long1, aes(x = Deger , y = Erkek_Yas_Grubu, color = Bolge)) +
 #türkiye geneli eşler arası yaş farkı (yasmin-erdi)
 
 Yas_Farki_Turkiye_geneli <- read_excel("veri/yasmin-erdi/Yas_Farki_Turkiye_geneli.xlsx")
-str(Yas_Farki_Turkiye_geneli)
-```
 
 Yas_Farki_Turkiye_geneli$Yil <- as.numeric(Yas_Farki_Turkiye_geneli$Yil)
 
@@ -719,10 +717,11 @@ geom_text(aes(label = label_number(accuracy = 0.01)(deger)), vjust = -0.3, size 
   ylim(0, max(Esler_arasi_yas_farki$deger) * 1.1)
 ```
 
-```{r, fig.width=12, fig.height=12}
+```{r, fig.width=10, fig.height=10}
 
 # radar grafiğiyle çizim 
-yasmin <- Yas_Farki_Turkiye_geneli
+Yas_Farki_Turkiye_geneli_1 <- read_excel("veri/Yas_Farki_Turkiye_geneli_1.xlsx")
+yasmin <- Yas_Farki_Turkiye_geneli_1
 colnames(yasmin) <- c("Yil", "Yas_Farki_0_yil", "Yas_Farki_1_5_yil", "Yas_Farki_6_10_yil", "Yas_Farki_11")
 
 data <- data.frame(
@@ -749,7 +748,7 @@ radarchart(data,
            cglty = 1,
            axislabcol = "black",
            caxislabels = seq(0, 100000, length.out = 5),
-           vlcex = 1.5,
+           vlcex = 1,
            calcex=1.5
 )
        legend("bottom", legend = rownames(data)[-c(1,2)],
