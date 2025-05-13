@@ -59,13 +59,16 @@ library(fmsb)
 
 ```
 
-```{r}
+### YILLARA GÖRE BOŞANMA SAYISI VE KABA BOŞANMA HIZ GRAFİĞİ
+
+-   Boşanma konusunda ilk olarak yıllara göre boşanma sayısı verisi ele alındı.
+-   Bu veri setinde inceleme yapılırken boşanma sayısılarında nüfus artış etkisini de gözlemleyebilmek adına kaba boşanma hızı incelemeye dahil edildi.
+-   Kaba boşanma hızı, bir yıl içinde evlenebilecek yaştaki her 1000 nüfus başına düşen boşanma sayısıdır.
+
+```{r, fig.width=15, fig.height=9}
 # Excel dosyasını oku
 evlilik_bosanma_hiz <- read_excel("veri/evlilik-bosanma-nufus.xls")
 head(evlilik_bosanma_hiz)
-```
-
-```{r, fig.width=15, fig.height=9}
 
 
 # Kaba bosanma hızı hesaplaması
@@ -132,6 +135,16 @@ scale_color_manual(values = c("Kaba bosanma hızı" = "purple"), name = NULL) +
     legend.position = "bottom"
   )
 ```
+
+-   Bu grafik, 2007 ile 2024 yılları arasındaki boşanma sayısı ve kaba boşanma hızının ilişkisini göstermektedir. Boşanma sayısı pembe sütunlarla, kaba boşanma hızı ise mor noktalarla ifade edilmiştir.
+
+-   Yıllar içerisinde boşanma sayısında düzensiz bir artış trendi gözlemlenmektedir. Kaba boşanma hızı yıllar içinde artış göstermiştir. Kaba boşanma hızındaki artış, boşanma sayısındaki artış ile paralellik göstermektedir. Kaba boşanma hızındaki artış, boşanma oranların artmaya devam ettiğini ve toplumsal normların değişmesiyle boşanmanın daha yaygın hale geldiği düşünülebilir.
+
+-   2020 yılındaki kritik düşüş pandemi sürecinde ülkemizde yaşanan kapanma, resmi süreçlerin aksaması, mahkemelerin ve davaların gerçekleştirilememesi gibi sebeplerden kaynaklı gerçekleşmiş olabilir.
+
+-   2021 yılındaki kritik artış; pandemi sebebiyle 2020 yılında gerçekleştirilemeyen ve 2021 yılına devredilen davalar sebep olmuş olabilir. Bir diğer sebep ise pandemi sürecindeki aile içi ilişkilerde yaşanan zorluklar neticesinde daha fazla boşanma kararının alınması olabilir.
+
+-   Boşanma verileri incelendiğinde, ani artış veya azalışların ülkemizde yaşanan ekonomik kriz, OHAL, deprem felaketi gibi olağanüstü olayların etkili olduğu düşünülmektedir.  (2008-2009: Ekonomik Kriz, 2016 : OHAL, 2023 : Deprem Felaketi )
 
 ```{r, fig.width=15, fig.height=9}
 #Kaba evlenme hızı hesapla
@@ -213,14 +226,13 @@ theme_minimal(base_size = 20) +
 
 ```
 
-```{r}
+```{r, fig.width=10, fig.height=5}
 ## Keşifsel Veri Analizi
 
 turkiye_geneli <- read_excel("veri/turkiye_geneli.xlsx")
 head(turkiye_geneli)
-```
 
-```{r, fig.width=10, fig.height=5}
+
 Durum <- c("evlenme_sayisi","bosanma_sayisi")
 
 grafik <- turkiye_geneli |> ggplot() +
@@ -243,9 +255,8 @@ grafik
 # Excel dosyasını oku
 ulkeler_arasi <- read_excel("veri/Dunya_ve_Turkiye_bosanma_kaba_hizi.xlsx")
 head(ulkeler_arasi)
-```
 
-```{r}
+
 ulkeler_arasi$`Bosanma_Kaba_Hizi` <- as.numeric(gsub(",", ".", ulkeler_arasi$`Bosanma_Kaba_Hizi`))
 
 # Veriyi sıralı hale getir (artan sırayla)
@@ -276,9 +287,6 @@ ggplot(ulkeler_arasi, aes(x= `Bosanma_Kaba_Hizi`, y= reorder(Ulke, `Bosanma_Kaba
 #En büyük 10 şehir kıyaslama piramid
 Iik_10_Sehir_Bosanma <- read_excel("veri/Iik_10_Sehir_Bosanma.xlsx")
 head(Iik_10_Sehir_Bosanma)
-```
-
-```{r, fig.width=10, fig.height=10}
 # Uzun form ve piramit formatı
 veri_long <- Iik_10_Sehir_Bosanma %>%
   pivot_longer(cols = starts_with("Oran"), names_to = "Yil", values_to = "Oran") %>%
@@ -375,9 +383,7 @@ p4 <- p4 + ortak_tema
 ```{r, fig.width=10, fig.height=10}
 veri <- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
 str(veri)
-```
 
-```{r, fig.width=15, fig.height=10}
 veri_long <- veri %>%
   pivot_longer(cols = -Bosanma_Nedeni, names_to = "Grup", values_to = "Yuzde") %>%
   mutate(Yuzde = as.numeric(gsub(",", ".", Yuzde))) %>%
@@ -439,9 +445,7 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
 GSYH <- read_excel("veri/GSYH.xlsx")
 head(GSYH) 
 
-```
 
-```{r, fig.width=15, fig.height=10}
 GSYH$Kategori <- "Kaba Bosanma Hızı"
 GSYH$Kategori2 <- "Kisi Basına GSYH"
 
@@ -487,15 +491,14 @@ scale_color_manual(values = c("Kaba Bosanma Hızı" = "#e6550d"), name = NULL)+
   )
 ```
 
-```{r, fig.width=15, fig.height=15}
+```{r, fig.width=10, fig.height=6}
+
 
 # Evlilik süresine göre boşanma sayısı grafiği
 #ortalama_evlilik_suresi_bazli<-apply(evlilik_suresi,2,mean)
 evlilik_suresi<- read_excel("veri/Evlilik_suresi_Turkiye_geneli.xlsx")
 head(evlilik_suresi)
-```
 
-```{r, fig.width=10, fig.height=6}
 
 yildan_az_1<-sum(evlilik_suresi[2])
 yil_1_5<-sum(evlilik_suresi[3:7])
@@ -572,41 +575,14 @@ ggplot(df_long,aes(x = Yil, y = Deger, color = Evlilik_Suresi)) +
   
 ```
 
-```{r, fig.width=12, fig.height=10}
-# Kadın-Erkek Yaşlarına GÖre Boşanma Sayının Pie Chart Üzerinden GÖsterimi
+```{r, fig.width=10, fig.height=8}
 
-df <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye Genelll.xlsx")
-
-kadin_veri <- df$Turkiye_Kadin_Dagilim
-erkek_veri <- df$Turkiye_Erkek_Dagilim
-yas_gruplari <- df$Yas_Grubu
-
-# Yüzdelerin hesaplanması
-kadin_yuzde <- round(kadin_veri / sum(kadin_veri) * 100, 1)
-erkek_yuzde <- round(erkek_veri / sum(erkek_veri) * 100, 1)
-
-kadin_etiketler <- paste0(yas_gruplari, "\n", kadin_yuzde, "%")
-erkek_etiketler <- paste0(yas_gruplari, "\n", erkek_yuzde, "%")
-
-renkler <- brewer.pal(n = 4, name = "Pastel1")  # Alternatif: "Set3"
-
-par(mfrow = c(1, 2),mar = c(1,1,1,1))
-
-pie(kadin_veri, labels = kadin_etiketler, main = "Bosanma Yaş Dağılımı (Kadın)", col = renkler,font=2,cex=0.7)
-
-pie(erkek_veri, labels = erkek_etiketler, main = "Bosanma Yaş Dağılımı (Erkek)", col = renkler,font=2,cex=0.7)
-
-```
-
-```{r}
 
 # Veriyi oku
 df_kadin <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx", sheet = "Kadın Yaş Dağılımı")
 str(df_kadin)
 
-```
 
-```{r, fig.width=10, fig.height=8}
 
 colnames(df_kadin)[3] <- "Bosanan_Kadin_Sayisi"
 
@@ -626,32 +602,8 @@ p5<-ggplot(df_kadin, aes(x = Yil, y = Bosanan_Kadin_Sayisi, color = Yas_Grubu, g
 
 ```
 
-```{r}
-
-# Veriyi oku
-df_erkek <- read_excel("veri/Kadin_Erkek_Yas_Dagilimlari_Turkiye.xlsx", sheet = "Erkek Yaş Dağılımı")
-str(df_erkek)
-```
-
 ```{r, fig.width=30, fig.height=10}
 
-colnames(df_erkek)[3] <- "Bosanan_Erkek_Sayisi"
-p6<-ggplot(df_erkek, aes(x = Yil, y = Bosanan_Erkek_Sayisi, color=Yas_Grubu , group = Yas_Grubu)) +
-   geom_line(linewidth = 1.2) +
-  geom_point(size = 2) +
-  labs(
-    title = "Yas Dagılımlarına Gore Bosanma Sayıları (Erkek)",
-    x = "Yıl",
-    y = "Bosanan Erkek Sayısı",
-    color = "Yas Grubu"
-  )  + theme_minimal() +
-  theme(
-    axis.text.x = element_text(angle = 45, hjust = 1,size=12),
-    plot.title = element_text(hjust = 0.5, face = "bold", size = 14,vjust=-0.5),axis.title.x = element_text(hjust = 0.5, face = "bold", size = 14),axis.title.y = element_text(hjust = 0.5, face = "bold", size = 14))
-(p5|p6)
-```
-
-```{r, fig.width=12, fig.height=10}
 #bölgelere göre kadın boşanma sayılarının Scatterla Çizimi
 
 kadin_bosanma_bolge <- read_excel("veri/yasmin-erdi/kadin_bosanma_bolge.xlsx")
@@ -689,12 +641,11 @@ ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
 ))
 ```
 
-```{r, fig.width=20, fig.height=20}
+```{r, fig.width=12, fig.height=10}
 erkek_bosanma_bolge <- read_excel("veri/yasmin-erdi/erkek_bosanma_bolge.xlsx")
 str(erkek_bosanma_bolge)
-```
 
-```{r, fig.width=12, fig.height=10}
+
 #bölgelere göre erkek boşanma sayılarının Scatterla Çizimi
 erkek_bosanma_bolge$Yil <- as.numeric (erkek_bosanma_bolge$Yil)
 
@@ -729,15 +680,14 @@ ggplot(veri_long1, aes(x = Deger , y = Erkek_Yas_Grubu, color = Bolge)) +
 ))
 ```
 
-```{r}
+```{r, fig.width=10, fig.height=6}
 #türkiye geneli eşler arası yaş farkı (yasmin-erdi)
 
 Yas_Farki_Turkiye_geneli <- read_excel("veri/yasmin-erdi/Yas_Farki_Turkiye_geneli.xlsx")
 
 head(Yas_Farki_Turkiye_geneli)
-```
 
-```{r, fig.width=10, fig.height=6}
+
 
 Yas_Farki_Turkiye_geneli$Yil <- as.numeric (Yas_Farki_Turkiye_geneli$Yil)
 # bosanma sayılarını yıl bazlı olarak toplanması 
