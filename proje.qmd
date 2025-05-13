@@ -4,7 +4,7 @@ format: html
 number-sections: true
 ---
 
-## [Aşkın Bittiği Yerde, TÜİK Devreye Girer!]{style="color:dark red"}
+## [Aşkın Bittiği Yerde, TÜİK Devreye Girer!]{style="color:darkred"}
 
 ![](veri/2008.gif){fig-align="center"}
 
