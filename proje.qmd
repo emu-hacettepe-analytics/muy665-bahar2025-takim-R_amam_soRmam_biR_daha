@@ -169,7 +169,9 @@ scale_color_manual(values = c("Kaba bosanma hızı" = "purple"), name = NULL) +
 
 ### Yıllara Göre Evlenme Sayısı Ve Kaba Evlenme Hızı Grafiği
 
-Yıllar içerisinde boşanma sayısındaki değişimin gözlemlenmesinin ardından evlilik sayısı ve kaba evlenme hızındaki değişim merak konusu olmuştur. Kaba evlenme hızı, bir yıl için¬de evlenebilecek yaştaki her 1000 nüfus başına düşen evlenme sayısıdır.
+* Yıllar içerisinde boşanma sayısındaki değişimin gözlemlenmesinin ardından evlilik sayısı ve kaba evlenme hızındaki değişim merak konusu olmuştur. 
+
+* Kaba evlenme hızı, bir yıl için¬de evlenebilecek yaştaki her 1000 nüfus başına düşen evlenme sayısıdır.
 
 ```{r, fig.width=15, fig.height=9}
 #Kaba evlenme hızı hesapla
@@ -349,6 +351,14 @@ Evlenme_bosanma_orani_2024_az <- read_excel("veri/Evlenme_bosanma_orani_2024_az.
 p2<-Evlenme_bosanma_orani_2024_az|> ggplot(aes(x=Il, y=Oran)) + geom_bar(stat = "identity", fill = "red",width = 0.5)+labs(title = "Bosanma Sayısının Evlilige Oranının En Az Oldugu İller - 2024",
     x = "Il",
     y = "Bosanmanın Evlilige Oranı")+theme_light()+theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold"))+geom_text(aes(label = sprintf("%.1f", Oran)), vjust = -0.5,size =4,fontface = "bold")+ylim(0, 15)
+ortak_tema <- theme(
+  plot.title = element_text(size = 18),
+  axis.text = element_text(size = 16,angle = 90,face ="bold"),
+  axis.title = element_text(size = 16,face ="bold")
+)
+p1 <- p1 + ortak_tema
+p2 <- p2 + ortak_tema
+
 (p1|p2)
 ```
 
@@ -386,8 +396,7 @@ ortak_tema <- theme(
   axis.title = element_text(size = 16,face ="bold")
 )
 
-p1 <- p1 + ortak_tema
-p2 <- p2 + ortak_tema
+
 p3 <- p3 + ortak_tema
 p4 <- p4 + ortak_tema
 
@@ -407,7 +416,7 @@ p4 <- p4 + ortak_tema
 
 Türkiye’nin en kalabalık 10 şehirinin 2010 ve 2024 yılları boşanma verileri incelenerek boşanma oranlarındaki değişim, zaman içindeki eğilimler ve büyük şehirlerdeki davranış gözlemlenmek istenmiştir.
 
-```{r, fig.width=5, fig.height=5}
+```{r, fig.width=8, fig.height=8}
 #En büyük 10 şehir kıyaslama piramid
 Iik_10_Sehir_Bosanma <- read_excel("veri/Iik_10_Sehir_Bosanma.xlsx")
 
@@ -437,7 +446,7 @@ ggplot(veri_long, aes(x = Il, y = Oran, fill = Yil)) +
   ) +
   theme_minimal() +
   theme(
-    plot.title = element_text(hjust = 0.5, face = "bold",size=14),
+    plot.title = element_text(hjust = 0.5, face = "bold",size=12),
     axis.text.y = element_text(hjust = 0.5,size = 12),  
     axis.title.y = element_text(hjust = 0.5,size = 14,face="bold"),  
     axis.title.x = element_text(hjust = 0.5,size = 14,face="bold"),  
@@ -453,7 +462,7 @@ ggplot(veri_long, aes(x = Il, y = Oran, fill = Yil)) +
 
 Türkiyede yıllar içerisindeki boşanma sayılarındaki artışlar doğrultusunda kadın ve erkek boşanma nedenleri merak konusu olmuştur. Bu konuda 2006 ve 2021 yıllarında kadın ve erkeklerinboşanma nedenleri incelenerek hem cinsiyet hem de yıl faktörleri analiz edilmiştir.
 
-```{r, fig.width=8, fig.height=10}
+```{r, fig.width=12, fig.height=12}
 veri <- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
 
 veri_long <- veri %>%
@@ -482,7 +491,7 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
   coord_cartesian(ylim = c(0, max(veri_long$Yuzde) + 7)) 
 ```
 
-```{r, fig.width=8, fig.height=10}
+```{r, fig.width=12, fig.height=12}
 ## erkek 2006-2021 bosanma nedenleri
 
 veri_long <- veri %>%
@@ -532,7 +541,7 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
 
 2021 yılı itibariyle kadın ve erkeklerde ön plana çıkan sebeplerden biri olan ekonomik sebepler için GSYH verileri kaba boşanma hız verileri ile kıyaslanmıştır.
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=10, fig.height=10}
 
 GSYH <- read_excel("veri/GSYH.xlsx")
 
@@ -638,7 +647,7 @@ Grafikte evlilik süreleri 5 farklı döneme ayrılmıştır.
 
 ### Evlilik Sürelerine Göre Boşanma Sayılarının Analizi (Yıllara Göre)
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=12, fig.height=12}
 # (Evlilik süresi ve boşanma sayısının yıllara göre karşılaştırılması)
 yillar_0_1<-vector()
 for (i in seq(1,24)){
@@ -728,7 +737,7 @@ p5<-ggplot(df_kadin, aes(x = Yil, y = Bosanan_Kadin_Sayisi, color = Yas_Grubu, g
 
 ### Bölgelere Göre Boşanma Sayılarının İncelenmesi (Kadın)
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=12, fig.height=12}
 
 #bölgelere göre kadın boşanma sayılarının Scatterla Çizimi
 
@@ -775,7 +784,7 @@ ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
 
 ### Bölgelere Göre Boşanma Sayılarının İncelenmesi (Erkek)
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=12, fig.height=12}
 erkek_bosanma_bolge <- read_excel("veri/yasmin-erdi/erkek_bosanma_bolge.xlsx")
 
 #bölgelere göre erkek boşanma sayılarının Scatterla Çizimi
