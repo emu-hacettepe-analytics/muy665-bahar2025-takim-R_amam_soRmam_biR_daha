@@ -559,7 +559,7 @@ ggplot() +
             color = "white", size = 5) +
   geom_line(data = GSYH, 
             aes(x = Yil, y = Kaba_Bosanma_Hizi * 6000, color = Kategori), 
-            size = 1.2) +
+            linewidth = 1.2) +
   geom_point(data = GSYH, 
              aes(x = Yil, y = Kaba_Bosanma_Hizi * 6000, color = Kategori), 
              size = 2.75) +
