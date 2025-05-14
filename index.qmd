@@ -25,7 +25,7 @@ Aşkın Bittiği Yerde, TÜİK Devreye Girer!
 
 Boşanma oranları, toplumun demografik ve sosyoekonomik yapısındaki değişimleri yansıtan önemli göstergelerden biridir. Zaman içinde evlilik ve aile yapılarında yaşanan dönüşümler, boşanma istatistiklerine de yansımaktadır. Bu projede, Türkiye’de ve dünyada boşanma verileri görselleştirilerek incelenmekte; yıllara, bölgelere, cinsiyete ve boşanma değerlerine göre nasıl farklılık gösterdiği analiz edilmektedir. Amaç, boşanma olgusunu yalnızca sayısal bir veri olarak değil, toplumsal eğilimlerin bir yansıması olarak ele almak ve bu eğilimleri daha anlaşılır hale getirmektir.
 
-## Veri Seti HakkD1nda Ozet Bilgi
+## Veri Seti Hakkında Ozet Bilgi
 
 Bu proje, Türkiye İstatistik Kurumu (TÜİK) tarafından yayımlanan evlenme ve boşanma istatistiklerini analiz etmektedir. Veriler, 2001-2023 yılları arasındaki dönemi kapsayan yıllık bazda derlenmiş olup, boşanma sayıları, illere göre dağılım, cinsiyet, yaş grubu, evliliğin süresi gibi değişkenleri içermektedir. Veriler Excel formatında elde edilip, istatistiksel analiz ve görselleştirme için temizlenmiş ve düzenlenmiştir. Çalışma kapsamında 9 veri seti kullanılmış ve bu veri setlerinden ek olarak 3 alt veri seti oluşturulmuştur. Bu alt veri setleri görselleştirilerek 16 grafik elde edilmiş, yorumlanmış ve çıkarımlar yapılmıştır.
 

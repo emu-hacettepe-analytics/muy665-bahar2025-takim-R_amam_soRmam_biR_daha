@@ -6,7 +6,7 @@ number-sections: false
 
 ## [AŞKIN BİTTİĞİ YERDE TÜİK BAŞLAR !]{style="color:red"}
 
-![](veri/2008.gif){fig-align="center"}
+![](veri/2008_1.gif){fig-align="center"}
 
 ## Proje Genel Bakış ve Kapsamı
 
@@ -82,11 +82,11 @@ library(fmsb)
 
 ### Yıllara Göre Boşanma Sayısı Ve Kaba Boşanma Hızı Grafiği
 
-* Boşanma konusunda ilk olarak yıllara göre boşanma sayısı verisi ele alındı.
+-   Boşanma konusunda ilk olarak yıllara göre boşanma sayısı verisi ele alındı.
 
-* Bu veri setinde inceleme yapılırken boşanma sayısılarında nüfus artış etkisini de gözlemleyebilmek adına kaba boşanma hızı incelemeye dahil edildi.
+-   Bu veri setinde inceleme yapılırken boşanma sayısılarında nüfus artış etkisini de gözlemleyebilmek adına kaba boşanma hızı incelemeye dahil edildi.
 
-* Kaba boşanma hızı, bir yıl içinde evlenebilecek yaştaki her 1000 nüfus başına düşen boşanma sayısıdır.
+-   Kaba boşanma hızı, bir yıl içinde evlenebilecek yaştaki her 1000 nüfus başına düşen boşanma sayısıdır.
 
 ```{r, fig.width=15, fig.height=9}
 # Excel dosyasını oku
@@ -169,9 +169,9 @@ scale_color_manual(values = c("Kaba bosanma hızı" = "purple"), name = NULL) +
 
 ### Yıllara Göre Evlenme Sayısı Ve Kaba Evlenme Hızı Grafiği
 
-* Yıllar içerisinde boşanma sayısındaki değişimin gözlemlenmesinin ardından evlilik sayısı ve kaba evlenme hızındaki değişim merak konusu olmuştur. 
+-   Yıllar içerisinde boşanma sayısındaki değişimin gözlemlenmesinin ardından evlilik sayısı ve kaba evlenme hızındaki değişim merak konusu olmuştur.
 
-* Kaba evlenme hızı, bir yıl için¬de evlenebilecek yaştaki her 1000 nüfus başına düşen evlenme sayısıdır.
+-   Kaba evlenme hızı, bir yıl için¬de evlenebilecek yaştaki her 1000 nüfus başına düşen evlenme sayısıdır.
 
 ```{r, fig.width=15, fig.height=9}
 #Kaba evlenme hızı hesapla
@@ -462,7 +462,7 @@ ggplot(veri_long, aes(x = Il, y = Oran, fill = Yil)) +
 
 Türkiyede yıllar içerisindeki boşanma sayılarındaki artışlar doğrultusunda kadın ve erkek boşanma nedenleri merak konusu olmuştur. Bu konuda 2006 ve 2021 yıllarında kadın ve erkeklerinboşanma nedenleri incelenerek hem cinsiyet hem de yıl faktörleri analiz edilmiştir.
 
-```{r, fig.width=12, fig.height=12}
+```{r, fig.width=15, fig.height=10}
 veri <- read_excel("veri/Bosanma_sebepleri_2006_2021.xlsx")
 
 veri_long <- veri %>%
@@ -491,7 +491,7 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
   coord_cartesian(ylim = c(0, max(veri_long$Yuzde) + 7)) 
 ```
 
-```{r, fig.width=12, fig.height=12}
+```{r, fig.width=15, fig.height=10}
 ## erkek 2006-2021 bosanma nedenleri
 
 veri_long <- veri %>%
@@ -541,7 +541,7 @@ ggplot(veri_long, aes(x = Bosanma_Nedeni, y = Yuzde, fill = Grup)) +
 
 2021 yılı itibariyle kadın ve erkeklerde ön plana çıkan sebeplerden biri olan ekonomik sebepler için GSYH verileri kaba boşanma hız verileri ile kıyaslanmıştır.
 
-```{r, fig.width=10, fig.height=10}
+```{r, fig.width=12, fig.height=8}
 
 GSYH <- read_excel("veri/GSYH.xlsx")
 
@@ -647,7 +647,7 @@ Grafikte evlilik süreleri 5 farklı döneme ayrılmıştır.
 
 ### Evlilik Sürelerine Göre Boşanma Sayılarının Analizi (Yıllara Göre)
 
-```{r, fig.width=12, fig.height=12}
+```{r, fig.width=12, fig.height=8}
 # (Evlilik süresi ve boşanma sayısının yıllara göre karşılaştırılması)
 yillar_0_1<-vector()
 for (i in seq(1,24)){
@@ -737,7 +737,7 @@ p5<-ggplot(df_kadin, aes(x = Yil, y = Bosanan_Kadin_Sayisi, color = Yas_Grubu, g
 
 ### Bölgelere Göre Boşanma Sayılarının İncelenmesi (Kadın)
 
-```{r, fig.width=12, fig.height=12}
+```{r, fig.width=12, fig.height=8}
 
 #bölgelere göre kadın boşanma sayılarının Scatterla Çizimi
 
@@ -784,7 +784,7 @@ ggplot(veri_long, aes(x = Deger , y = Kadin_Yas_Grubu, color = Bolge)) +
 
 ### Bölgelere Göre Boşanma Sayılarının İncelenmesi (Erkek)
 
-```{r, fig.width=12, fig.height=12}
+```{r, fig.width=12, fig.height=8}
 erkek_bosanma_bolge <- read_excel("veri/yasmin-erdi/erkek_bosanma_bolge.xlsx")
 
 #bölgelere göre erkek boşanma sayılarının Scatterla Çizimi
