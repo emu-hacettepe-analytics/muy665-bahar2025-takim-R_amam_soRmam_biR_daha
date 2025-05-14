@@ -6,7 +6,7 @@ number-sections: false
 
 ## [AŞKIN BİTTİĞİ YERDE TÜİK BAŞLAR !]{style="color:red"}
 
-![](veri/2008_1.gif){fig-align="center"}
+![](veri/2008.gif){fig-align="center"}
 
 ## Proje Genel Bakış ve Kapsamı
 
