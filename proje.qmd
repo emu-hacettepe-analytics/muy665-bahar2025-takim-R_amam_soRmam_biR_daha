@@ -288,11 +288,11 @@ grafik
 
 -   Evlenme sayıları yıllar içerisinde azalış trendi gösterirken boşanma sayıları artış içerisindedir bu durum evlenme ve boşanma sayıları arasında doğrusal bir ilişki olmadığını göstermektedir.
 
-### 2022 Yılına Göre Evlenme Ve Boşanma Sayısı (Dünya Geneli)
+### 2022 Yılına Göre Kaba Boşanma Hızı (Dünya Geneli)
 
 Türkiye boşanma verilerinin incelenmesinin ardından kaba boşanma hız değeri Dünya ülkeleriyle karşılaştırılmıştır. Bu karşılaştırma yapılırken Türkiyedeki kaba boşanma hızının yüksek olduğu 2022 yılı seçilmiştir. Karşılaştırmaya dahil edilen ülkeler farklı kıtalardan seçilmiştir.
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=5, fig.height=5}
 
 ulkeler_arasi <- read_excel("veri/Dunya_ve_Turkiye_bosanma_kaba_hizi.xlsx")
 
@@ -416,7 +416,7 @@ p4 <- p4 + ortak_tema
 
 Türkiye’nin en kalabalık 10 şehirinin 2010 ve 2024 yılları boşanma verileri incelenerek boşanma oranlarındaki değişim, zaman içindeki eğilimler ve büyük şehirlerdeki davranış gözlemlenmek istenmiştir.
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=5, fig.height=5}
 #En büyük 10 şehir kıyaslama piramid
 Iik_10_Sehir_Bosanma <- read_excel("veri/Iik_10_Sehir_Bosanma.xlsx")
 
